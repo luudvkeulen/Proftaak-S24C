@@ -1,6 +1,6 @@
 ﻿namespace ICT4Rails
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
