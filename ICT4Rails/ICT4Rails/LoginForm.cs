@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-    public partial class MainForm : Form
+    public partial class LoginForm : Form
     {
-        public MainForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
