@@ -14,7 +14,7 @@ namespace ICT4Rails
 
         //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
         //Website used for the Database Manager.
-        void Connect()
+        public void Connect()
         {
             if (Connection.State != ConnectionState.Open)
             {
@@ -25,7 +25,7 @@ namespace ICT4Rails
             }
         }
 
-        void Close()
+        public void Close()
         {
             if(Connection.State == ConnectionState.Open)
             {
