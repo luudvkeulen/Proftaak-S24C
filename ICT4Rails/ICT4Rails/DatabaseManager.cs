@@ -14,24 +14,40 @@ namespace ICT4Rails
 
         //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
         //Website used for the Database Manager.
-        public void Connect()
+        public bool Connect()
         {
             Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
             {
                 //Connection.ConnectionString = "Data Source=fhictora01.fhict.local;User Id=dbi318583;Password=PTS18;";
                 Connection.ConnectionString = "DATA SOURCE = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = fhictora01.fhict.local)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = fhictora))); PASSWORD = PTS18; USER ID = dbi318583";
-                Connection.Open();
+                try
+                {
+                    Connection.Open();
+                }
+                catch (OracleException OE)
+                {
+                    Console.WriteLine(OE.Message);
+                    return false;
+                }
                 Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
             }
+            return true;
         }
 
         public void Close()
         {
             if(Connection.State == ConnectionState.Open)
             {
-                Connection.Close();
-                Connection.Dispose();
+                try
+                {
+                    Connection.Close();
+                    Connection.Dispose();
+                }
+                catch (OracleException OE)
+                {
+                    Console.WriteLine(OE.Message);
+                }
             }
         }
     }

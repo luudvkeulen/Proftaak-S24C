@@ -12,6 +12,7 @@ namespace ICT4Rails
 {
     public partial class LoginForm : Form
     {
+        DatabaseManager DBM;
         public LoginForm()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace ICT4Rails
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            DBM = new DatabaseManager();
+            DBM.Connect();
         }
     }
 }

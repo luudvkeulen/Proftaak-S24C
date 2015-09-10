@@ -18,14 +18,21 @@ namespace ICT4Rails
             InitializeComponent();
             DBM = new DatabaseManager();
             progressConnect.Value = 25;
-            DBM.Connect();
-            progressConnect.Value = 50;
-            DBM.Close();
-            progressConnect.Value = 100;
-            LoginForm login = new LoginForm();
-            login.Show();
-            Close();
-            Dispose();
+            if (DBM.Connect())
+            {
+                progressConnect.Value = 50;
+                DBM.Close();
+                progressConnect.Value = 100;
+                Application.Run(new LoginForm());
+                Close();
+                Dispose();
+            }
+            else
+            {
+                MessageBox.Show("De applicatie kan geen verbinden maken met de database. Neem contact op met een systeembeheerder.");
+                Environment.Exit(1);
+            }
+
         }
     }
 }
