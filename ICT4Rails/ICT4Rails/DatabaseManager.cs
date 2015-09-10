@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Rails
 {
@@ -19,7 +19,8 @@ namespace ICT4Rails
             Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
             {
-                Connection.ConnectionString = "Data Source=fhictora01.fhict.local;User Id=dbi318583;Password=PTS18;";
+                //Connection.ConnectionString = "Data Source=fhictora01.fhict.local;User Id=dbi318583;Password=PTS18;";
+                Connection.ConnectionString = "DATA SOURCE = (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = fhictora01.fhict.local)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = fhictora))); PASSWORD = PTS18; USER ID = dbi318583";
                 Connection.Open();
                 Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
             }
