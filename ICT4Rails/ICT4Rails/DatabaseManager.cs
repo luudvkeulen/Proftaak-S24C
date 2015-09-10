@@ -16,10 +16,10 @@ namespace ICT4Rails
         //Website used for the Database Manager.
         public void Connect()
         {
+            Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
             {
-                Connection = new OracleConnection();
-                Connection.ConnectionString = "User Id=<username>;Password=<password>;Data Source=<datasource>";
+                Connection.ConnectionString = "Data Source=fhictora01.fhict.local;User Id=dbi318583;Password=PTS18;";
                 Connection.Open();
                 Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
             }
