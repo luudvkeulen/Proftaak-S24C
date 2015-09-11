@@ -18,7 +18,7 @@ namespace ICT4Rails
             InitializeComponent();
             DBM = new DatabaseManager();
             progressConnect.Value = 25;
-            if (DBM.Connect())
+            if (DBM.Connect() != null)
             {
                 progressConnect.Value = 50;
                 DBM.Close();
@@ -29,7 +29,7 @@ namespace ICT4Rails
             }
             else
             {
-                MessageBox.Show("De applicatie kan geen verbinden maken met de database. Neem contact op met een systeembeheerder.");
+                MessageBox.Show("De applicatie kan geen verbinding maken met de database. Neem contact op met een systeembeheerder.");
                 Environment.Exit(1);
             }
 

@@ -14,7 +14,7 @@ namespace ICT4Rails
 
         //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
         //Website used for the Database Manager.
-        public bool Connect()
+        public OracleConnection Connect()
         {
             Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
@@ -28,11 +28,11 @@ namespace ICT4Rails
                 catch (OracleException OE)
                 {
                     Console.WriteLine(OE.Message);
-                    return false;
+                    return null;
                 }
                 Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
             }
-            return true;
+            return Connection;
         }
 
         public void Close()
