@@ -14,7 +14,6 @@ namespace ICT4Rails
         string EncryptedPassword { get; set; }
         OracleCommand command;
         OracleConnection connection;
-        DatabaseManager DBM;
 
         public User(string username, string password)
         {
@@ -24,17 +23,18 @@ namespace ICT4Rails
 
         public bool CreateUser(string username, string password)
         {
-            connection = DBM.Connect();
+            connection = DatabaseManager.Connect();
             Guid userguid = Guid.NewGuid();
             string hashedPassword = CreateHash(password, userguid.ToString());
 
             OracleTransaction trans = connection.BeginTransaction();
-            string insertstring = "insert into USERS(USERNAME, PASSWORD, USERGUID) values (:username, :password, :userguid)";
+            string insertstring = "insert into USERS(USERNAME, PASSWORD, GUID, USERTYPE) values (:username, :password, :userguid, :usertype)";
             command = new OracleCommand(insertstring, connection);
             OracleParameter[] parameters = new OracleParameter[] {
              new OracleParameter("username",username),
              new OracleParameter("password",hashedPassword),
-             new OracleParameter("userguid",userguid.ToString())
+             new OracleParameter("userguid",userguid.ToString()),
+             new OracleParameter("userguid","admin")
             };
             command.Parameters.AddRange(parameters);
             try
@@ -47,13 +47,13 @@ namespace ICT4Rails
                 return false;
             }
 
-            connection.Close();
+            DatabaseManager.Close();
             return true;
         }
 
         public User AuthenticateUser(string username, string password)
         {
-            connection = DBM.Connect();
+            connection = DatabaseManager.Connect();
 
             string readstring = "SELECT PASSWORD,USERGUID FROM USERS WHERE USERNAME=:username";
 
@@ -79,6 +79,7 @@ namespace ICT4Rails
             {
                 return user;
             }
+            DatabaseManager.Close();
             return null;
         }
 

@@ -8,13 +8,13 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Rails
 {
-    public class DatabaseManager
+    public static class DatabaseManager
     {
-        OracleConnection Connection;
+        static OracleConnection Connection;
 
         //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
         //Website used for the Database Manager.
-        public OracleConnection Connect()
+        public static OracleConnection Connect()
         {
             Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
@@ -35,7 +35,7 @@ namespace ICT4Rails
             return Connection;
         }
 
-        public void Close()
+        public static void Close()
         {
             if(Connection.State == ConnectionState.Open)
             {

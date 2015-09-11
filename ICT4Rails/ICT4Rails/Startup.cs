@@ -12,16 +12,14 @@ namespace ICT4Rails
 {
     public partial class Startup : Form
     {
-        DatabaseManager DBM;
         public Startup()
         {
             InitializeComponent();
-            DBM = new DatabaseManager();
             progressConnect.Value = 25;
-            if (DBM.Connect() != null)
+            if (DatabaseManager.Connect() != null)
             {
                 progressConnect.Value = 50;
-                DBM.Close();
+                DatabaseManager.Close();
                 progressConnect.Value = 100;
                 Application.Run(new LoginForm());
                 Close();

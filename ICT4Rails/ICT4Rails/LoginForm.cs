@@ -12,16 +12,16 @@ namespace ICT4Rails
 {
     public partial class LoginForm : Form
     {
-        DatabaseManager DBM;
         public LoginForm()
         {
             InitializeComponent();
+            User user = new User("admin", "none");
+            user.CreateUser("admin", "admin");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DBM = new DatabaseManager();
-            DBM.Connect();
+            DatabaseManager.Connect();
         }
     }
 }
