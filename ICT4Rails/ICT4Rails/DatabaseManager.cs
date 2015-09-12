@@ -52,5 +52,18 @@ namespace ICT4Rails
             }
             return true;
         }
+
+        public static bool CheckConnection()
+        {
+            if(Connect() != null)
+            {
+                Close();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

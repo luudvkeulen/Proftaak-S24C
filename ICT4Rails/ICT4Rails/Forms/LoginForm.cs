@@ -18,20 +18,6 @@ namespace ICT4Rails
             AcceptButton = btnLogin; //Hiermee kun je ervoor zorgen dat je met enter op de btnLogin knop drukt
         }
 
-        void CheckDBConnection()
-        {
-            //Checks if the database can make a connection
-            if (DatabaseManager.Connect() != null)
-            {
-                DatabaseManager.Close();
-            }
-            else
-            {
-                MessageBox.Show("De applicatie kan geen verbinding maken met de database. Neem contact op met een systeembeheerder.");
-                Environment.Exit(1);
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             User user = User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text);
@@ -45,7 +31,7 @@ namespace ICT4Rails
             }
             else
             {
-                MessageBox.Show("De ingevulde naam of het wachtwoord is niet correct, probeer het nog een keer.");
+                MessageBox.Show("De ingevulde naam of het wachtwoord is niet correct.");
             }
         }
 
