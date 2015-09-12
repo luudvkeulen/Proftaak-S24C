@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-    public partial class Startup : Form
+    public partial class StartupForm : Form
     {
-        public Startup()
+        public StartupForm()
         {
             InitializeComponent();
             progressConnect.Value = 10;

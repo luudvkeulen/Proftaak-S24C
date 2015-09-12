@@ -1,6 +1,6 @@
 ﻿namespace ICT4Rails
 {
-    partial class Startup
+    partial class StartupForm
     {
         /// <summary>
         /// Required designer variable.
