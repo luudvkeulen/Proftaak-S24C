@@ -68,33 +68,39 @@ namespace ICT4Rails
         private void btnBeheerSysteem_Click(object sender, EventArgs e)
         {
             BeheerSysteemForm form = new BeheerSysteemForm();
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            NewForm(form);
         }
 
         private void btnSchoonmaakSysteem_Click(object sender, EventArgs e)
         {
             SchoonmaakSysteemForm form = new SchoonmaakSysteemForm();
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            NewForm(form);
         }
 
         private void btninuitrijsysteem_Click(object sender, EventArgs e)
         {
             InUitRijSyteemForm form = new InUitRijSyteemForm();
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            NewForm(form);
         }
 
         private void btnTechniekSysteem_Click(object sender, EventArgs e)
         {
             InUitRijSyteemForm form = new InUitRijSyteemForm();
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            NewForm(form);
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             AdminPanelForm form = new AdminPanelForm();
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            NewForm(form);
         }
 
+        void NewForm(Form form)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            form.Show();
+            this.Hide();
+        }
         void form_Closed(Object sender, EventArgs e)
         {
             this.Show();
