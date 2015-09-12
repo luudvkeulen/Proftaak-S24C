@@ -8,6 +8,7 @@ namespace ICT4Rails
 {
     static class Program
     {
+        public static User ActiveUser;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,7 @@ namespace ICT4Rails
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartupForm());
+            Application.Run(new LoginForm());
         }
     }
 }

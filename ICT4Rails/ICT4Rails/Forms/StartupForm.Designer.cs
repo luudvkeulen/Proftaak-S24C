@@ -28,17 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressConnect = new System.Windows.Forms.ProgressBar();
             this.lblConnecting = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // progressConnect
-            // 
-            this.progressConnect.Location = new System.Drawing.Point(12, 35);
-            this.progressConnect.Name = "progressConnect";
-            this.progressConnect.Size = new System.Drawing.Size(211, 23);
-            this.progressConnect.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressConnect.TabIndex = 0;
             // 
             // lblConnecting
             // 
@@ -55,10 +46,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(238, 78);
+            this.ClientSize = new System.Drawing.Size(238, 42);
             this.Controls.Add(this.lblConnecting);
-            this.Controls.Add(this.progressConnect);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "StartupForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -69,8 +60,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressConnect;
         private System.Windows.Forms.Label lblConnecting;
     }
 }

@@ -18,12 +18,29 @@ namespace ICT4Rails
             AcceptButton = btnLogin; //Hiermee kun je ervoor zorgen dat je met enter op de btnLogin knop drukt
         }
 
+        void CheckDBConnection()
+        {
+            //Checks if the database can make a connection
+            if (DatabaseManager.Connect() != null)
+            {
+                DatabaseManager.Close();
+            }
+            else
+            {
+                MessageBox.Show("De applicatie kan geen verbinding maken met de database. Neem contact op met een systeembeheerder.");
+                Environment.Exit(1);
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text) != null)
+            User user = User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text);
+            if (user != null)
             {
-                OverviewForm form = new OverviewForm();
+                Program.ActiveUser = user;
                 Hide();
+                OverviewForm form = new OverviewForm();
+                form.FormClosed += new FormClosedEventHandler(form_Closed);
                 form.Show();
             }
             else
@@ -32,9 +49,19 @@ namespace ICT4Rails
             }
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        void form_Closed(Object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Show();
+            ClearControls();
+        }
+
+        void ClearControls()
+        {
+            var tbs = this.Controls.OfType<TextBox>();
+            foreach(TextBox tb in tbs)
+            {
+                tb.ResetText();
+            }
         }
     }
 }

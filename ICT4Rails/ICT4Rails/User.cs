@@ -10,13 +10,15 @@ namespace ICT4Rails
 {
     public class User
     {
-        string UserName { get; set; }
-        string EncryptedPassword { get; set; }
+        public string UserName { get; set; }
+        public string EncryptedPassword { get; set; }
+        public string Role { get; set; }
 
-        public User(string username, string password)
+        public User(string username, string password, string role)
         {
             UserName = username;
             EncryptedPassword = password;
+            Role = role;
         }
 
         public bool CreateUser(string username, string password)
@@ -53,7 +55,7 @@ namespace ICT4Rails
         {
             OracleConnection connection = DatabaseManager.Connect();
 
-            string readstring = "SELECT PASSWORD,GUID FROM USERS WHERE USERNAME=:username";
+            string readstring = "SELECT PASSWORD,GUID,USERTYPE FROM USERS WHERE USERNAME=:username";
 
             OracleCommand command = new OracleCommand(readstring, connection);
             OracleParameter parameter = new OracleParameter("username", username);
@@ -63,15 +65,17 @@ namespace ICT4Rails
 
             string correctPassword = "";
             string userguid = "";
+            string usertype = "";
             while (reader.Read())
             {
                 correctPassword = reader["PASSWORD"].ToString();
                 userguid = reader["GUID"].ToString();
+                usertype = reader["USERTYPE"].ToString();
             }
             connection.Close();
 
             password = CreateHash(password, userguid);
-            User user = new User(username, password);
+            User user = new User(username, password, usertype);
 
             if (correctPassword == password)
             {

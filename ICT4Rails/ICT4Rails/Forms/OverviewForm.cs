@@ -15,6 +15,31 @@ namespace ICT4Rails
         public OverviewForm()
         {
             InitializeComponent();
+            ShowSystems();
+        }
+
+        private void ShowSystems()
+        {
+            switch (Program.ActiveUser.Role)
+            {
+                case "ADMIN":
+                    
+                    break;
+                case "BEHEERDER":
+                    break;
+                case "TECHNICUS":
+                    break;
+                case "SCHOONMAKER":
+                    break;
+                case "BESTUURDER":
+                    break;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Program.ActiveUser = null;
+            Close();
         }
     }
 }
