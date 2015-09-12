@@ -15,15 +15,16 @@ namespace ICT4Rails
         public Startup()
         {
             InitializeComponent();
-            progressConnect.Value = 25;
+            progressConnect.Value = 10;
             if (DatabaseManager.Connect() != null)
             {
                 progressConnect.Value = 50;
-                DatabaseManager.Close();
-                progressConnect.Value = 100;
-                Application.Run(new LoginForm());
-                Close();
-                Dispose();
+                if (DatabaseManager.Close())
+                {
+                    progressConnect.Value = 100;
+                    Application.Run(new LoginForm());
+                    Close();
+                }
             }
             else
             {

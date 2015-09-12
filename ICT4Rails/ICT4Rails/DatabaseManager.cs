@@ -35,7 +35,7 @@ namespace ICT4Rails
             return Connection;
         }
 
-        public static void Close()
+        public static bool Close()
         {
             if(Connection.State == ConnectionState.Open)
             {
@@ -47,8 +47,10 @@ namespace ICT4Rails
                 catch (OracleException OE)
                 {
                     Console.WriteLine(OE.Message);
+                    return false;
                 }
             }
+            return true;
         }
     }
 }

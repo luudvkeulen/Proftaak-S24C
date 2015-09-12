@@ -15,13 +15,14 @@ namespace ICT4Rails
         public LoginForm()
         {
             InitializeComponent();
-            User user = new User("admin", "none");
-            user.CreateUser("admin", "admin");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DatabaseManager.Connect();
+            if(User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text) != null)
+            {
+                MessageBox.Show("Correct");
+            }
         }
     }
 }

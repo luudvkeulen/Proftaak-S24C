@@ -12,8 +12,6 @@ namespace ICT4Rails
     {
         string UserName { get; set; }
         string EncryptedPassword { get; set; }
-        OracleCommand command;
-        OracleConnection connection;
 
         public User(string username, string password)
         {
@@ -23,18 +21,18 @@ namespace ICT4Rails
 
         public bool CreateUser(string username, string password)
         {
-            connection = DatabaseManager.Connect();
+            OracleConnection connection = DatabaseManager.Connect();
             Guid userguid = Guid.NewGuid();
             string hashedPassword = CreateHash(password, userguid.ToString());
 
             OracleTransaction trans = connection.BeginTransaction();
             string insertstring = "insert into USERS(USERNAME, PASSWORD, GUID, USERTYPE) values (:username, :password, :userguid, :usertype)";
-            command = new OracleCommand(insertstring, connection);
+            OracleCommand command = new OracleCommand(insertstring, connection);
             OracleParameter[] parameters = new OracleParameter[] {
              new OracleParameter("username",username),
              new OracleParameter("password",hashedPassword),
              new OracleParameter("userguid",userguid.ToString()),
-             new OracleParameter("userguid","admin")
+             new OracleParameter("userguid","ADMIN")
             };
             command.Parameters.AddRange(parameters);
             try
@@ -51,13 +49,13 @@ namespace ICT4Rails
             return true;
         }
 
-        public User AuthenticateUser(string username, string password)
+        public static User AuthenticateUser(string username, string password)
         {
-            connection = DatabaseManager.Connect();
+            OracleConnection connection = DatabaseManager.Connect();
 
-            string readstring = "SELECT PASSWORD,USERGUID FROM USERS WHERE USERNAME=:username";
+            string readstring = "SELECT PASSWORD,GUID FROM USERS WHERE USERNAME=:username";
 
-            command = new OracleCommand(readstring, connection);
+            OracleCommand command = new OracleCommand(readstring, connection);
             OracleParameter parameter = new OracleParameter("username", username);
             command.Parameters.Add(parameter);
 
@@ -68,7 +66,7 @@ namespace ICT4Rails
             while (reader.Read())
             {
                 correctPassword = reader["PASSWORD"].ToString();
-                userguid = reader["USERGUID"].ToString();
+                userguid = reader["GUID"].ToString();
             }
             connection.Close();
 
