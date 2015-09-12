@@ -15,13 +15,20 @@ namespace ICT4Rails
         public LoginForm()
         {
             InitializeComponent();
+            AcceptButton = btnLogin; //Hiermee kun je ervoor zorgen dat je met enter op de btnLogin knop drukt
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text) != null)
             {
-                MessageBox.Show("Correct");
+                OverviewForm form = new OverviewForm();
+                Hide();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("De ingevulde naam of het wachtwoord is niet correct, probeer het nog een keer.");
             }
         }
 

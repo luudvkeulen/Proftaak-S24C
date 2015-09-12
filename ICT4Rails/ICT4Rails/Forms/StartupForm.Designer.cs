@@ -50,14 +50,16 @@
             this.lblConnecting.TabIndex = 1;
             this.lblConnecting.Text = "Connecting to the database...";
             // 
-            // Startup
+            // StartupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(238, 78);
             this.Controls.Add(this.lblConnecting);
             this.Controls.Add(this.progressConnect);
-            this.Name = "Startup";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "StartupForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Startup";
