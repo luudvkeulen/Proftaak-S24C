@@ -33,6 +33,7 @@
             this.btnSchoonmaakSysteem = new System.Windows.Forms.Button();
             this.btninuitrijsysteem = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBeheerSysteem
@@ -48,6 +49,7 @@
             this.btnBeheerSysteem.TabIndex = 0;
             this.btnBeheerSysteem.Text = "Beheer Systeem";
             this.btnBeheerSysteem.UseVisualStyleBackColor = false;
+            this.btnBeheerSysteem.Click += new System.EventHandler(this.btnBeheerSysteem_Click);
             // 
             // btnTechniekSysteem
             // 
@@ -62,6 +64,7 @@
             this.btnTechniekSysteem.TabIndex = 1;
             this.btnTechniekSysteem.Text = "Techniek Systeem";
             this.btnTechniekSysteem.UseVisualStyleBackColor = false;
+            this.btnTechniekSysteem.Click += new System.EventHandler(this.btnTechniekSysteem_Click);
             // 
             // btnSchoonmaakSysteem
             // 
@@ -76,6 +79,7 @@
             this.btnSchoonmaakSysteem.TabIndex = 2;
             this.btnSchoonmaakSysteem.Text = "Schoonmaak Systeem";
             this.btnSchoonmaakSysteem.UseVisualStyleBackColor = false;
+            this.btnSchoonmaakSysteem.Click += new System.EventHandler(this.btnSchoonmaakSysteem_Click);
             // 
             // btninuitrijsysteem
             // 
@@ -90,6 +94,7 @@
             this.btninuitrijsysteem.TabIndex = 3;
             this.btninuitrijsysteem.Text = "In/Uitrij Systeem";
             this.btninuitrijsysteem.UseVisualStyleBackColor = false;
+            this.btninuitrijsysteem.Click += new System.EventHandler(this.btninuitrijsysteem_Click);
             // 
             // btnLogout
             // 
@@ -99,11 +104,25 @@
             this.btnLogout.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnLogout.Location = new System.Drawing.Point(113, 434);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(644, 108);
+            this.btnLogout.Size = new System.Drawing.Size(298, 108);
             this.btnLogout.TabIndex = 4;
             this.btnLogout.Text = "Uitloggen";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdmin.BackColor = System.Drawing.Color.Silver;
+            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmin.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnAdmin.Location = new System.Drawing.Point(459, 434);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(298, 108);
+            this.btnAdmin.TabIndex = 5;
+            this.btnAdmin.Text = "Admin Panel";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // OverviewForm
             // 
@@ -112,6 +131,7 @@
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(872, 579);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btninuitrijsysteem);
             this.Controls.Add(this.btnSchoonmaakSysteem);
@@ -134,5 +154,6 @@
         private System.Windows.Forms.Button btnSchoonmaakSysteem;
         private System.Windows.Forms.Button btninuitrijsysteem;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

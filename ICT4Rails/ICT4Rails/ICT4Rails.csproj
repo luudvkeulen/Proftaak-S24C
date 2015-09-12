@@ -90,7 +90,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Forms\AdminPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminPanelForm.Designer.cs">
+      <DependentUpon>AdminPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BeheerSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BeheerSysteemForm.Designer.cs">
+      <DependentUpon>BeheerSysteemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\DatabaseManager.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,15 +115,27 @@
     <Compile Include="Forms\OverviewForm.Designer.cs">
       <DependentUpon>OverviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\StartupForm.cs">
+    <Compile Include="Forms\InUitRijSyteemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StartupForm.Designer.cs">
-      <DependentUpon>StartupForm.cs</DependentUpon>
+    <Compile Include="Forms\InUitRijSyteemForm.Designer.cs">
+      <DependentUpon>InUitRijSyteemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SchoonmaakSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SchoonmaakSysteemForm.Designer.cs">
+      <DependentUpon>SchoonmaakSysteemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TechniekSysteemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TechniekSysteemForm.Designer.cs">
+      <DependentUpon>TechniekSysteemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\User.cs" />
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,10 +152,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\StartupForm.resx">
-      <DependentUpon>StartupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="Configs\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,7 +164,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Configs\App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\darkrailbackground.jpg" />

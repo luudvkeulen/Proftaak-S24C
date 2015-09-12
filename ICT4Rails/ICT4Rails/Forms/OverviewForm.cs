@@ -64,5 +64,35 @@ namespace ICT4Rails
             Program.ActiveUser = null;
             Close();
         }
+
+        private void btnBeheerSysteem_Click(object sender, EventArgs e)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+        }
+
+        private void btnSchoonmaakSysteem_Click(object sender, EventArgs e)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+        }
+
+        private void btninuitrijsysteem_Click(object sender, EventArgs e)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+        }
+
+        private void btnTechniekSysteem_Click(object sender, EventArgs e)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            form.FormClosed += new FormClosedEventHandler(form_Closed);
+        }
+
+        void form_Closed(Object sender, EventArgs e)
+        {
+            this.Show();
+        }
     }
 }

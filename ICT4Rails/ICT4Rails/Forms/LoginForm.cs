@@ -20,14 +20,14 @@ namespace ICT4Rails
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User user = User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text);
-            if (user != null)
+            User user = User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text); //Kijkt of de user bestaat en of het wacthwoord goed is.
+            if (user != null) //Als de autheticatie geen null teruggeeft wordt hij goedgekeurd.
             {
-                Program.ActiveUser = user;
-                Hide();
+                Program.ActiveUser = user; //Omdat je in een windows form applicatie geen sessies hebt is er een statische variable die de user opslaat.
+                Hide(); //Verbegt het login form.
                 OverviewForm form = new OverviewForm();
-                form.FormClosed += new FormClosedEventHandler(form_Closed);
-                form.Show();
+                form.FormClosed += new FormClosedEventHandler(form_Closed); //Nieuwe event handler zodat als het nieuwe form gesloten wordt hij het login form weer opent.
+                form.Show(); //Opent het nieuwe form.
             }
             else
             {
