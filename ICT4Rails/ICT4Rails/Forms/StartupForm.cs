@@ -16,14 +16,19 @@ namespace ICT4Rails
         {
             InitializeComponent();
             progressConnect.Value = 10;
+            //Checks if the database can make a connection
             if (DatabaseManager.Connect() != null)
             {
                 progressConnect.Value = 50;
+                //Checks if the database can close the connection
                 if (DatabaseManager.Close())
                 {
                     progressConnect.Value = 100;
-                    Application.Run(new LoginForm());
-                    Close();
+
+                    //Check is complete, Application wil open the login form and closes this one.
+                    Hide();
+                    LoginForm login = new LoginForm();
+                    login.ShowDialog();
                 }
             }
             else

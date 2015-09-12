@@ -24,5 +24,10 @@ namespace ICT4Rails
                 MessageBox.Show("Correct");
             }
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
