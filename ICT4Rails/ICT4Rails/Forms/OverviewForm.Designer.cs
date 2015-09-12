@@ -33,7 +33,7 @@
             this.btnSchoonmaakSysteem = new System.Windows.Forms.Button();
             this.btninuitrijsysteem = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnAdminPanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBeheerSysteem
@@ -110,19 +110,19 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnAdmin
+            // btnAdminPanel
             // 
-            this.btnAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdmin.BackColor = System.Drawing.Color.Silver;
-            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdmin.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnAdmin.Location = new System.Drawing.Point(459, 434);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(298, 108);
-            this.btnAdmin.TabIndex = 5;
-            this.btnAdmin.Text = "Admin Panel";
-            this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            this.btnAdminPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdminPanel.BackColor = System.Drawing.Color.Silver;
+            this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminPanel.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnAdminPanel.Location = new System.Drawing.Point(459, 434);
+            this.btnAdminPanel.Name = "btnAdminPanel";
+            this.btnAdminPanel.Size = new System.Drawing.Size(298, 108);
+            this.btnAdminPanel.TabIndex = 5;
+            this.btnAdminPanel.Text = "Admin Panel";
+            this.btnAdminPanel.UseVisualStyleBackColor = false;
+            this.btnAdminPanel.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // OverviewForm
             // 
@@ -131,7 +131,7 @@
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(872, 579);
-            this.Controls.Add(this.btnAdmin);
+            this.Controls.Add(this.btnAdminPanel);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btninuitrijsysteem);
             this.Controls.Add(this.btnSchoonmaakSysteem);
@@ -154,6 +154,6 @@
         private System.Windows.Forms.Button btnSchoonmaakSysteem;
         private System.Windows.Forms.Button btninuitrijsysteem;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Button btnAdminPanel;
     }
 }
