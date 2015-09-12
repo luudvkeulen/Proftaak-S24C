@@ -53,6 +53,43 @@ namespace ICT4Rails
             return true;
         }
 
+        public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
+        {
+            OracleConnection connection = Connect();
+            OracleTransaction transaction = connection.BeginTransaction();
+            OracleCommand command = new OracleCommand(sqlquery, connection);
+
+            if(parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+            
+            OracleDataReader reader = command.ExecuteReader();
+            return reader;
+        }
+
+        public static void ExecuteInsertQuery(string sqlquery, OracleParameter[] parameters)
+        {
+            OracleConnection connection = Connect();
+            OracleTransaction transaction = connection.BeginTransaction();
+            OracleCommand command = new OracleCommand(sqlquery, connection);
+
+            if(parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+            
+            try
+            {
+                command.ExecuteNonQuery();
+                transaction.Commit();
+            }
+            catch (OracleException OE)
+            {
+                Console.WriteLine(OE.Message);
+            }
+        }
+
         public static bool CheckConnection()
         {
             if(Connect() != null)

@@ -136,6 +136,9 @@
       <DependentUpon>TechniekSysteemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Forms\AdminPanelForm.resx">
+      <DependentUpon>AdminPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
