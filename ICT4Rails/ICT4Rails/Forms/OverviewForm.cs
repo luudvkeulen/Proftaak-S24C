@@ -102,11 +102,13 @@ namespace ICT4Rails
         {
             form.FormClosing += new FormClosingEventHandler(form_Closed);
             form.Show();
+            form.Update();
             Hide();
         }
         void form_Closed(Object sender, EventArgs e)
         {
             Show();
+            Update();
         }
     }
 }
