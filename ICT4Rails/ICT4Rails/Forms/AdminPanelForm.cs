@@ -32,5 +32,19 @@ namespace ICT4Rails
         {
             Close();
         }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            CreateUserForm form = new CreateUserForm();
+            form.FormClosing += new FormClosingEventHandler(form_Closing);
+            form.Show();
+            form.Update();
+        }
+
+        void form_Closing(Object sender, EventArgs e)
+        {
+            Show();
+            Update();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ICT4Rails
 {
-    partial class AdminPanelForm
+    partial class CreateUserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,6 @@
             this.btnCreateUser.TabIndex = 8;
             this.btnCreateUser.Text = "Nieuwe Gebruiker";
             this.btnCreateUser.UseVisualStyleBackColor = false;
-            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
             // 
             // btnBack
             // 
@@ -102,7 +101,7 @@
             this.Rol.Text = "Rol";
             this.Rol.Width = 359;
             // 
-            // AdminPanelForm
+            // CreateUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -115,11 +114,10 @@
             this.Controls.Add(this.btnCreateUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "AdminPanelForm";
+            this.Name = "CreateUserForm";
             this.ShowIcon = false;
             this.Text = "OverviewForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Shown += new System.EventHandler(this.AdminPanelForm_Shown);
             this.ResumeLayout(false);
 
         }
