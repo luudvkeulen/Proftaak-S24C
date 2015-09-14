@@ -21,7 +21,7 @@ namespace ICT4Rails
             Role = role;
         }
 
-        public bool CreateUser(string username, string password)
+        public static bool CreateUser(string username, string password, string role)
         {
             Guid userguid = Guid.NewGuid();
             string hashedPassword = CreateHash(password, userguid.ToString());
@@ -31,7 +31,7 @@ namespace ICT4Rails
                 new OracleParameter("username",username),
                 new OracleParameter("password",hashedPassword),
                 new OracleParameter("userguid",userguid.ToString()),
-                new OracleParameter("userguid","ADMIN")
+                new OracleParameter("userguid",role)
             };
             DatabaseManager.ExecuteInsertQuery(insertstring, parameters);
 

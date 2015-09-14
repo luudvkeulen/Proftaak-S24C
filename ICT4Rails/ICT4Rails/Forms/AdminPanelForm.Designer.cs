@@ -113,6 +113,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnCreateUser);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "AdminPanelForm";

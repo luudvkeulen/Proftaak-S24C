@@ -16,9 +16,6 @@ namespace ICT4Rails
         public OverviewForm()
         {
             InitializeComponent();
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.DoubleBuffer, true);
             btns = new Button[] { btnBeheerSysteem, btninuitrijsysteem, btnSchoonmaakSysteem, btnTechniekSysteem, btnAdminPanel };
             ShowSystems();
         }

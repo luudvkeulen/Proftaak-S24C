@@ -114,6 +114,7 @@
             // 
             this.btnAdminPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAdminPanel.BackColor = System.Drawing.Color.Silver;
+            this.btnAdminPanel.Enabled = false;
             this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminPanel.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnAdminPanel.Location = new System.Drawing.Point(459, 434);
@@ -137,6 +138,7 @@
             this.Controls.Add(this.btnSchoonmaakSysteem);
             this.Controls.Add(this.btnTechniekSysteem);
             this.Controls.Add(this.btnBeheerSysteem);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "OverviewForm";
