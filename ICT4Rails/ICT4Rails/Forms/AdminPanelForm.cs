@@ -15,6 +15,9 @@ namespace ICT4Rails
         public AdminPanelForm()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
         }
 
         private void AdminPanelForm_Shown(object sender, EventArgs e)

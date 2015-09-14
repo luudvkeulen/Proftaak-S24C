@@ -16,7 +16,10 @@ namespace ICT4Rails
         public OverviewForm()
         {
             InitializeComponent();
-            btns = new Button[] { btnBeheerSysteem, btninuitrijsysteem, btnSchoonmaakSysteem, btnTechniekSysteem };
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+            btns = new Button[] { btnBeheerSysteem, btninuitrijsysteem, btnSchoonmaakSysteem, btnTechniekSysteem, btnAdminPanel };
             ShowSystems();
         }
 
@@ -97,13 +100,15 @@ namespace ICT4Rails
 
         void NewForm(Form form)
         {
-            form.FormClosed += new FormClosedEventHandler(form_Closed);
+            form.FormClosing += new FormClosingEventHandler(form_Closed);
             form.Show();
-            this.Hide();
+            form.Update();
+            Hide();
         }
         void form_Closed(Object sender, EventArgs e)
         {
-            this.Show();
+            Show();
+            Update();
         }
     }
 }

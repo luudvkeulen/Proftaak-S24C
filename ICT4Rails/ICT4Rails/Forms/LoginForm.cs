@@ -15,7 +15,6 @@ namespace ICT4Rails
         public LoginForm()
         {
             InitializeComponent();
-            AcceptButton = btnLogin; //Hiermee kun je ervoor zorgen dat je met enter op de btnLogin knop drukt
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
