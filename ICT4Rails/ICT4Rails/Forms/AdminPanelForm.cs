@@ -33,7 +33,7 @@ namespace ICT4Rails
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //Close();
+            Close();
         }
     }
 }
