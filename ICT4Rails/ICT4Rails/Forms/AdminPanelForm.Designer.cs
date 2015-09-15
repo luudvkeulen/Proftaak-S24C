@@ -42,12 +42,14 @@
             this.btnDeleteUser.BackColor = System.Drawing.Color.Silver;
             this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteUser.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnDeleteUser.Location = new System.Drawing.Point(565, 488);
+            this.btnDeleteUser.Location = new System.Drawing.Point(753, 601);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(356, 108);
+            this.btnDeleteUser.Size = new System.Drawing.Size(475, 133);
             this.btnDeleteUser.TabIndex = 10;
             this.btnDeleteUser.Text = "Gebruiker verwijderen";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnCreateUser
             // 
@@ -55,9 +57,10 @@
             this.btnCreateUser.BackColor = System.Drawing.Color.Silver;
             this.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateUser.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnCreateUser.Location = new System.Drawing.Point(195, 488);
+            this.btnCreateUser.Location = new System.Drawing.Point(260, 601);
+            this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(356, 108);
+            this.btnCreateUser.Size = new System.Drawing.Size(475, 133);
             this.btnCreateUser.TabIndex = 8;
             this.btnCreateUser.Text = "Nieuwe Gebruiker";
             this.btnCreateUser.UseVisualStyleBackColor = false;
@@ -69,9 +72,10 @@
             this.btnBack.BackColor = System.Drawing.Color.Silver;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnBack.Location = new System.Drawing.Point(891, 657);
+            this.btnBack.Location = new System.Drawing.Point(1188, 809);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(214, 39);
+            this.btnBack.Size = new System.Drawing.Size(285, 48);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -81,13 +85,18 @@
             // 
             this.listUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listUsers.BackColor = System.Drawing.Color.Silver;
+            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Gebruikersnaam,
             this.Rol});
             this.listUsers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listUsers.Location = new System.Drawing.Point(195, 77);
+            this.listUsers.FullRowSelect = true;
+            this.listUsers.GridLines = true;
+            this.listUsers.Location = new System.Drawing.Point(260, 95);
+            this.listUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listUsers.MultiSelect = false;
             this.listUsers.Name = "listUsers";
-            this.listUsers.Size = new System.Drawing.Size(726, 395);
+            this.listUsers.Size = new System.Drawing.Size(967, 485);
             this.listUsers.TabIndex = 12;
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
@@ -104,17 +113,18 @@
             // 
             // AdminPanelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1117, 708);
+            this.ClientSize = new System.Drawing.Size(1489, 871);
             this.Controls.Add(this.listUsers);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnCreateUser);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "AdminPanelForm";
             this.ShowIcon = false;

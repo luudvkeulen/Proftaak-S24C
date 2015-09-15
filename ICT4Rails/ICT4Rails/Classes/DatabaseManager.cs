@@ -56,7 +56,7 @@ namespace ICT4Rails
         public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
             OracleConnection connection = Connect();
-            OracleTransaction transaction = connection.BeginTransaction();
+            //OracleTransaction transaction = connection.BeginTransaction();
             OracleCommand command = new OracleCommand(sqlquery, connection);
 
             if(parameters != null)
@@ -88,6 +88,30 @@ namespace ICT4Rails
             {
                 Console.WriteLine(OE.Message);
             }
+            connection.Close();
+        }
+
+        public static void ExecuteDeleteQuery(string sqlquery, OracleParameter[] parameters)
+        {
+            OracleConnection connection = Connect();
+            OracleTransaction transaction = connection.BeginTransaction();
+            OracleCommand command = new OracleCommand(sqlquery, connection);
+
+            if (parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+
+            try
+            {
+                command.ExecuteNonQuery();
+                transaction.Commit();
+            }
+            catch (OracleException OE)
+            {
+                Console.WriteLine(OE.Message);
+            }
+            connection.Close();
         }
 
         public static bool CheckConnection()
