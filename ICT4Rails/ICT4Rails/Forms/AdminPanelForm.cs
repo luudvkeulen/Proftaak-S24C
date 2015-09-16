@@ -39,6 +39,7 @@ namespace ICT4Rails
         {
             Show();
             Update();
+            FillList();
         }
 
         void FillList()
