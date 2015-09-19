@@ -35,8 +35,18 @@ namespace ICT4Rails
             };
             DatabaseManager.ExecuteInsertQuery(insertstring, parameters);
 
-            DatabaseManager.Close();
+            //DatabaseManager.Close();
             return true;
+        }
+
+        public static void RemoveUser(string username)
+        {
+            string deletestring = "DELETE FROM USERS WHERE USERNAME=:username";
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("username", username)
+            };
+            DatabaseManager.ExecuteDeleteQuery(deletestring, parameters);
         }
 
         public static User AuthenticateUser(string username, string password)

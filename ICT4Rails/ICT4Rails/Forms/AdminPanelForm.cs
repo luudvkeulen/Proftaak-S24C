@@ -19,13 +19,7 @@ namespace ICT4Rails
 
         private void AdminPanelForm_Shown(object sender, EventArgs e)
         {
-            List<User> users = User.GetAllUsers();
-            foreach(User user in users)
-            {
-                ListViewItem lvi = new ListViewItem(user.UserName);
-                lvi.SubItems.Add(user.Role);
-                listUsers.Items.Add(lvi);
-            }
+            FillList();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -45,6 +39,33 @@ namespace ICT4Rails
         {
             Show();
             Update();
+            FillList();
+        }
+
+        void FillList()
+        {
+            listUsers.Items.Clear();
+            List<User> users = User.GetAllUsers();
+            foreach (User user in users)
+            {
+                ListViewItem lvi = new ListViewItem(user.UserName);
+                lvi.SubItems.Add(user.Role);
+                listUsers.Items.Add(lvi);
+            }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if(listUsers.SelectedItems.Count > 0)
+            {
+                string naam = listUsers.SelectedItems[0].Text;
+                User.RemoveUser(naam);
+                FillList();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer eerst een gebruiker");
+            }
         }
     }
 }
