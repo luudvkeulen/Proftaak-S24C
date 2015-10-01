@@ -9,15 +9,14 @@ using System.Configuration;
 
 namespace ICT4Rails
 {
-    public static class DatabaseManager
+    public class DatabaseManager
     {
-        static OracleConnection Connection;
 
         //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
         //Website used for the Database Manager.
         public static OracleConnection Connect()
         {
-            Connection = new OracleConnection();
+            OracleConnection Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
             {
                 Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DBC"].ConnectionString;
@@ -35,7 +34,7 @@ namespace ICT4Rails
             return Connection;
         }
 
-        public static bool Close()
+        public static bool Close(OracleConnection Connection)
         {
             if(Connection.State == ConnectionState.Open)
             {
@@ -112,19 +111,6 @@ namespace ICT4Rails
                 Console.WriteLine(OE.Message);
             }
             connection.Close();
-        }
-
-        public static bool CheckConnection()
-        {
-            if(Connect() != null)
-            {
-                Close();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

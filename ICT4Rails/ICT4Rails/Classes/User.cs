@@ -11,7 +11,7 @@ namespace ICT4Rails
     public class User
     {
         //Properties
-        public string UserName { get; set; }
+        /*public string UserName { get; set; }
         public string EncryptedPassword { get; set; }
         public string Role { get; set; }
 
@@ -20,7 +20,7 @@ namespace ICT4Rails
             UserName = username;
             EncryptedPassword = password;
             Role = role;
-        }
+        }*/
 
         public static bool CreateUser(string username, string password, string role)
         {
@@ -68,13 +68,12 @@ namespace ICT4Rails
                 userguid = reader["GUID"].ToString();
                 usertype = reader["USERTYPE"].ToString();
             }
-            DatabaseManager.Close();
 
             password = CreateHash(password, userguid);
             if (correctPassword == password)
             {
-                User user = new User(username, password, usertype);
-                return user;
+                //User user = new User(username, password, usertype);
+                //return user;
             }
             return null;
         }
@@ -108,7 +107,7 @@ namespace ICT4Rails
                 username = reader["USERNAME"].ToString();
                 password = reader["PASSWORD"].ToString();
                 role = reader["USERTYPE"].ToString();
-                users.Add(new User(username, password, role));
+                //users.Add(new User(username, password, role));
             }
 
             return users;

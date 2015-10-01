@@ -23,7 +23,7 @@ namespace ICT4Rails
         private void ShowSystems()
         {
             int i = 99;
-            switch (Program.ActiveUser.Role)
+            /*switch (Program.ActiveUser.Role)
             {
                 case "ADMIN":
                     i = 99;
@@ -40,7 +40,7 @@ namespace ICT4Rails
                 case "BESTUURDER":
                     i = 1;
                     break;
-            }
+            }*/
             EnableButtons(i);
         }
 

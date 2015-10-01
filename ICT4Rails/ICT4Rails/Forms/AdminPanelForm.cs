@@ -48,9 +48,9 @@ namespace ICT4Rails
             List<User> users = User.GetAllUsers();
             foreach (User user in users)
             {
-                ListViewItem lvi = new ListViewItem(user.UserName);
-                lvi.SubItems.Add(user.Role);
-                listUsers.Items.Add(lvi);
+                //ListViewItem lvi = new ListViewItem(user.UserName);
+                //lvi.SubItems.Add(user.Role);
+                //listUsers.Items.Add(lvi);
             }
         }
 
