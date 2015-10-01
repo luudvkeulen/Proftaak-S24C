@@ -73,9 +73,15 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.Fakes">
+      <HintPath>FakesAssemblies\Oracle.ManagedDataAccess.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -92,6 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\Rail.cs" />
+    <Compile Include="Classes\Sector.cs" />
+    <Compile Include="Classes\Tram.cs" />
+    <Compile Include="Classes\TramType.cs" />
     <Compile Include="Classes\UserManager.cs" />
     <Compile Include="Forms\AdminPanelForm.cs">
       <SubType>Form</SubType>
@@ -179,6 +189,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Fakes Include="Fakes\Oracle.ManagedDataAccess.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

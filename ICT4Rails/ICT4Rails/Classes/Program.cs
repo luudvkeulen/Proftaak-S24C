@@ -24,9 +24,9 @@ namespace ICT4Rails
                 Application.Exit();
             }
             else
-            {
+            {*/
                 Application.Run(new LoginForm());
-            }*/
+            //}
         }
     }
 }
