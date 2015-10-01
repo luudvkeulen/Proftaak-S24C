@@ -10,6 +10,7 @@ namespace ICT4Rails
 {
     public class User
     {
+        //Properties
         public string UserName { get; set; }
         public string EncryptedPassword { get; set; }
         public string Role { get; set; }
