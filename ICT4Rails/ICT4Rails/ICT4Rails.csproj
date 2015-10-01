@@ -101,6 +101,7 @@
     <Compile Include="Classes\Rail.cs" />
     <Compile Include="Classes\Sector.cs" />
     <Compile Include="Classes\Tram.cs" />
+    <Compile Include="Classes\TramManager.cs" />
     <Compile Include="Classes\TramType.cs" />
     <Compile Include="Classes\UserManager.cs" />
     <Compile Include="Forms\AdminPanelForm.cs">
