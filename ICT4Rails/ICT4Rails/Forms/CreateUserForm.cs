@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ICT4Rails.Classes;
 
 namespace ICT4Rails
 {
@@ -67,7 +68,7 @@ namespace ICT4Rails
                     break;
             }
 
-            if(User.CreateUser(Username, password, role))
+            if(UserManager.CreateUser(Username, password, role))
             {
                 MessageBox.Show("Gebruiker: " + Username + "aangemaakt.");
                 Close();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ICT4Rails.Classes;
 
 namespace ICT4Rails
 {
@@ -45,7 +46,7 @@ namespace ICT4Rails
         void FillList()
         {
             listUsers.Items.Clear();
-            List<User> users = User.GetAllUsers();
+            List<User> users = UserManager.GetAllUsers();
             foreach (User user in users)
             {
                 //ListViewItem lvi = new ListViewItem(user.UserName);
@@ -59,7 +60,7 @@ namespace ICT4Rails
             if(listUsers.SelectedItems.Count > 0)
             {
                 string naam = listUsers.SelectedItems[0].Text;
-                User.RemoveUser(naam);
+                UserManager.RemoveUser(naam);
                 FillList();
             }
             else

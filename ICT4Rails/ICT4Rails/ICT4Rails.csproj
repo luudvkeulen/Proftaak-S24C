@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\UserManager.cs" />
     <Compile Include="Forms\AdminPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
