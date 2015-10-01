@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Security.Cryptography;
 
-namespace ICT4Rails.Classes
+namespace ICT4Rails
 {
     public static class UserManager
     {
