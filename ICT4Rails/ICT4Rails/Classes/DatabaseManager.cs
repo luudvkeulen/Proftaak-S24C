@@ -19,6 +19,7 @@ namespace ICT4Rails
             OracleConnection Connection = new OracleConnection();
             if (Connection.State != ConnectionState.Open)
             {
+                ConfigurationManager.
                 Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DBC"].ConnectionString;
                 try
                 {

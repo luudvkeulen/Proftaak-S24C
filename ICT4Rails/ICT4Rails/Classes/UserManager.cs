@@ -7,9 +7,9 @@ using System.Security.Cryptography;
 
 namespace ICT4Rails
 {
-    public static class UserManager
+    public class UserManager
     {
-        public static bool CreateUser(string username, string password, string role)
+        public bool CreateUser(string username, string password, string role)
         {
             Guid userguid = Guid.NewGuid();
             string hashedPassword = CreateHash(password, userguid.ToString());
@@ -27,7 +27,7 @@ namespace ICT4Rails
             return true;
         }
 
-        public static void RemoveUser(string username)
+        public void RemoveUser(string username)
         {
             string deletestring = "DELETE FROM USERS WHERE USERNAME=:username";
             OracleParameter[] parameters = new OracleParameter[]
@@ -37,7 +37,7 @@ namespace ICT4Rails
             DatabaseManager.ExecuteDeleteQuery(deletestring, parameters);
         }
 
-        public static User AuthenticateUser(string username, string password)
+        public User AuthenticateUser(string username, string password)
         {
             string readstring = "SELECT PASSWORD,GUID,USERTYPE FROM USERS WHERE USERNAME=:username";
             OracleParameter[] parameters = new OracleParameter[]
@@ -65,7 +65,7 @@ namespace ICT4Rails
             return null;
         }
 
-        private static string CreateHash(string password, string userguid)
+        private string CreateHash(string password, string userguid)
         {
             var sha = SHA512.Create(); //Creates a new SHA512 hash
             byte[] bytes = Encoding.ASCII.GetBytes(password + userguid); //Creates a byte array of the string.
@@ -80,7 +80,7 @@ namespace ICT4Rails
             return sb.ToString();
         }
 
-        public static List<User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
             string readstring = "SELECT USERNAME,PASSWORD,GUID,USERTYPE FROM USERS";
@@ -98,6 +98,14 @@ namespace ICT4Rails
             }
 
             return users;
+        }
+
+        public List<Login> GetAllLogins()
+        {
+            List<Login> logins = new List<Login>();
+            string readstring = "SELECT USERNAME,PASSWORD,GUID,USERTYPE FROM LOGINS";
+            OracleDataReader reader = DatabaseManager.ExecuteReadQuery(readstring, null);
+            return logins;
         }
     }
 }
