@@ -35,6 +35,7 @@
             this.Tramnummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Rail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbComment = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnRepairTrain
@@ -43,10 +44,9 @@
             this.btnRepairTrain.BackColor = System.Drawing.Color.Silver;
             this.btnRepairTrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepairTrain.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnRepairTrain.Location = new System.Drawing.Point(753, 601);
-            this.btnRepairTrain.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRepairTrain.Location = new System.Drawing.Point(565, 529);
             this.btnRepairTrain.Name = "btnRepairTrain";
-            this.btnRepairTrain.Size = new System.Drawing.Size(475, 133);
+            this.btnRepairTrain.Size = new System.Drawing.Size(356, 108);
             this.btnRepairTrain.TabIndex = 10;
             this.btnRepairTrain.Text = "Repareren";
             this.btnRepairTrain.UseVisualStyleBackColor = false;
@@ -57,10 +57,9 @@
             this.btnCleanTrain.BackColor = System.Drawing.Color.Silver;
             this.btnCleanTrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCleanTrain.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnCleanTrain.Location = new System.Drawing.Point(260, 601);
-            this.btnCleanTrain.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCleanTrain.Location = new System.Drawing.Point(195, 529);
             this.btnCleanTrain.Name = "btnCleanTrain";
-            this.btnCleanTrain.Size = new System.Drawing.Size(475, 133);
+            this.btnCleanTrain.Size = new System.Drawing.Size(356, 108);
             this.btnCleanTrain.TabIndex = 8;
             this.btnCleanTrain.Text = "Schoonmaken";
             this.btnCleanTrain.UseVisualStyleBackColor = false;
@@ -71,10 +70,9 @@
             this.btnBack.BackColor = System.Drawing.Color.Silver;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnBack.Location = new System.Drawing.Point(1188, 809);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(891, 657);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(285, 48);
+            this.btnBack.Size = new System.Drawing.Size(214, 39);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -89,10 +87,9 @@
             this.Rail,
             this.Status});
             this.listUsers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listUsers.Location = new System.Drawing.Point(260, 95);
-            this.listUsers.Margin = new System.Windows.Forms.Padding(4);
+            this.listUsers.Location = new System.Drawing.Point(195, 77);
             this.listUsers.Name = "listUsers";
-            this.listUsers.Size = new System.Drawing.Size(967, 485);
+            this.listUsers.Size = new System.Drawing.Size(726, 395);
             this.listUsers.TabIndex = 12;
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
@@ -112,26 +109,38 @@
             this.Status.Text = "Status";
             this.Status.Width = 359;
             // 
+            // tbComment
+            // 
+            this.tbComment.Location = new System.Drawing.Point(195, 478);
+            this.tbComment.Multiline = true;
+            this.tbComment.Name = "tbComment";
+            this.tbComment.Size = new System.Drawing.Size(726, 45);
+            this.tbComment.TabIndex = 13;
+            this.tbComment.Text = "Enter comment here...";
+            this.tbComment.Enter += new System.EventHandler(this.tbComment_Enter);
+            this.tbComment.Leave += new System.EventHandler(this.tbComment_Leave);
+            // 
             // BeheerSysteemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1489, 871);
+            this.ClientSize = new System.Drawing.Size(1117, 708);
+            this.Controls.Add(this.tbComment);
             this.Controls.Add(this.listUsers);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRepairTrain);
             this.Controls.Add(this.btnCleanTrain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "BeheerSysteemForm";
             this.ShowIcon = false;
             this.Text = "OverviewForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +153,6 @@
         private System.Windows.Forms.ColumnHeader Tramnummer;
         private System.Windows.Forms.ColumnHeader Status;
         private System.Windows.Forms.ColumnHeader Rail;
+        private System.Windows.Forms.TextBox tbComment;
     }
 }
