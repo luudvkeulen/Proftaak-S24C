@@ -21,5 +21,18 @@ namespace ICT4Rails
         {
             Close();
         }
+
+        private void tbComment_Enter(object sender, EventArgs e)
+        {
+            tbComment.Text = "";
+        }
+
+        private void tbComment_Leave(object sender, EventArgs e)
+        {
+            if(tbComment.Text == "")
+            {
+                tbComment.Text = "Enter comment here...";
+            }
+        }
     }
 }
