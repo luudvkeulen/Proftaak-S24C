@@ -4,37 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Rails.Classes
+namespace ICT4Rails
 {
-	public class User
-	{
-		private int userID;
-		private string name;
-		private string surname;
+    public class User
+    {
+        //Properties
+        public string Name { get; set; }
+        public string SurName { get; set; }
 
-		public int UserID
-		{
-			get { return userID; }
-			set { userID = value; }
-		}
-
-		public string Name
-		{
-			get { return name; }
-			set { name = value; }
-		}
-
-		public string Surname
-		{
-			get { return surname; }
-			set { surname = value; }
-		}
-
-		public User(int userID, string name, string surname)
-		{
-			UserID = userID;
-			Name = name;
-			Surname = surname;
-		}
-	}
+        public User(string name, string surname)
+        {
+            Name = name;
+            SurName = surname;
+        }
+    }
 }

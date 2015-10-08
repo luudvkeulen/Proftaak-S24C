@@ -19,7 +19,7 @@ namespace ICT4Rails
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User user = User.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text); //Kijkt of de user bestaat en of het wacthwoord goed is.
+            User user = UserManager.AuthenticateUser(txtLoginName.Text, txtLoginPassword.Text); //Kijkt of de user bestaat en of het wacthwoord goed is.
             if (user != null) //Als de autheticatie geen null teruggeeft wordt hij goedgekeurd.
             {
                 Program.ActiveUser = user; //Omdat je in een windows form applicatie geen sessies hebt is er een statische variable die de user opslaat.
