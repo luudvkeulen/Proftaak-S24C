@@ -9,6 +9,8 @@ namespace ICT4Rails
 {
     public class UserManager
     {
+		public List<User> Users = new List<User>();
+
         public static bool CreateUser(string username, string password, string role)
         {
             Guid userguid = Guid.NewGuid();
