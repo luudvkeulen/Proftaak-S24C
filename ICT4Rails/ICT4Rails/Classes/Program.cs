@@ -9,7 +9,7 @@ namespace ICT4Rails
 {
     static class Program
     {
-        public static User ActiveUser;
+        public static Login ActiveUser;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

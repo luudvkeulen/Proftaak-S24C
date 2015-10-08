@@ -44,11 +44,11 @@ namespace ICT4Rails
         void FillList()
         {
             listUsers.Items.Clear();
-            List<User> users = UserManager.GetAllUsers();
-            foreach (User user in users)
+            List<Login> logins = UserManager.GetAllLogins();
+            foreach (Login login in logins)
             {
-                ListViewItem lvi = new ListViewItem(user.UserName);
-                lvi.SubItems.Add(user.Role);
+                ListViewItem lvi = new ListViewItem(login.UserName);
+                lvi.SubItems.Add(login.Role);
                 listUsers.Items.Add(lvi);
             }
         }
