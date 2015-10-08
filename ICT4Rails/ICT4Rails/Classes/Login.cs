@@ -14,7 +14,7 @@ namespace ICT4Rails
         public string EncryptedPassword { get; set; }
         public string Role { get; set; }
 
-        public Login(string username, string password, string role, string name, string surname) : base(name, surname)
+        public Login(string username, string password, string role, string name, string surname, string usertype) : base(name, surname, usertype)
         {
             UserName = username;
             EncryptedPassword = password;

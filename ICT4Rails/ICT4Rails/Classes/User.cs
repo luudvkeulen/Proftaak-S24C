@@ -11,9 +11,9 @@ namespace ICT4Rails
         //Properties
         public string Name { get; set; }
         public string SurName { get; set; }
-		public int UserType { get; set; }
+		public string UserType { get; set; }
 
-        public User(string name, string surname, int userType)
+        public User(string name, string surname, string userType)
         {
             Name = name;
             SurName = surname;
