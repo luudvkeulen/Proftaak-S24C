@@ -18,8 +18,8 @@ namespace ICT4Rails
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            if (!DatabaseManager.CheckConnection())
+            Application.Run(new LoginForm());
+            /*if (!DatabaseManager.CheckConnection())
             {
                 MessageBox.Show("De applicatie kan geen verbinding maken met de database. Neem contact op met een systeembeheerder.");
                 Application.Exit();
@@ -27,7 +27,7 @@ namespace ICT4Rails
             else
             {
                 Application.Run(new LoginForm());
-            }
+            }*/
         }
     }
 }
