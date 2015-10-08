@@ -111,6 +111,7 @@
             // 
             // tbComment
             // 
+            this.tbComment.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbComment.Location = new System.Drawing.Point(195, 478);
             this.tbComment.Multiline = true;
             this.tbComment.Name = "tbComment";
