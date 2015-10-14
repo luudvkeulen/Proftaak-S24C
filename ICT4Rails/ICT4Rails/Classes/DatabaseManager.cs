@@ -44,24 +44,6 @@ namespace ICT4Rails
             return Connection;
         }*/
 
-        /*public static bool Close()
-        {
-            if(Connection.State == ConnectionState.Open)
-            {
-                try
-                {
-                    Connection.Close();
-                    Connection.Dispose();
-                }
-                catch (OracleException OE)
-                {
-                    Console.WriteLine(OE.Message);
-                    return false;
-                }
-            }
-            return true;
-        }*/
-
         public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
             //OracleTransaction transaction = connection.BeginTransaction();
@@ -128,6 +110,8 @@ namespace ICT4Rails
             {
                 return false;
             }
+
+
             return true;
         }
     }
