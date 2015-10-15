@@ -24,11 +24,14 @@ namespace ICT4Rails
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            string Username = txtUserName.Text;
+            string username = txtUserName.Text;
             string password = txtPassword.Text;
+            string name = txtName.Text;
+            string surname = txtSurname.Text;
+            string emptype = txtEmpType.Text;
             string role;
 
-            if(Username.Length > 128)
+            if(username.Length > 128)
             {
                 MessageBox.Show("Gebruikersnaam mag niet langer dan 128 karakters zijn.");
             }
@@ -66,11 +69,11 @@ namespace ICT4Rails
                     break;
             }
 
-            /*if(UserManager.CreateUser(Username, password, role))
+            if(UserManager.CreateUser(name, surname, username, emptype, password, role))
             {
-                MessageBox.Show("Gebruiker: " + Username + "aangemaakt.");
+                MessageBox.Show("Account voor '" + name + " " + surname + "' met '" + username + "' als gebruikersnaam aangemaakt.");
                 Close();
-            }*/
+            }
         }
     }
 }
