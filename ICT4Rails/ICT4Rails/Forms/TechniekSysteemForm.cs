@@ -14,16 +14,15 @@ namespace ICT4Rails
     {
         public TechniekSysteemForm()
         {
+			RefreshListview();
             InitializeComponent();
         }
 
 		private void RefreshListview()
 		{
-			lvTrams.Clear();
 			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetTech"], null);
 			foreach (DataRow row in DT.Rows)
 			{
-				//lvTrams.it
 				ListViewItem item = new ListViewItem(row[0].ToString());
 				for (int i = 1; i < DT.Columns.Count; i++)
 				{
