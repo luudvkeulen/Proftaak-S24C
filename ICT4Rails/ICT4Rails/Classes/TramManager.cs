@@ -9,6 +9,7 @@ namespace ICT4Rails.Classes
 	class TramManager
 	{
 		private List<Tram> trams = new List<Tram>();
+		private List<Sector> sectors = new List<Sector>();
 
 		public void ClearSector(Sector sector)
 		{
@@ -27,6 +28,10 @@ namespace ICT4Rails.Classes
 		{
 
 		}
+
+
+
+		//technieksysteem
 		public void ChangeTramMaintenensDate(Tram tram, DateTime date)
 		{
 
@@ -36,6 +41,8 @@ namespace ICT4Rails.Classes
 		{
 
 		}
+
+		//Schoonmaaksysteem
 		public void ChangeTramCleaningDate(Tram tram, DateTime date)
 		{
 
