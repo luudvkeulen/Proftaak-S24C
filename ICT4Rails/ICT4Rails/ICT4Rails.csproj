@@ -80,9 +80,6 @@
       <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Oracle.ManagedDataAccess.Fakes">
-      <HintPath>FakesAssemblies\Oracle.ManagedDataAccess.Fakes.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -97,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DatabaseQuerys.cs" />
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Rail.cs" />
     <Compile Include="Classes\Sector.cs" />
@@ -190,7 +188,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Fakes Include="Fakes\Oracle.ManagedDataAccess.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,48 +16,28 @@ namespace ICT4Rails
         {
             get
             {
-                if ( (connection != null) && (connection.State != ConnectionState.Open) )
-                {
-                    connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
-                    connection.Open();
-                }
+                connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                connection.Open();
                 return connection;
             }
         }
 
-        //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
-        //Website used for the Database Manager.
-        /*public static OracleConnection Connect()
+        public static DataTable ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
-            Connection = new OracleConnection();
-            if (Connection.State != ConnectionState.Open)
+            using (Connection)
+            using (OracleCommand command = new OracleCommand(sqlquery, Connection))
             {
-                Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DBC"].ConnectionString;
-                try
+                if (parameters != null)
                 {
-                    Connection.Open();
+                    command.Parameters.AddRange(parameters);
                 }
-                catch (OracleException OE)
+                DataTable DT = new DataTable();
+                using (OracleDataReader reader = command.ExecuteReader())
                 {
-                    Console.WriteLine(OE.Message);
-                    return null;
+                    DT.Load(reader);
                 }
-                Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
+                return DT;
             }
-            return Connection;
-        }*/
-
-        public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
-        {
-            OracleCommand command = new OracleCommand(sqlquery, Connection);
-
-            if(parameters != null)
-            {
-                command.Parameters.AddRange(parameters);
-            }
-            
-            OracleDataReader reader = command.ExecuteReader();
-            return reader;
         }
 
         public static void ExecuteInsertQuery(string sqlquery, OracleParameter[] parameters)
@@ -89,7 +69,7 @@ namespace ICT4Rails
             using (OracleTransaction OT = Connection.BeginTransaction())
             {
                 OracleCommand command = new OracleCommand(sqlquery, connection);
-                if(parameters.Count() != 0)
+                if(parameters != null)
                 {
                     command.Parameters.AddRange(parameters);
                 }
@@ -108,11 +88,16 @@ namespace ICT4Rails
 
         public static bool CheckConnection()
         {
-            using (Connection)
+            try
             {
+                OracleConnection con = Connection;
+                con.Close();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

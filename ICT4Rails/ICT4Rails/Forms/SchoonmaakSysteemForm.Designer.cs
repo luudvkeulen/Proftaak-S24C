@@ -37,6 +37,7 @@
 			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Cleaner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -57,6 +58,7 @@
 			// 
 			// cbUsers
 			// 
+			this.cbUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.cbUsers.FormattingEnabled = true;
 			this.cbUsers.Location = new System.Drawing.Point(195, 506);
 			this.cbUsers.Name = "cbUsers";
@@ -65,6 +67,7 @@
 			// 
 			// dateTimePicker1
 			// 
+			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker1.Location = new System.Drawing.Point(565, 506);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
@@ -79,7 +82,8 @@
             this.StartDate,
             this.EndDate,
             this.Cleaner,
-            this.Finished});
+            this.Finished,
+            this.Comment});
 			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvTrains.Location = new System.Drawing.Point(195, 95);
 			this.lvTrains.Name = "lvTrains";
@@ -91,7 +95,7 @@
 			// Train
 			// 
 			this.Train.Text = "Trein";
-			this.Train.Width = 345;
+			this.Train.Width = 56;
 			// 
 			// StartDate
 			// 
@@ -112,6 +116,11 @@
 			// 
 			this.Finished.Text = "Klaar";
 			// 
+			// Comment
+			// 
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 283;
+			// 
 			// btChangeDate
 			// 
 			this.btChangeDate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -124,6 +133,7 @@
 			this.btChangeDate.TabIndex = 16;
 			this.btChangeDate.Text = "Einddatum opslaan";
 			this.btChangeDate.UseVisualStyleBackColor = false;
+			this.btChangeDate.Click += new System.EventHandler(this.btChangeDate_Click);
 			// 
 			// btFinished
 			// 
@@ -137,6 +147,7 @@
 			this.btFinished.TabIndex = 15;
 			this.btFinished.Text = "Schoongemaakt";
 			this.btFinished.UseVisualStyleBackColor = false;
+			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
 			// SchoonmaakSysteemForm
 			// 
@@ -174,5 +185,6 @@
 		private System.Windows.Forms.ColumnHeader Finished;
 		private System.Windows.Forms.Button btChangeDate;
 		private System.Windows.Forms.Button btFinished;
+		private System.Windows.Forms.ColumnHeader Comment;
 	}
 }

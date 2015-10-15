@@ -31,12 +31,13 @@
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
 			this.btnBack = new System.Windows.Forms.Button();
-			this.lvTrains = new System.Windows.Forms.ListView();
-			this.Train = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.lvTrams = new System.Windows.Forms.ListView();
+			this.Tram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Engineer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
@@ -53,6 +54,7 @@
 			this.btChangeDate.TabIndex = 10;
 			this.btChangeDate.Text = "Einddatum opslaan";
 			this.btChangeDate.UseVisualStyleBackColor = false;
+			this.btChangeDate.Click += new System.EventHandler(this.btChangeDate_Click);
 			// 
 			// btFinished
 			// 
@@ -66,6 +68,7 @@
 			this.btFinished.TabIndex = 8;
 			this.btFinished.Text = "Gerepareerd";
 			this.btFinished.UseVisualStyleBackColor = false;
+			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
 			// btnBack
 			// 
@@ -81,33 +84,39 @@
 			this.btnBack.UseVisualStyleBackColor = false;
 			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
 			// 
-			// lvTrains
+			// lvTrams
 			// 
-			this.lvTrains.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lvTrains.BackColor = System.Drawing.Color.Silver;
-			this.lvTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Train,
+			this.lvTrams.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lvTrams.BackColor = System.Drawing.Color.Silver;
+			this.lvTrams.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Tram,
             this.StartDate,
             this.EndDate,
             this.Engineer,
-            this.Finished});
-			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lvTrains.Location = new System.Drawing.Point(195, 77);
-			this.lvTrains.Name = "lvTrains";
-			this.lvTrains.Size = new System.Drawing.Size(726, 395);
-			this.lvTrains.TabIndex = 12;
-			this.lvTrains.UseCompatibleStateImageBehavior = false;
-			this.lvTrains.View = System.Windows.Forms.View.Details;
+            this.Finished,
+            this.Comment});
+			this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lvTrams.Location = new System.Drawing.Point(195, 77);
+			this.lvTrams.Name = "lvTrams";
+			this.lvTrams.Size = new System.Drawing.Size(726, 395);
+			this.lvTrams.TabIndex = 12;
+			this.lvTrams.UseCompatibleStateImageBehavior = false;
+			this.lvTrams.View = System.Windows.Forms.View.Details;
 			// 
-			// Train
+			// Tram
 			// 
-			this.Train.Text = "Trein";
-			this.Train.Width = 345;
+			this.Tram.Text = "Tram";
+			this.Tram.Width = 48;
 			// 
 			// StartDate
 			// 
 			this.StartDate.Text = "Begindatum";
 			this.StartDate.Width = 104;
+			// 
+			// EndDate
+			// 
+			this.EndDate.Text = "Einddatum";
+			this.EndDate.Width = 103;
 			// 
 			// Engineer
 			// 
@@ -118,13 +127,14 @@
 			// 
 			this.Finished.Text = "Klaar";
 			// 
-			// EndDate
+			// Comment
 			// 
-			this.EndDate.Text = "Einddatum";
-			this.EndDate.Width = 103;
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 288;
 			// 
 			// dateTimePicker1
 			// 
+			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker1.Location = new System.Drawing.Point(565, 488);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
@@ -132,6 +142,7 @@
 			// 
 			// cbUsers
 			// 
+			this.cbUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.cbUsers.FormattingEnabled = true;
 			this.cbUsers.Location = new System.Drawing.Point(195, 488);
 			this.cbUsers.Name = "cbUsers";
@@ -147,7 +158,7 @@
 			this.ClientSize = new System.Drawing.Size(1117, 708);
 			this.Controls.Add(this.cbUsers);
 			this.Controls.Add(this.dateTimePicker1);
-			this.Controls.Add(this.lvTrains);
+			this.Controls.Add(this.lvTrams);
 			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btChangeDate);
 			this.Controls.Add(this.btFinished);
@@ -167,13 +178,14 @@
         private System.Windows.Forms.Button btChangeDate;
         private System.Windows.Forms.Button btFinished;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.ListView lvTrains;
-        private System.Windows.Forms.ColumnHeader Train;
+        private System.Windows.Forms.ListView lvTrams;
+        private System.Windows.Forms.ColumnHeader Tram;
         private System.Windows.Forms.ColumnHeader StartDate;
 		private System.Windows.Forms.ColumnHeader Engineer;
 		private System.Windows.Forms.ColumnHeader Finished;
 		private System.Windows.Forms.ColumnHeader EndDate;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ComboBox cbUsers;
+		private System.Windows.Forms.ColumnHeader Comment;
 	}
 }

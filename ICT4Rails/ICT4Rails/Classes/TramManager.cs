@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Rails.Classes
+namespace ICT4Rails
 {
-	class TramManager
+	public class TramManager
 	{
 		private List<Tram> trams = new List<Tram>();
+		private List<Sector> sectors = new List<Sector>();
 
 		public void ClearSector(Sector sector)
 		{
@@ -24,6 +26,27 @@ namespace ICT4Rails.Classes
 
 		}
 		public void SetTramMaintenens(Tram tram, String comment)
+		{
+
+		}
+
+		//technieksysteem
+		public void ChangeTramMaintenensDate(Tram tram, DateTime date)
+		{
+
+		}
+
+		public void SetTramMaintenensFinished(Tram tram, DateTime startDate, DateTime endDate)
+		{
+
+		}
+
+		//Schoonmaaksysteem
+		public void ChangeTramCleaningDate(Tram tram, DateTime date)
+		{
+
+		}
+		public void SetTramCleaningFinished(Tram tram, DateTime startDate, DateTime endDate)
 		{
 
 		}
