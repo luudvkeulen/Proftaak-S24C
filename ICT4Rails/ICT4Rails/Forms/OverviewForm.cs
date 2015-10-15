@@ -85,7 +85,7 @@ namespace ICT4Rails
 
         private void btnTechniekSysteem_Click(object sender, EventArgs e)
         {
-            InUitRijSyteemForm form = new InUitRijSyteemForm();
+            TechniekSysteemForm form = new TechniekSysteemForm();
             NewForm(form);
         }
 
