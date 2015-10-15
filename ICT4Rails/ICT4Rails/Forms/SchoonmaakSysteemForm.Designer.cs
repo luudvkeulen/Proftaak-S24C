@@ -37,9 +37,9 @@
 			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Cleaner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
-			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnBack
@@ -58,6 +58,7 @@
 			// 
 			// cbUsers
 			// 
+			this.cbUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.cbUsers.FormattingEnabled = true;
 			this.cbUsers.Location = new System.Drawing.Point(195, 506);
 			this.cbUsers.Name = "cbUsers";
@@ -66,6 +67,7 @@
 			// 
 			// dateTimePicker1
 			// 
+			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker1.Location = new System.Drawing.Point(565, 506);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
@@ -114,6 +116,11 @@
 			// 
 			this.Finished.Text = "Klaar";
 			// 
+			// Comment
+			// 
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 283;
+			// 
 			// btChangeDate
 			// 
 			this.btChangeDate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -141,11 +148,6 @@
 			this.btFinished.Text = "Schoongemaakt";
 			this.btFinished.UseVisualStyleBackColor = false;
 			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
-			// 
-			// Comment
-			// 
-			this.Comment.Text = "Opmerking";
-			this.Comment.Width = 283;
 			// 
 			// SchoonmaakSysteemForm
 			// 

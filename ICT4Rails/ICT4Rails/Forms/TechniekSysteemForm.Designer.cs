@@ -134,6 +134,7 @@
 			// 
 			// dateTimePicker1
 			// 
+			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePicker1.Location = new System.Drawing.Point(565, 488);
 			this.dateTimePicker1.Name = "dateTimePicker1";
 			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
@@ -141,6 +142,7 @@
 			// 
 			// cbUsers
 			// 
+			this.cbUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.cbUsers.FormattingEnabled = true;
 			this.cbUsers.Location = new System.Drawing.Point(195, 488);
 			this.cbUsers.Name = "cbUsers";
