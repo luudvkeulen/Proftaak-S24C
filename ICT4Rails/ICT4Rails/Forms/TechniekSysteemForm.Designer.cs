@@ -34,11 +34,12 @@
 			this.lvTrains = new System.Windows.Forms.ListView();
 			this.Train = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Engineer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btChangeDate
@@ -53,6 +54,7 @@
 			this.btChangeDate.TabIndex = 10;
 			this.btChangeDate.Text = "Einddatum opslaan";
 			this.btChangeDate.UseVisualStyleBackColor = false;
+			this.btChangeDate.Click += new System.EventHandler(this.btChangeDate_Click);
 			// 
 			// btFinished
 			// 
@@ -66,6 +68,7 @@
 			this.btFinished.TabIndex = 8;
 			this.btFinished.Text = "Gerepareerd";
 			this.btFinished.UseVisualStyleBackColor = false;
+			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
 			// btnBack
 			// 
@@ -90,7 +93,8 @@
             this.StartDate,
             this.EndDate,
             this.Engineer,
-            this.Finished});
+            this.Finished,
+            this.Comment});
 			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvTrains.Location = new System.Drawing.Point(195, 77);
 			this.lvTrains.Name = "lvTrains";
@@ -102,12 +106,17 @@
 			// Train
 			// 
 			this.Train.Text = "Trein";
-			this.Train.Width = 345;
+			this.Train.Width = 48;
 			// 
 			// StartDate
 			// 
 			this.StartDate.Text = "Begindatum";
 			this.StartDate.Width = 104;
+			// 
+			// EndDate
+			// 
+			this.EndDate.Text = "Einddatum";
+			this.EndDate.Width = 103;
 			// 
 			// Engineer
 			// 
@@ -117,11 +126,6 @@
 			// Finished
 			// 
 			this.Finished.Text = "Klaar";
-			// 
-			// EndDate
-			// 
-			this.EndDate.Text = "Einddatum";
-			this.EndDate.Width = 103;
 			// 
 			// dateTimePicker1
 			// 
@@ -137,6 +141,11 @@
 			this.cbUsers.Name = "cbUsers";
 			this.cbUsers.Size = new System.Drawing.Size(356, 21);
 			this.cbUsers.TabIndex = 14;
+			// 
+			// Comment
+			// 
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 288;
 			// 
 			// TechniekSysteemForm
 			// 
@@ -175,5 +184,6 @@
 		private System.Windows.Forms.ColumnHeader EndDate;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ComboBox cbUsers;
+		private System.Windows.Forms.ColumnHeader Comment;
 	}
 }
