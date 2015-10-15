@@ -28,108 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.btnCreateUser = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.listUsers = new System.Windows.Forms.ListView();
-            this.Gebruikersnaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Rol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SuspendLayout();
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeleteUser.BackColor = System.Drawing.Color.Silver;
-            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteUser.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnDeleteUser.Location = new System.Drawing.Point(565, 488);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(356, 108);
-            this.btnDeleteUser.TabIndex = 10;
-            this.btnDeleteUser.Text = "Gebruiker verwijderen";
-            this.btnDeleteUser.UseVisualStyleBackColor = false;
-            // 
-            // btnCreateUser
-            // 
-            this.btnCreateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCreateUser.BackColor = System.Drawing.Color.Silver;
-            this.btnCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateUser.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnCreateUser.Location = new System.Drawing.Point(195, 488);
-            this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(356, 108);
-            this.btnCreateUser.TabIndex = 8;
-            this.btnCreateUser.Text = "Nieuwe Gebruiker";
-            this.btnCreateUser.UseVisualStyleBackColor = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.BackColor = System.Drawing.Color.Silver;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnBack.Location = new System.Drawing.Point(891, 657);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(214, 39);
-            this.btnBack.TabIndex = 11;
-            this.btnBack.Text = "Terug";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // listUsers
-            // 
-            this.listUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listUsers.BackColor = System.Drawing.Color.Silver;
-            this.listUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Gebruikersnaam,
-            this.Rol});
-            this.listUsers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listUsers.Location = new System.Drawing.Point(195, 77);
-            this.listUsers.Name = "listUsers";
-            this.listUsers.Size = new System.Drawing.Size(726, 395);
-            this.listUsers.TabIndex = 12;
-            this.listUsers.UseCompatibleStateImageBehavior = false;
-            this.listUsers.View = System.Windows.Forms.View.Details;
-            // 
-            // Gebruikersnaam
-            // 
-            this.Gebruikersnaam.Text = "Gebruikersnaam";
-            this.Gebruikersnaam.Width = 363;
-            // 
-            // Rol
-            // 
-            this.Rol.Text = "Rol";
-            this.Rol.Width = 359;
-            // 
-            // TechniekSysteemForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1117, 708);
-            this.Controls.Add(this.listUsers);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnDeleteUser);
-            this.Controls.Add(this.btnCreateUser);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximizeBox = false;
-            this.Name = "TechniekSysteemForm";
-            this.ShowIcon = false;
-            this.Text = "OverviewForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.ResumeLayout(false);
+			this.btChangeDate = new System.Windows.Forms.Button();
+			this.btFinished = new System.Windows.Forms.Button();
+			this.btnBack = new System.Windows.Forms.Button();
+			this.lvTrains = new System.Windows.Forms.ListView();
+			this.Train = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Engineer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.cbUsers = new System.Windows.Forms.ComboBox();
+			this.SuspendLayout();
+			// 
+			// btChangeDate
+			// 
+			this.btChangeDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btChangeDate.BackColor = System.Drawing.Color.Silver;
+			this.btChangeDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btChangeDate.Font = new System.Drawing.Font("Arial", 15.75F);
+			this.btChangeDate.Location = new System.Drawing.Point(565, 514);
+			this.btChangeDate.Name = "btChangeDate";
+			this.btChangeDate.Size = new System.Drawing.Size(356, 82);
+			this.btChangeDate.TabIndex = 10;
+			this.btChangeDate.Text = "Einddatum opslaan";
+			this.btChangeDate.UseVisualStyleBackColor = false;
+			// 
+			// btFinished
+			// 
+			this.btFinished.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btFinished.BackColor = System.Drawing.Color.Silver;
+			this.btFinished.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btFinished.Font = new System.Drawing.Font("Arial", 15.75F);
+			this.btFinished.Location = new System.Drawing.Point(195, 514);
+			this.btFinished.Name = "btFinished";
+			this.btFinished.Size = new System.Drawing.Size(356, 82);
+			this.btFinished.TabIndex = 8;
+			this.btFinished.Text = "Gerepareerd";
+			this.btFinished.UseVisualStyleBackColor = false;
+			// 
+			// btnBack
+			// 
+			this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnBack.BackColor = System.Drawing.Color.Silver;
+			this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
+			this.btnBack.Location = new System.Drawing.Point(891, 657);
+			this.btnBack.Name = "btnBack";
+			this.btnBack.Size = new System.Drawing.Size(214, 39);
+			this.btnBack.TabIndex = 11;
+			this.btnBack.Text = "Terug";
+			this.btnBack.UseVisualStyleBackColor = false;
+			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+			// 
+			// lvTrains
+			// 
+			this.lvTrains.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lvTrains.BackColor = System.Drawing.Color.Silver;
+			this.lvTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Train,
+            this.StartDate,
+            this.EndDate,
+            this.Engineer,
+            this.Finished});
+			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lvTrains.Location = new System.Drawing.Point(195, 77);
+			this.lvTrains.Name = "lvTrains";
+			this.lvTrains.Size = new System.Drawing.Size(726, 395);
+			this.lvTrains.TabIndex = 12;
+			this.lvTrains.UseCompatibleStateImageBehavior = false;
+			this.lvTrains.View = System.Windows.Forms.View.Details;
+			// 
+			// Train
+			// 
+			this.Train.Text = "Trein";
+			this.Train.Width = 345;
+			// 
+			// StartDate
+			// 
+			this.StartDate.Text = "Begindatum";
+			this.StartDate.Width = 104;
+			// 
+			// Engineer
+			// 
+			this.Engineer.Text = "Technicus";
+			this.Engineer.Width = 113;
+			// 
+			// Finished
+			// 
+			this.Finished.Text = "Klaar";
+			// 
+			// EndDate
+			// 
+			this.EndDate.Text = "Einddatum";
+			this.EndDate.Width = 103;
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(565, 488);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
+			this.dateTimePicker1.TabIndex = 13;
+			// 
+			// cbUsers
+			// 
+			this.cbUsers.FormattingEnabled = true;
+			this.cbUsers.Location = new System.Drawing.Point(195, 488);
+			this.cbUsers.Name = "cbUsers";
+			this.cbUsers.Size = new System.Drawing.Size(356, 21);
+			this.cbUsers.TabIndex = 14;
+			// 
+			// TechniekSysteemForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.ClientSize = new System.Drawing.Size(1117, 708);
+			this.Controls.Add(this.cbUsers);
+			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.lvTrains);
+			this.Controls.Add(this.btnBack);
+			this.Controls.Add(this.btChangeDate);
+			this.Controls.Add(this.btFinished);
+			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.MaximizeBox = false;
+			this.Name = "TechniekSysteemForm";
+			this.ShowIcon = false;
+			this.Text = "OverviewForm";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnDeleteUser;
-        private System.Windows.Forms.Button btnCreateUser;
+        private System.Windows.Forms.Button btChangeDate;
+        private System.Windows.Forms.Button btFinished;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.ListView listUsers;
-        private System.Windows.Forms.ColumnHeader Gebruikersnaam;
-        private System.Windows.Forms.ColumnHeader Rol;
-    }
+        private System.Windows.Forms.ListView lvTrains;
+        private System.Windows.Forms.ColumnHeader Train;
+        private System.Windows.Forms.ColumnHeader StartDate;
+		private System.Windows.Forms.ColumnHeader Engineer;
+		private System.Windows.Forms.ColumnHeader Finished;
+		private System.Windows.Forms.ColumnHeader EndDate;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.ComboBox cbUsers;
+	}
 }
