@@ -27,5 +27,22 @@ namespace ICT4Rails.Classes
 		{
 
 		}
+		public void ChangeTramMaintenensDate(Tram tram, DateTime date)
+		{
+
+		}
+
+		public void SetTramMaintenensFinished(Tram tram, DateTime startDate, DateTime endDate)
+		{
+
+		}
+		public void ChangeTramCleaningDate(Tram tram, DateTime date)
+		{
+
+		}
+		public void SetTramCleaningFinished(Tram tram, DateTime startDate, DateTime endDate)
+		{
+
+		}
 	}
 }

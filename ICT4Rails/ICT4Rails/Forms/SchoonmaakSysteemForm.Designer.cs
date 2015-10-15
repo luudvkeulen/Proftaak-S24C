@@ -124,6 +124,7 @@
 			this.btChangeDate.TabIndex = 16;
 			this.btChangeDate.Text = "Einddatum opslaan";
 			this.btChangeDate.UseVisualStyleBackColor = false;
+			this.btChangeDate.Click += new System.EventHandler(this.btChangeDate_Click);
 			// 
 			// btFinished
 			// 
@@ -137,6 +138,7 @@
 			this.btFinished.TabIndex = 15;
 			this.btFinished.Text = "Schoongemaakt";
 			this.btFinished.UseVisualStyleBackColor = false;
+			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
 			// SchoonmaakSysteemForm
 			// 

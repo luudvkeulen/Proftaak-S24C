@@ -17,9 +17,27 @@ namespace ICT4Rails
             InitializeComponent();
         }
 
+		private void RefreshListview()
+		{
+			lvTrains.Clear();
+			//query
+		}
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             Close();
         }
-    }
+
+		private void btFinished_Click(object sender, EventArgs e)
+		{
+			//SetTramMaintenensFinished();
+			RefreshListview();
+		}
+
+		private void btChangeDate_Click(object sender, EventArgs e)
+		{
+			//ChangeTramMaintenensDate();
+			RefreshListview();
+        }
+	}
 }

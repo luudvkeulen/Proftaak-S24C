@@ -53,6 +53,7 @@
 			this.btChangeDate.TabIndex = 10;
 			this.btChangeDate.Text = "Einddatum opslaan";
 			this.btChangeDate.UseVisualStyleBackColor = false;
+			this.btChangeDate.Click += new System.EventHandler(this.btChangeDate_Click);
 			// 
 			// btFinished
 			// 
@@ -66,6 +67,7 @@
 			this.btFinished.TabIndex = 8;
 			this.btFinished.Text = "Gerepareerd";
 			this.btFinished.UseVisualStyleBackColor = false;
+			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
 			// btnBack
 			// 
