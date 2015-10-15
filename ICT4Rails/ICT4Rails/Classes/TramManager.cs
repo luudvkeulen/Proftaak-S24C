@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Rails.Classes
+namespace ICT4Rails
 {
-	class TramManager
+	public class TramManager
 	{
 		private List<Tram> trams = new List<Tram>();
 		private List<Sector> sectors = new List<Sector>();
@@ -28,8 +29,6 @@ namespace ICT4Rails.Classes
 		{
 
 		}
-
-
 
 		//technieksysteem
 		public void ChangeTramMaintenensDate(Tram tram, DateTime date)

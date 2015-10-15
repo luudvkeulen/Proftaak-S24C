@@ -19,9 +19,13 @@ namespace ICT4Rails
 
 		private void RefreshListview()
 		{
-			lvTrains.Clear();
-			//query
-		}
+			lvTrams.Clear();
+			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetTech"], null);
+			foreach (DataRow DR in DT.Rows)
+			{
+				//lvTrams.it
+			}
+        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {

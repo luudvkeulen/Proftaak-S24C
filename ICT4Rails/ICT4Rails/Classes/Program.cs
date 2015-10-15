@@ -1,4 +1,4 @@
-﻿using ICT4Rails.Classes;
+﻿using ICT4Rails;
 using System;
 using System.Collections.Generic;
 using System.Linq;

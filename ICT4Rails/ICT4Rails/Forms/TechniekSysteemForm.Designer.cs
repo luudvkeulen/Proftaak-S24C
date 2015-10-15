@@ -31,15 +31,15 @@
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
 			this.btnBack = new System.Windows.Forms.Button();
-			this.lvTrains = new System.Windows.Forms.ListView();
-			this.Train = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.lvTrams = new System.Windows.Forms.ListView();
+			this.Tram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Engineer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
-			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btChangeDate
@@ -84,29 +84,29 @@
 			this.btnBack.UseVisualStyleBackColor = false;
 			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
 			// 
-			// lvTrains
+			// lvTrams
 			// 
-			this.lvTrains.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lvTrains.BackColor = System.Drawing.Color.Silver;
-			this.lvTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Train,
+			this.lvTrams.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lvTrams.BackColor = System.Drawing.Color.Silver;
+			this.lvTrams.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Tram,
             this.StartDate,
             this.EndDate,
             this.Engineer,
             this.Finished,
             this.Comment});
-			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lvTrains.Location = new System.Drawing.Point(195, 77);
-			this.lvTrains.Name = "lvTrains";
-			this.lvTrains.Size = new System.Drawing.Size(726, 395);
-			this.lvTrains.TabIndex = 12;
-			this.lvTrains.UseCompatibleStateImageBehavior = false;
-			this.lvTrains.View = System.Windows.Forms.View.Details;
+			this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lvTrams.Location = new System.Drawing.Point(195, 77);
+			this.lvTrams.Name = "lvTrams";
+			this.lvTrams.Size = new System.Drawing.Size(726, 395);
+			this.lvTrams.TabIndex = 12;
+			this.lvTrams.UseCompatibleStateImageBehavior = false;
+			this.lvTrams.View = System.Windows.Forms.View.Details;
 			// 
-			// Train
+			// Tram
 			// 
-			this.Train.Text = "Trein";
-			this.Train.Width = 48;
+			this.Tram.Text = "Tram";
+			this.Tram.Width = 48;
 			// 
 			// StartDate
 			// 
@@ -127,6 +127,11 @@
 			// 
 			this.Finished.Text = "Klaar";
 			// 
+			// Comment
+			// 
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 288;
+			// 
 			// dateTimePicker1
 			// 
 			this.dateTimePicker1.Location = new System.Drawing.Point(565, 488);
@@ -142,11 +147,6 @@
 			this.cbUsers.Size = new System.Drawing.Size(356, 21);
 			this.cbUsers.TabIndex = 14;
 			// 
-			// Comment
-			// 
-			this.Comment.Text = "Opmerking";
-			this.Comment.Width = 288;
-			// 
 			// TechniekSysteemForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,7 +156,7 @@
 			this.ClientSize = new System.Drawing.Size(1117, 708);
 			this.Controls.Add(this.cbUsers);
 			this.Controls.Add(this.dateTimePicker1);
-			this.Controls.Add(this.lvTrains);
+			this.Controls.Add(this.lvTrams);
 			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btChangeDate);
 			this.Controls.Add(this.btFinished);
@@ -176,8 +176,8 @@
         private System.Windows.Forms.Button btChangeDate;
         private System.Windows.Forms.Button btFinished;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.ListView lvTrains;
-        private System.Windows.Forms.ColumnHeader Train;
+        private System.Windows.Forms.ListView lvTrams;
+        private System.Windows.Forms.ColumnHeader Tram;
         private System.Windows.Forms.ColumnHeader StartDate;
 		private System.Windows.Forms.ColumnHeader Engineer;
 		private System.Windows.Forms.ColumnHeader Finished;
