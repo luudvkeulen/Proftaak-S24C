@@ -32,7 +32,7 @@
 			this.cbUsers = new System.Windows.Forms.ComboBox();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.lvTrains = new System.Windows.Forms.ListView();
-			this.Train = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Tram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Cleaner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -78,7 +78,7 @@
 			this.lvTrains.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lvTrains.BackColor = System.Drawing.Color.Silver;
 			this.lvTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Train,
+            this.Tram,
             this.StartDate,
             this.EndDate,
             this.Cleaner,
@@ -92,10 +92,10 @@
 			this.lvTrains.UseCompatibleStateImageBehavior = false;
 			this.lvTrains.View = System.Windows.Forms.View.Details;
 			// 
-			// Train
+			// Tram
 			// 
-			this.Train.Text = "Trein";
-			this.Train.Width = 56;
+			this.Tram.Text = "Tram";
+			this.Tram.Width = 56;
 			// 
 			// StartDate
 			// 
@@ -178,7 +178,7 @@
 		private System.Windows.Forms.ComboBox cbUsers;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ListView lvTrains;
-		private System.Windows.Forms.ColumnHeader Train;
+		private System.Windows.Forms.ColumnHeader Tram;
 		private System.Windows.Forms.ColumnHeader StartDate;
 		private System.Windows.Forms.ColumnHeader EndDate;
 		private System.Windows.Forms.ColumnHeader Cleaner;
