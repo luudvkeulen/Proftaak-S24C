@@ -39,6 +39,7 @@
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
+			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnBack
@@ -79,7 +80,8 @@
             this.StartDate,
             this.EndDate,
             this.Cleaner,
-            this.Finished});
+            this.Finished,
+            this.Comment});
 			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvTrains.Location = new System.Drawing.Point(195, 95);
 			this.lvTrains.Name = "lvTrains";
@@ -91,7 +93,7 @@
 			// Train
 			// 
 			this.Train.Text = "Trein";
-			this.Train.Width = 345;
+			this.Train.Width = 56;
 			// 
 			// StartDate
 			// 
@@ -140,6 +142,11 @@
 			this.btFinished.UseVisualStyleBackColor = false;
 			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
+			// Comment
+			// 
+			this.Comment.Text = "Opmerking";
+			this.Comment.Width = 283;
+			// 
 			// SchoonmaakSysteemForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +183,6 @@
 		private System.Windows.Forms.ColumnHeader Finished;
 		private System.Windows.Forms.Button btChangeDate;
 		private System.Windows.Forms.Button btFinished;
+		private System.Windows.Forms.ColumnHeader Comment;
 	}
 }
