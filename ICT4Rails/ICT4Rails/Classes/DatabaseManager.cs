@@ -16,8 +16,11 @@ namespace ICT4Rails
         {
             get
             {
-                connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
-                connection.Open();
+                if ( (connection != null) && (connection.State != ConnectionState.Open) )
+                {
+                    connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                    connection.Open();
+                }
                 return connection;
             }
         }
@@ -46,7 +49,6 @@ namespace ICT4Rails
 
         public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
-            //OracleTransaction transaction = connection.BeginTransaction();
             OracleCommand command = new OracleCommand(sqlquery, Connection);
 
             if(parameters != null)
@@ -83,36 +85,34 @@ namespace ICT4Rails
 
         public static void ExecuteDeleteQuery(string sqlquery, OracleParameter[] parameters)
         {
-            OracleConnection connection = Connection;
-            OracleTransaction transaction = connection.BeginTransaction();
-            OracleCommand command = new OracleCommand(sqlquery, connection);
+            using (Connection)
+            using (OracleTransaction OT = Connection.BeginTransaction())
+            {
+                OracleCommand command = new OracleCommand(sqlquery, connection);
+                if(parameters.Count() != 0)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
 
-            if (parameters != null)
-            {
-                command.Parameters.AddRange(parameters);
+                try
+                {
+                    command.ExecuteNonQuery();
+                    OT.Commit();
+                }
+                catch (OracleException OE)
+                {
+                    Console.WriteLine(OE.Message);
+                }
             }
-
-            try
-            {
-                command.ExecuteNonQuery();
-                transaction.Commit();
-            }
-            catch (OracleException OE)
-            {
-                Console.WriteLine(OE.Message);
-            }
-            connection.Close();
         }
 
         public static bool CheckConnection()
         {
-            if(Connection.State == ConnectionState.Closed)
+            using (Connection)
             {
-                return false;
+                return true;
             }
-
-
-            return true;
+            return false;
         }
     }
 }
