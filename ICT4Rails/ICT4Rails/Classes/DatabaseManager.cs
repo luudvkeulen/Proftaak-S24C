@@ -25,39 +25,35 @@ namespace ICT4Rails
             }
         }
 
-        //http://stackoverflow.com/questions/12568100/connecting-to-oracle-database-through-c
-        //Website used for the Database Manager.
-        /*public static OracleConnection Connect()
-        {
-            Connection = new OracleConnection();
-            if (Connection.State != ConnectionState.Open)
-            {
-                Connection.ConnectionString = ConfigurationManager.ConnectionStrings["DBC"].ConnectionString;
-                try
-                {
-                    Connection.Open();
-                }
-                catch (OracleException OE)
-                {
-                    Console.WriteLine(OE.Message);
-                    return null;
-                }
-                Console.WriteLine("Connected to Oracle" + Connection.ServerVersion);
-            }
-            return Connection;
-        }*/
-
         public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
-            OracleCommand command = new OracleCommand(sqlquery, Connection);
-
-            if(parameters != null)
+            using (Connection)
+            using (OracleCommand command = new OracleCommand(sqlquery, Connection))
             {
-                command.Parameters.AddRange(parameters);
+                command.CommandType = CommandType.StoredProcedure;
+                if (parameters.Count() != 0)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                OracleDataReader reader = command.ExecuteReader();
             }
-            
-            OracleDataReader reader = command.ExecuteReader();
-            return reader;
+            return null;
+        }
+
+        public static DataTable ExecuteReadQuery(string procedure)
+        {
+            using (Connection)
+            using (OracleCommand command = new OracleCommand(procedure, Connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                DataTable DT = new DataTable();
+                using (OracleDataReader reader = command.ExecuteReader())
+                {
+                    DT.Load(reader);
+                }
+                return DT;
+            }
         }
 
         public static void ExecuteInsertQuery(string sqlquery, OracleParameter[] parameters)
