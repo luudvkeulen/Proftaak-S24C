@@ -39,9 +39,16 @@ namespace ICT4Rails
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            UpdateGrid();
         }
 
+        /// <summary>
+        /// Add a new label
+        /// </summary>
+        /// <param name="ColumnRow"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private Label AddLabel(string ColumnRow, string text)
         {
             Label l = new Label();
@@ -57,8 +64,13 @@ namespace ICT4Rails
             return l;
         }
 
+        /// <summary>
+        /// Update the Grid 
+        /// </summary>
         private void UpdateGrid()
         {
+            tlpGrid.Controls.Clear();
+
             foreach (Label l in labels)
             {
                 string columnString = l.Tag.ToString();
@@ -76,6 +88,9 @@ namespace ICT4Rails
             }
         }
 
+        /// <summary>
+        /// Standard Rails for the grid
+        /// </summary>
         private void StandardRailLocation()
         {
             int column = 0;
@@ -134,6 +149,11 @@ namespace ICT4Rails
             }
         }
 
+        /// <summary>
+        /// Add a Rail to the grid
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="text"></param>
         private void AddRail(string location, string text)
         {
             Label l = AddLabel(location, text);
@@ -143,6 +163,11 @@ namespace ICT4Rails
             labels.Add(l);
         }
 
+        /// <summary>
+        /// Add a Sector to the grid
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="text"></param>
         private void AddSector(string location, string text)
         {
             Label l = AddLabel(location, text);
@@ -152,9 +177,14 @@ namespace ICT4Rails
             labels.Add(l);
         }
 
+        /// <summary>
+        /// EventHandler for click on label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Label_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("het werkt lul");
+            //TODO: functionaliteit voor extra form
         }
     }
 }
