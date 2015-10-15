@@ -16,37 +16,21 @@ namespace ICT4Rails
         {
             get
             {
-                if ( (connection != null) && (connection.State != ConnectionState.Open) )
-                {
-                    connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
-                    connection.Open();
-                }
+                connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                connection.Open();
                 return connection;
             }
         }
 
-        public static OracleDataReader ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
+        public static DataTable ExecuteReadQuery(string sqlquery, OracleParameter[] parameters)
         {
             using (Connection)
             using (OracleCommand command = new OracleCommand(sqlquery, Connection))
             {
-                command.CommandType = CommandType.StoredProcedure;
-                if (parameters.Count() != 0)
+                if (parameters != null)
                 {
                     command.Parameters.AddRange(parameters);
                 }
-
-                OracleDataReader reader = command.ExecuteReader();
-            }
-            return null;
-        }
-
-        public static DataTable ExecuteReadQuery(string procedure)
-        {
-            using (Connection)
-            using (OracleCommand command = new OracleCommand(procedure, Connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
                 DataTable DT = new DataTable();
                 using (OracleDataReader reader = command.ExecuteReader())
                 {
@@ -85,7 +69,7 @@ namespace ICT4Rails
             using (OracleTransaction OT = Connection.BeginTransaction())
             {
                 OracleCommand command = new OracleCommand(sqlquery, connection);
-                if(parameters.Count() != 0)
+                if(parameters != null)
                 {
                     command.Parameters.AddRange(parameters);
                 }
@@ -104,11 +88,16 @@ namespace ICT4Rails
 
         public static bool CheckConnection()
         {
-            using (Connection)
+            try
             {
+                OracleConnection con = Connection;
+                con.Close();
                 return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

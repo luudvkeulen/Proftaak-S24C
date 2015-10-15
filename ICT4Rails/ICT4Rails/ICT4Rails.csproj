@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DatabaseQuerys.cs" />
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Rail.cs" />
     <Compile Include="Classes\Sector.cs" />
@@ -187,7 +188,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Fakes Include="Fakes\Oracle.ManagedDataAccess.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

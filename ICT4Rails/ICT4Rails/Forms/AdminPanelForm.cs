@@ -44,14 +44,13 @@ namespace ICT4Rails
         {
 			listUsers.Items.Clear();
 
-			//listUsers.Items.Clear();
-   //         List<Login> logins = UserManager.GetAllLogins();
-   //         foreach (Login login in logins)
-   //         {
-   //             ListViewItem lvi = new ListViewItem(login.UserName);
-   //             lvi.SubItems.Add(login.Role);
-   //             listUsers.Items.Add(lvi);
-   //         }
+            List<Login> logins = UserManager.GetAllLogins();
+            foreach (Login login in logins)
+            {
+                ListViewItem lvi = new ListViewItem(login.UserName);
+                lvi.SubItems.Add(login.Role);
+                listUsers.Items.Add(lvi);
+            }
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)

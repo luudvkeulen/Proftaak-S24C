@@ -66,11 +66,11 @@ namespace ICT4Rails
                     break;
             }
 
-            if(UserManager.CreateUser(Username, password, role))
+            /*if(UserManager.CreateUser(Username, password, role))
             {
                 MessageBox.Show("Gebruiker: " + Username + "aangemaakt.");
                 Close();
-            }
+            }*/
         }
     }
 }
