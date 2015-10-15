@@ -47,12 +47,11 @@ namespace ICT4Rails
 
         public static void RemoveUser(string username)
         {
-            string deletestring = "DELETE FROM USERS WHERE USERNAME=:username";
             OracleParameter[] parameters = new OracleParameter[]
             {
                 new OracleParameter("username", username)
             };
-            DatabaseManager.ExecuteDeleteQuery(deletestring, parameters);
+            DatabaseManager.ExecuteDeleteQuery(DatabaseQuerys.query["RemoveUser"], parameters);
         }
 
         public static Login AuthenticateUser(string Username, string password)
