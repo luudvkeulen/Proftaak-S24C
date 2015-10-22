@@ -170,6 +170,12 @@
       <DependentUpon>TechniekSysteemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Models\User.cs" />
+    <Compile Include="Forms\SectorPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SectorPropertiesForm.Designer.cs">
+      <DependentUpon>SectorPropertiesForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Forms\SectorPropertiesForm.resx">
+      <DependentUpon>SectorPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
