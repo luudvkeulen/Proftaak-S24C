@@ -63,6 +63,16 @@ namespace ICT4Rails.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _232B {
+            get {
+                object obj = ResourceManager.GetObject("232B", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap darkrailbackground {
             get {
                 object obj = ResourceManager.GetObject("darkrailbackground", resourceCulture);
