@@ -39,6 +39,7 @@
 			this.OPMERKING = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
+			this.FINISHED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnBack
@@ -81,6 +82,7 @@
             this.DATEADDED,
             this.DATEFINISHED,
             this.FINISHEDBY,
+            this.FINISHED,
             this.OPMERKING});
 			this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvTrams.Location = new System.Drawing.Point(195, 95);
@@ -108,12 +110,12 @@
 			// FINISHEDBY
 			// 
 			this.FINISHEDBY.Text = "Schoonmaker";
-			this.FINISHEDBY.Width = 113;
+			this.FINISHEDBY.Width = 141;
 			// 
 			// OPMERKING
 			// 
 			this.OPMERKING.Text = "Opmerking";
-			this.OPMERKING.Width = 283;
+			this.OPMERKING.Width = 134;
 			// 
 			// btChangeDate
 			// 
@@ -143,6 +145,10 @@
 			this.btFinished.UseVisualStyleBackColor = false;
 			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
+			// FINISHED
+			// 
+			this.FINISHED.Text = "Klaar";
+			// 
 			// SchoonmaakSysteemForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +169,7 @@
 			this.ShowIcon = false;
 			this.Text = "OverviewForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Shown += new System.EventHandler(this.SchoonmaakSysteemForm_Shown);
 			this.ResumeLayout(false);
 
         }
@@ -179,5 +186,6 @@
 		private System.Windows.Forms.Button btChangeDate;
 		private System.Windows.Forms.Button btFinished;
 		private System.Windows.Forms.ColumnHeader OPMERKING;
+		private System.Windows.Forms.ColumnHeader FINISHED;
 	}
 }

@@ -15,13 +15,15 @@ namespace ICT4Rails
 		TramManager tm = new TramManager();
         public SchoonmaakSysteemForm()
         {
-			RefreshListview();
             InitializeComponent();
-        }
+		}
 
 		private void RefreshListview()
 		{
-			tm.GetTramList();
+			foreach (var item in tm.GetTramCleanListView())
+			{
+				lvTrams.Items.Add(item);
+            }
         }
 
 		private void btnBack_Click(object sender, EventArgs e)
@@ -40,5 +42,10 @@ namespace ICT4Rails
 			//ChangeTramCleaningDate();
 			RefreshListview();
         }
+
+		private void SchoonmaakSysteemForm_Shown(object sender, EventArgs e)
+		{
+			RefreshListview();
+		}
 	}
 }

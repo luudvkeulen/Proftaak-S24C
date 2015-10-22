@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ICT4Rails
 {
@@ -40,7 +41,30 @@ namespace ICT4Rails
 		{
 
 		}
+		public List<ListViewItem> GetMaintenensCleanListView()
+		{
+			List<ListViewItem> mList = new List<ListViewItem>();
+			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetTech"], null);
+			foreach (DataRow row in DT.Rows)
+			{
+				ListViewItem item = new ListViewItem(row[9].ToString());
+				item.SubItems.Add(row[0].ToString());
+				item.SubItems.Add(row[1].ToString());
+				item.SubItems.Add(row[3].ToString());
+				if (row[2].ToString() == "0")
+				{
+					item.SubItems.Add("Nee");
+				}
+				else
+				{
+					item.SubItems.Add("Ja");
+				}
+				item.SubItems.Add(row[4].ToString());
 
+				mList.Add(item);
+			}
+			return mList;
+		}
 		//Schoonmaaksysteem
 		public void ChangeTramCleaningDate(Tram tram, DateTime date)
 		{
@@ -50,17 +74,30 @@ namespace ICT4Rails
 		{
 
 		}
-
-		public List<Maintenance> GetTramList()
+		public List<ListViewItem> GetTramCleanListView()
 		{
-			List<Maintenance> mList = new List<Maintenance>();
+			List<ListViewItem> mList = new List<ListViewItem>();
 			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetClean"], null);
 			foreach (DataRow row in DT.Rows)
 			{
+				ListViewItem item = new ListViewItem(row[9].ToString());
+				item.SubItems.Add(row[0].ToString());
+				item.SubItems.Add(row[1].ToString());
+				item.SubItems.Add(row[3].ToString());
+				if (row[2].ToString() == "0")
+				{
+					item.SubItems.Add("Nee");
+				}
+				else
+				{
+					item.SubItems.Add("Ja");
+				}
+				item.SubItems.Add(row[4].ToString());
 
-				//mList.Add(new Maintenance())
+				mList.Add(item);
 			}
 			return mList;
-		} 
+		}
+
 	}
 }

@@ -169,6 +169,7 @@
 			this.ShowIcon = false;
 			this.Text = "OverviewForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Shown += new System.EventHandler(this.TechniekSysteemForm_Shown);
 			this.ResumeLayout(false);
 
         }
