@@ -30,16 +30,16 @@
         {
 			this.btnBack = new System.Windows.Forms.Button();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
 			this.lvTrams = new System.Windows.Forms.ListView();
 			this.TRAMID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DATEADDED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.DATEFINISHED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.FINISHEDBY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.FINISHED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.OPMERKING = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
-			this.FINISHED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnBack
@@ -65,13 +65,13 @@
 			this.cbUsers.Size = new System.Drawing.Size(356, 21);
 			this.cbUsers.TabIndex = 19;
 			// 
-			// dateTimePicker1
+			// dtpEndDate
 			// 
-			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.dateTimePicker1.Location = new System.Drawing.Point(565, 506);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
-			this.dateTimePicker1.TabIndex = 18;
+			this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.dtpEndDate.Location = new System.Drawing.Point(565, 506);
+			this.dtpEndDate.Name = "dtpEndDate";
+			this.dtpEndDate.Size = new System.Drawing.Size(356, 20);
+			this.dtpEndDate.TabIndex = 18;
 			// 
 			// lvTrams
 			// 
@@ -112,6 +112,10 @@
 			this.FINISHEDBY.Text = "Schoonmaker";
 			this.FINISHEDBY.Width = 141;
 			// 
+			// FINISHED
+			// 
+			this.FINISHED.Text = "Klaar";
+			// 
 			// OPMERKING
 			// 
 			this.OPMERKING.Text = "Opmerking";
@@ -145,10 +149,6 @@
 			this.btFinished.UseVisualStyleBackColor = false;
 			this.btFinished.Click += new System.EventHandler(this.btFinished_Click);
 			// 
-			// FINISHED
-			// 
-			this.FINISHED.Text = "Klaar";
-			// 
 			// SchoonmaakSysteemForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,7 +157,7 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1117, 708);
 			this.Controls.Add(this.cbUsers);
-			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.dtpEndDate);
 			this.Controls.Add(this.lvTrams);
 			this.Controls.Add(this.btChangeDate);
 			this.Controls.Add(this.btFinished);
@@ -177,7 +177,7 @@
         #endregion
         private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.ComboBox cbUsers;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dtpEndDate;
 		private System.Windows.Forms.ListView lvTrams;
 		private System.Windows.Forms.ColumnHeader TRAMID;
 		private System.Windows.Forms.ColumnHeader DATEADDED;

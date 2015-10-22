@@ -66,7 +66,7 @@ namespace ICT4Rails
 			return mList;
 		}
 		//Schoonmaaksysteem
-		public void ChangeTramCleaningDate(Tram tram, DateTime date)
+		public void ChangeTramCleaningDate(string tramID, DateTime date)
 		{
 
 		}

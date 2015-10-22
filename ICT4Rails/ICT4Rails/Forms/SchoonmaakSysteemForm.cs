@@ -20,6 +20,7 @@ namespace ICT4Rails
 
 		private void RefreshListview()
 		{
+			lvTrams.Items.Clear();
 			foreach (var item in tm.GetTramCleanListView())
 			{
 				lvTrams.Items.Add(item);
@@ -39,7 +40,7 @@ namespace ICT4Rails
 
 		private void btChangeDate_Click(object sender, EventArgs e)
 		{
-			//ChangeTramCleaningDate();
+			tm.ChangeTramCleaningDate(lvTrams.SelectedItems[0].Text, dtpEndDate.Value);
 			RefreshListview();
         }
 

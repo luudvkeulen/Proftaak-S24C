@@ -20,6 +20,7 @@ namespace ICT4Rails
 
 		private void RefreshListview()
 		{
+			lvTrams.Items.Clear();
 			foreach (var item in tm.GetMaintenensCleanListView())
 			{
 				lvTrams.Items.Add(item);
