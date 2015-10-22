@@ -26,7 +26,6 @@ namespace ICT4Rails
 
         void rfid_Tag(object sender, TagEventArgs e)
         {
-            
             if (e.Tag == "2800a7bcc2")
             {
                 txtTramNumber.Text = "1";
@@ -40,7 +39,6 @@ namespace ICT4Rails
             {
                 txtTramNumber.Text = "3";
             }
-            
         }
 
 
@@ -61,13 +59,7 @@ namespace ICT4Rails
             }
             else if(btn == btnConfirm)
             {
-                foreach(Button button in buttons)
-                {
-                    button.Enabled = false;
-                }
-                btnRecover.Enabled = true;
-                checkCleaning.Enabled = false;
-                checkRepair.Enabled = false;
+                DisableButtons();
             }
             else
             {
@@ -94,11 +86,37 @@ namespace ICT4Rails
         private void InUitRijSyteemForm_Shown(object sender, EventArgs e)
         {
             rfid = new RFID();
-
             rfid.Tag += new TagEventHandler(rfid_Tag);
-            rfid.open();
+            try
+            {
+                rfid.open();
+            }
+            catch (PhidgetException PE)
+            {
+                MessageBox.Show(PE.Message);
+            }
+        }
+        
+        private void DisableButtons()
+        {
+            foreach (Button button in buttons)
+            {
+                button.Enabled = false;
+            }
+            btnRecover.Enabled = true;
+            checkCleaning.Enabled = false;
+            checkRepair.Enabled = false;
         }
 
-       
+        private void InUitRijSyteemForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            rfid.Tag -= rfid_Tag;
+            rfid.close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
