@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Classes\Data\DatabaseQuerys.cs" />
     <Compile Include="Classes\Models\Login.cs" />
+    <Compile Include="Classes\Models\Maintenance.cs" />
     <Compile Include="Classes\Models\Rail.cs" />
     <Compile Include="Classes\Models\Sector.cs" />
     <Compile Include="Classes\Models\Tram.cs" />
@@ -108,9 +109,7 @@
     <Compile Include="Forms\AdminPanelForm.Designer.cs">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BeheerSysteemForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\BeheerSysteemForm.cs" />
     <Compile Include="Forms\BeheerSysteemForm.Designer.cs">
       <DependentUpon>BeheerSysteemForm.cs</DependentUpon>
     </Compile>

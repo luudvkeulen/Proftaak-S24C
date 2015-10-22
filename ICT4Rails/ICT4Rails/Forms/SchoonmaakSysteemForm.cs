@@ -20,16 +20,7 @@ namespace ICT4Rails
 
 		private void RefreshListview()
 		{
-			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetClean"], null);
-			foreach (DataRow row in DT.Rows)
-			{
-				ListViewItem item = new ListViewItem(row[0].ToString());
-				for (int i = 1; i < DT.Columns.Count; i++)
-				{
-					item.SubItems.Add(row[i].ToString());
-				}
-				lvTrams.Items.Add(item);
-			}
+			
 		}
 
 		private void btnBack_Click(object sender, EventArgs e)

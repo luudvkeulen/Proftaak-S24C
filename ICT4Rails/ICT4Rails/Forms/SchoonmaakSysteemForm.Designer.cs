@@ -32,12 +32,11 @@
 			this.cbUsers = new System.Windows.Forms.ComboBox();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.lvTrams = new System.Windows.Forms.ListView();
-			this.Tram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.Cleaner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.TRAMID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.DATEADDED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.DATEFINISHED = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.FINISHEDBY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.OPMERKING = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btChangeDate = new System.Windows.Forms.Button();
 			this.btFinished = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -78,12 +77,11 @@
 			this.lvTrams.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lvTrams.BackColor = System.Drawing.Color.Silver;
 			this.lvTrams.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Tram,
-            this.StartDate,
-            this.EndDate,
-            this.Cleaner,
-            this.Finished,
-            this.Comment});
+            this.TRAMID,
+            this.DATEADDED,
+            this.DATEFINISHED,
+            this.FINISHEDBY,
+            this.OPMERKING});
 			this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lvTrams.Location = new System.Drawing.Point(195, 95);
 			this.lvTrams.Name = "lvTrams";
@@ -92,34 +90,30 @@
 			this.lvTrams.UseCompatibleStateImageBehavior = false;
 			this.lvTrams.View = System.Windows.Forms.View.Details;
 			// 
-			// Tram
+			// TRAMID
 			// 
-			this.Tram.Text = "Tram";
-			this.Tram.Width = 56;
+			this.TRAMID.Text = "Tram";
+			this.TRAMID.Width = 56;
 			// 
-			// StartDate
+			// DATEADDED
 			// 
-			this.StartDate.Text = "Begindatum";
-			this.StartDate.Width = 104;
+			this.DATEADDED.Text = "Begindatum";
+			this.DATEADDED.Width = 104;
 			// 
-			// EndDate
+			// DATEFINISHED
 			// 
-			this.EndDate.Text = "Einddatum";
-			this.EndDate.Width = 103;
+			this.DATEFINISHED.Text = "Einddatum";
+			this.DATEFINISHED.Width = 103;
 			// 
-			// Cleaner
+			// FINISHEDBY
 			// 
-			this.Cleaner.Text = "Schoonmaker";
-			this.Cleaner.Width = 113;
+			this.FINISHEDBY.Text = "Schoonmaker";
+			this.FINISHEDBY.Width = 113;
 			// 
-			// Finished
+			// OPMERKING
 			// 
-			this.Finished.Text = "Klaar";
-			// 
-			// Comment
-			// 
-			this.Comment.Text = "Opmerking";
-			this.Comment.Width = 283;
+			this.OPMERKING.Text = "Opmerking";
+			this.OPMERKING.Width = 283;
 			// 
 			// btChangeDate
 			// 
@@ -178,13 +172,12 @@
 		private System.Windows.Forms.ComboBox cbUsers;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ListView lvTrams;
-		private System.Windows.Forms.ColumnHeader Tram;
-		private System.Windows.Forms.ColumnHeader StartDate;
-		private System.Windows.Forms.ColumnHeader EndDate;
-		private System.Windows.Forms.ColumnHeader Cleaner;
-		private System.Windows.Forms.ColumnHeader Finished;
+		private System.Windows.Forms.ColumnHeader TRAMID;
+		private System.Windows.Forms.ColumnHeader DATEADDED;
+		private System.Windows.Forms.ColumnHeader DATEFINISHED;
+		private System.Windows.Forms.ColumnHeader FINISHEDBY;
 		private System.Windows.Forms.Button btChangeDate;
 		private System.Windows.Forms.Button btFinished;
-		private System.Windows.Forms.ColumnHeader Comment;
+		private System.Windows.Forms.ColumnHeader OPMERKING;
 	}
 }
