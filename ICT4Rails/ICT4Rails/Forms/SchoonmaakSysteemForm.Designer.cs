@@ -31,7 +31,7 @@
 			this.btnBack = new System.Windows.Forms.Button();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.lvTrains = new System.Windows.Forms.ListView();
+			this.lvTrams = new System.Windows.Forms.ListView();
 			this.Tram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -73,24 +73,24 @@
 			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
 			this.dateTimePicker1.TabIndex = 18;
 			// 
-			// lvTrains
+			// lvTrams
 			// 
-			this.lvTrains.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lvTrains.BackColor = System.Drawing.Color.Silver;
-			this.lvTrains.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.lvTrams.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lvTrams.BackColor = System.Drawing.Color.Silver;
+			this.lvTrams.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Tram,
             this.StartDate,
             this.EndDate,
             this.Cleaner,
             this.Finished,
             this.Comment});
-			this.lvTrains.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lvTrains.Location = new System.Drawing.Point(195, 95);
-			this.lvTrains.Name = "lvTrains";
-			this.lvTrains.Size = new System.Drawing.Size(726, 395);
-			this.lvTrains.TabIndex = 17;
-			this.lvTrains.UseCompatibleStateImageBehavior = false;
-			this.lvTrains.View = System.Windows.Forms.View.Details;
+			this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lvTrams.Location = new System.Drawing.Point(195, 95);
+			this.lvTrams.Name = "lvTrams";
+			this.lvTrams.Size = new System.Drawing.Size(726, 395);
+			this.lvTrams.TabIndex = 17;
+			this.lvTrams.UseCompatibleStateImageBehavior = false;
+			this.lvTrams.View = System.Windows.Forms.View.Details;
 			// 
 			// Tram
 			// 
@@ -158,7 +158,7 @@
 			this.ClientSize = new System.Drawing.Size(1117, 708);
 			this.Controls.Add(this.cbUsers);
 			this.Controls.Add(this.dateTimePicker1);
-			this.Controls.Add(this.lvTrains);
+			this.Controls.Add(this.lvTrams);
 			this.Controls.Add(this.btChangeDate);
 			this.Controls.Add(this.btFinished);
 			this.Controls.Add(this.btnBack);
@@ -177,7 +177,7 @@
         private System.Windows.Forms.Button btnBack;
 		private System.Windows.Forms.ComboBox cbUsers;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
-		private System.Windows.Forms.ListView lvTrains;
+		private System.Windows.Forms.ListView lvTrams;
 		private System.Windows.Forms.ColumnHeader Tram;
 		private System.Windows.Forms.ColumnHeader StartDate;
 		private System.Windows.Forms.ColumnHeader EndDate;
