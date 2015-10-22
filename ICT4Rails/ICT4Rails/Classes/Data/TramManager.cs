@@ -51,13 +51,16 @@ namespace ICT4Rails
 
 		}
 
-		public void GetTramList()
+		public List<Maintenance> GetTramList()
 		{
+			List<Maintenance> mList = new List<Maintenance>();
 			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetClean"], null);
 			foreach (DataRow row in DT.Rows)
 			{
-				
+
+				//mList.Add(new Maintenance())
 			}
+			return mList;
 		} 
 	}
 }

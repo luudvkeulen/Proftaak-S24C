@@ -12,6 +12,7 @@ namespace ICT4Rails
 {
     public partial class SchoonmaakSysteemForm : Form
     {
+		TramManager tm = new TramManager();
         public SchoonmaakSysteemForm()
         {
 			RefreshListview();
@@ -20,8 +21,8 @@ namespace ICT4Rails
 
 		private void RefreshListview()
 		{
-			
-		}
+			tm.GetTramList();
+        }
 
 		private void btnBack_Click(object sender, EventArgs e)
         {
