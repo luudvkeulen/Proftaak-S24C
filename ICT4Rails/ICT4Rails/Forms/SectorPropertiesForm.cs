@@ -16,43 +16,48 @@ namespace ICT4Rails
         public string SectorText { get; set; }
         public int Position { get; set; }
         public int RailID { get; set; }
-        public int TramName { get; set; }
+        public string TramID { get; set; }
 
-        public SectorPropertiesForm(bool available, int position, int railID, int tramName)
+        public SectorPropertiesForm(bool available, int position, int railID, string tramID)
         {
             InitializeComponent();
 
             Available = available;
             Position = position;
             RailID = railID;
-            TramName = tramName;
+            TramID = tramID;
 
             UpdateGui();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            UpdateGui();
             UpdateDataBase();
             this.Hide();
         }
 
         private void UpdateGui()
         {
-            if(!Available)
+            if (!Available)
             {
                 SectorText = "X";
                 cbBlocked.Checked = true;
             }
             else
             {
-                SectorText = TramName.ToString();
+                SectorText = TramID.ToString();
                 cbBlocked.Checked = false;
             }
         }
-
         private void UpdateDataBase()
         {
 
+        }
+
+        private void cbBlocked_CheckedChanged(object sender, EventArgs e)
+        {
+            Available = !cbBlocked.Checked;
         }
     }
 }

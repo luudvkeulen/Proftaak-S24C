@@ -12,14 +12,20 @@ namespace ICT4Rails
 		public int Position { get; private set; }
         public string GridLocation { get; private set; }
 
-        public int TramName { get; set; }
+        public string TramID { get; set; }
         public bool Available { get; set; }
 
-        public Sector(Rail rail, int position, bool available)
+        public Sector(Rail rail, int position, bool available, string tramID)
 		{
 			Rail = rail;
 			Position = position;
 			Available = available;
+            TramID = tramID;
+
+            if(!Available)
+            {
+                TramID = "X";
+            }
 
             GridLocationMethod();
 		}

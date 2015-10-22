@@ -186,9 +186,9 @@ namespace ICT4Rails
         /// </summary>
         /// <param name="location"></param>
         /// <param name="text"></param>
-        private void AddSector(string location)
+        private void AddSector(string location, string tramID)
         {
-            Label l = AddLabel(location, " ");
+            Label l = AddLabel(location, tramID);
 
             l.BackColor = Color.Red;
             l.Click += new EventHandler(Label_Click);
@@ -203,27 +203,29 @@ namespace ICT4Rails
         /// <param name="e"></param>
         private void Label_Click(object sender, EventArgs e)
         {
-            Label selectedLabel = null;
-
-            foreach (Label l in sectorsLabel)
-            {
-                if(l == (Label)sender)
-                {
-                    selectedLabel = l;
-                }
-            }
-
+            Label selectedLabel = (Label)sender;
+            
             foreach(Sector s in sectors)
             {
                 if(s.GridLocation == selectedLabel.Tag.ToString())
                 {
-                    SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramName);
+                    SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramID);
                     spf.ShowDialog();
 
                     s.Available = spf.Available;
-                    s.TramName = spf.TramName;
+                    s.TramID = spf.TramID;
+                    
+                    selectedLabel.Text = spf.SectorText;
 
-                    selectedLabel.Text = spf.TramName.ToString();
+                    spf.Close();
+                }
+            }
+
+            foreach(Label l in sectorsLabel)
+            {
+                if(selectedLabel == l)
+                {
+                    l.Text = selectedLabel.Text;
                 }
             }
         }
@@ -236,26 +238,27 @@ namespace ICT4Rails
             int position;
             string available;
             bool availableSector;
+            string tramID;
 
             foreach (DataRow DR in DT.Rows)
             {
                 rail = Convert.ToInt32(DR["RAILID"]);
                 position = Convert.ToInt32(DR["POSITION"]);
                 available = DR["AVAILABLE"].ToString();
-                if(available=="1") { availableSector = true; }
+
+                if(available == "1") { availableSector = true; }
                 else { availableSector = false; }
-                sectors.Add(new Sector(new Rail(rail), position, availableSector));
+
+                if(DR["TRAMID"].ToString() == "") { tramID = ""; }
+                else { tramID = DR["TRAMID"].ToString(); }
+
+                sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID));
             }
 
             foreach(Sector s in sectors)
             {
-                AddSector(s.GridLocation);
+                AddSector(s.GridLocation, s.TramID);
             }
-        }
-
-        public void GetAllTrams()
-        {
-
         }
     }
 }

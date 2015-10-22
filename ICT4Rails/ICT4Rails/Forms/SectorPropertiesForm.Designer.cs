@@ -51,6 +51,7 @@
             this.cbBlocked.TabIndex = 1;
             this.cbBlocked.Text = "Geblokkeerd";
             this.cbBlocked.UseVisualStyleBackColor = true;
+            this.cbBlocked.CheckedChanged += new System.EventHandler(this.cbBlocked_CheckedChanged);
             // 
             // SectorPropertiesForm
             // 
