@@ -38,7 +38,7 @@
 			this.Engineer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Finished = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
 			this.cbUsers = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
@@ -132,13 +132,13 @@
 			this.Comment.Text = "Opmerking";
 			this.Comment.Width = 288;
 			// 
-			// dateTimePicker1
+			// dtpEndDate
 			// 
-			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.dateTimePicker1.Location = new System.Drawing.Point(565, 488);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(356, 20);
-			this.dateTimePicker1.TabIndex = 13;
+			this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.dtpEndDate.Location = new System.Drawing.Point(565, 488);
+			this.dtpEndDate.Name = "dtpEndDate";
+			this.dtpEndDate.Size = new System.Drawing.Size(356, 20);
+			this.dtpEndDate.TabIndex = 13;
 			// 
 			// cbUsers
 			// 
@@ -157,7 +157,7 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1117, 708);
 			this.Controls.Add(this.cbUsers);
-			this.Controls.Add(this.dateTimePicker1);
+			this.Controls.Add(this.dtpEndDate);
 			this.Controls.Add(this.lvTrams);
 			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btChangeDate);
@@ -169,6 +169,7 @@
 			this.ShowIcon = false;
 			this.Text = "OverviewForm";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Shown += new System.EventHandler(this.TechniekSysteemForm_Shown);
 			this.ResumeLayout(false);
 
         }
@@ -184,7 +185,7 @@
 		private System.Windows.Forms.ColumnHeader Engineer;
 		private System.Windows.Forms.ColumnHeader Finished;
 		private System.Windows.Forms.ColumnHeader EndDate;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.DateTimePicker dtpEndDate;
 		private System.Windows.Forms.ComboBox cbUsers;
 		private System.Windows.Forms.ColumnHeader Comment;
 	}
