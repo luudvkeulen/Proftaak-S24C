@@ -219,6 +219,11 @@ namespace ICT4Rails
                 {
                     SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramName);
                     spf.ShowDialog();
+
+                    s.Available = spf.Available;
+                    s.TramName = spf.TramName;
+
+                    selectedLabel.Text = spf.TramName.ToString();
                 }
             }
         }
