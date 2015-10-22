@@ -21,18 +21,18 @@ namespace ICT4Rails
 
             StandardRailLocation();
 
-            /*
+            
             for (int row = 0; row < tlpGrid.RowCount; row++)
             {
                 for (int column = 0; column < tlpGrid.ColumnCount; column++)
                 {
                     if (column == 0 && row == 2)
                     {
-                        
+                        AddSector("0 1", "12");
                     }
                 }
             }
-            */
+            
 
             UpdateGrid();
         }
