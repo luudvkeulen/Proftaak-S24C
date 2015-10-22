@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICT4Rails.Classes.Models
+namespace ICT4Rails
 {
 	public class Maintenance
 	{
