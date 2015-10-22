@@ -350,7 +350,6 @@
             this.ShowIcon = false;
             this.Text = "OverviewForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InUitRijSyteemForm_FormClosing);
             this.Shown += new System.EventHandler(this.InUitRijSyteemForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

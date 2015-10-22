@@ -39,12 +39,16 @@ namespace ICT4Rails
             {
                 txtTramNumber.Text = "3";
             }
+
+            DisableButtons();
         }
 
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             Close();
+            rfid.Tag -= rfid_Tag;
+            rfid.close();
         }
 
         private void TouchPad_Click(object sender, EventArgs e)
@@ -86,14 +90,14 @@ namespace ICT4Rails
         private void InUitRijSyteemForm_Shown(object sender, EventArgs e)
         {
             rfid = new RFID();
-            rfid.Tag += new TagEventHandler(rfid_Tag);
             try
             {
                 rfid.open();
+                rfid.Tag += new TagEventHandler(rfid_Tag);
             }
-            catch (PhidgetException PE)
+            catch
             {
-                MessageBox.Show(PE.Message);
+                MessageBox.Show("Controleer de verbinding van de RFID-lezer");
             }
         }
         
@@ -106,17 +110,6 @@ namespace ICT4Rails
             btnRecover.Enabled = true;
             checkCleaning.Enabled = false;
             checkRepair.Enabled = false;
-        }
-
-        private void InUitRijSyteemForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            rfid.Tag -= rfid_Tag;
-            rfid.close();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
