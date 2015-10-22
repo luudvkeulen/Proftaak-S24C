@@ -13,7 +13,6 @@ namespace ICT4Rails
     public partial class BeheerSysteemForm : Form
     {
         List<Label> labels = new List<Label>();
-        List<string> locations = new List<string>();
         List<Sector> sectors = new List<Sector>();
 
         public BeheerSysteemForm()
@@ -22,7 +21,9 @@ namespace ICT4Rails
 
             StandardRailLocation();
 
-            
+            GetAllSectors();
+
+            /*
             for (int row = 0; row < tlpGrid.RowCount; row++)
             {
                 for (int column = 0; column < tlpGrid.ColumnCount; column++)
@@ -33,7 +34,7 @@ namespace ICT4Rails
                     }
                 }
             }
-            
+            */
 
             UpdateGrid();
         }
@@ -169,9 +170,9 @@ namespace ICT4Rails
         /// </summary>
         /// <param name="location"></param>
         /// <param name="text"></param>
-        private void AddSector(string location, string text)
+        private void AddSector(string location)
         {
-            Label l = AddLabel(location, text);
+            Label l = AddLabel(location, null);
 
             l.Click += new EventHandler(Label_Click);
 
@@ -186,10 +187,9 @@ namespace ICT4Rails
         private void Label_Click(object sender, EventArgs e)
         {
             //TODO: functionaliteit voor extra form
+            Label l = (Label)sender;
+            MessageBox.Show("test");
         }
-
-
-
 
         public void GetAllSectors()
         {
@@ -209,8 +209,11 @@ namespace ICT4Rails
                 else { availableSector = false; }
                 sectors.Add(new Sector(new Rail(rail),position,availableSector));
             }
+
+            foreach(Sector s in sectors)
+            {
+                AddSector(s.GridLocation());
+            }
         }
-
-
     }
 }

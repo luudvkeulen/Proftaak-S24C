@@ -50,5 +50,14 @@ namespace ICT4Rails
 		{
 
 		}
+
+		public void GetTramList()
+		{
+			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetClean"], null);
+			foreach (DataRow row in DT.Rows)
+			{
+				
+			}
+		} 
 	}
 }
