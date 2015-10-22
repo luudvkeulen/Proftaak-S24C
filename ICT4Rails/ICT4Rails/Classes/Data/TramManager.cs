@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -68,7 +69,12 @@ namespace ICT4Rails
 		//Schoonmaaksysteem
 		public void ChangeTramCleaningDate(string tramID, DateTime date)
 		{
-
+			OracleParameter[] parameters = new OracleParameter[]
+			{
+				new OracleParameter("datefinished", date.ToString("MM/dd/yyyy hh:mm:ss tt")),
+                new OracleParameter("tramid", tramID)
+			};
+			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["UpdateEndDateClean"], parameters);
 		}
 		public void SetTramCleaningFinished(Tram tram, DateTime startDate, DateTime endDate)
 		{
