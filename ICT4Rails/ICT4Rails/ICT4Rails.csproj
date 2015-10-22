@@ -94,14 +94,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DatabaseQuerys.cs" />
-    <Compile Include="Classes\Login.cs" />
-    <Compile Include="Classes\Rail.cs" />
-    <Compile Include="Classes\Sector.cs" />
-    <Compile Include="Classes\Tram.cs" />
-    <Compile Include="Classes\TramManager.cs" />
-    <Compile Include="Classes\TramType.cs" />
-    <Compile Include="Classes\UserManager.cs" />
+    <Compile Include="Classes\Data\DatabaseQuerys.cs" />
+    <Compile Include="Classes\Models\Login.cs" />
+    <Compile Include="Classes\Models\Rail.cs" />
+    <Compile Include="Classes\Models\Sector.cs" />
+    <Compile Include="Classes\Models\Tram.cs" />
+    <Compile Include="Classes\Data\TramManager.cs" />
+    <Compile Include="Classes\Models\TramType.cs" />
+    <Compile Include="Classes\Data\UserManager.cs" />
     <Compile Include="Forms\AdminPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,7 +114,7 @@
     <Compile Include="Forms\BeheerSysteemForm.Designer.cs">
       <DependentUpon>BeheerSysteemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\DatabaseManager.cs" />
+    <Compile Include="Classes\Data\DatabaseManager.cs" />
     <Compile Include="Forms\CreateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,7 +153,7 @@
     <Compile Include="Forms\TechniekSysteemForm.Designer.cs">
       <DependentUpon>TechniekSysteemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Models\User.cs" />
     <EmbeddedResource Include="Forms\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </EmbeddedResource>
