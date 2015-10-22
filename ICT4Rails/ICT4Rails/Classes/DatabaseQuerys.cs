@@ -16,6 +16,7 @@ namespace ICT4Rails
 			query["GetTech"] = "SELECT m.DateAdded, m.DateFinished, m.FinishedBy, m.Opmerking, nt.RailID, nt.Name, nt.SectorID, nt.Position, nt.TramID FROM MAINTENANCE m, newTrams nt WHERE m.Type = 1 AND nt.TramID = m.TramID";
 			query["GetClean"] = "SELECT m.DateAdded, m.DateFinished, m.FinishedBy, m.Opmerking, nt.RailID, nt.Name, nt.SectorID, nt.Position, nt.TramID FROM MAINTENANCE m, newTrams nt WHERE m.Type = 0 AND nt.TramID = m.TramID";
 			query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
+            query["GetAllSectors"] = "SELECT * FROM SECTOR";
         }
     }
 }

@@ -14,6 +14,7 @@ namespace ICT4Rails
     {
         List<Label> labels = new List<Label>();
         List<string> locations = new List<string>();
+        List<Sector> sectors = new List<Sector>();
 
         public BeheerSysteemForm()
         {
@@ -186,5 +187,30 @@ namespace ICT4Rails
         {
             //TODO: functionaliteit voor extra form
         }
+
+
+
+
+        public void GetAllSectors()
+        {
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllSectors"], null);
+
+            int rail;
+            int position;
+            string available;
+            bool availableSector;
+
+            foreach (DataRow DR in DT.Rows)
+            {
+                rail = Convert.ToInt32(DR["RAILID"]);
+                position = Convert.ToInt32(DR["POSITION"]);
+                available = DR["AVAILABLE"].ToString();
+                if(available=="1") { availableSector = true; }
+                else { availableSector = false; }
+                sectors.Add(new Sector(new Rail(rail),position,availableSector));
+            }
+        }
+
+
     }
 }
