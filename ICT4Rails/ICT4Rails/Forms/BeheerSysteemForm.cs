@@ -12,7 +12,8 @@ namespace ICT4Rails
 {
     public partial class BeheerSysteemForm : Form
     {
-        List<Label> labels = new List<Label>();
+        List<Label> railsLabel = new List<Label>();
+        List<Label> sectorsLabel = new List<Label>();
         List<Sector> sectors = new List<Sector>();
 
         public BeheerSysteemForm()
@@ -41,8 +42,7 @@ namespace ICT4Rails
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            UpdateGrid();
+            this.Close();
         }
 
         /// <summary>
@@ -73,7 +73,23 @@ namespace ICT4Rails
         {
             tlpGrid.Controls.Clear();
 
-            foreach (Label l in labels)
+            foreach (Label l in railsLabel)
+            {
+                string columnString = l.Tag.ToString();
+                string rowString = l.Tag.ToString();
+
+                int spaceIndex = columnString.IndexOf(" ");
+
+                columnString = columnString.Substring(0, spaceIndex);
+                rowString = rowString.Substring(spaceIndex);
+
+                int column = Convert.ToInt32(columnString);
+                int row = Convert.ToInt32(rowString);
+
+                tlpGrid.Controls.Add(l, column, row);
+            }
+
+            foreach (Label l in sectorsLabel)
             {
                 string columnString = l.Tag.ToString();
                 string rowString = l.Tag.ToString();
@@ -162,7 +178,7 @@ namespace ICT4Rails
 
             l.BackColor = Color.LightGray;
 
-            labels.Add(l);
+            railsLabel.Add(l);
         }
 
         /// <summary>
@@ -172,11 +188,12 @@ namespace ICT4Rails
         /// <param name="text"></param>
         private void AddSector(string location)
         {
-            Label l = AddLabel(location, null);
+            Label l = AddLabel(location, " ");
 
+            l.BackColor = Color.Red;
             l.Click += new EventHandler(Label_Click);
 
-            labels.Add(l);
+            sectorsLabel.Add(l);
         }
 
         /// <summary>
@@ -186,9 +203,29 @@ namespace ICT4Rails
         /// <param name="e"></param>
         private void Label_Click(object sender, EventArgs e)
         {
-            //TODO: functionaliteit voor extra form
-            Label l = (Label)sender;
-            MessageBox.Show("test");
+            Label selectedLabel = null;
+
+            foreach (Label l in sectorsLabel)
+            {
+                if(l == (Label)sender)
+                {
+                    selectedLabel = l;
+                }
+            }
+
+            foreach(Sector s in sectors)
+            {
+                if(s.GridLocation == selectedLabel.Tag.ToString())
+                {
+                    SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramName);
+                    spf.ShowDialog();
+
+                    s.Available = spf.Available;
+                    s.TramName = spf.TramName;
+
+                    selectedLabel.Text = spf.TramName.ToString();
+                }
+            }
         }
 
         public void GetAllSectors()
@@ -207,13 +244,18 @@ namespace ICT4Rails
                 available = DR["AVAILABLE"].ToString();
                 if(available=="1") { availableSector = true; }
                 else { availableSector = false; }
-                sectors.Add(new Sector(new Rail(rail),position,availableSector));
+                sectors.Add(new Sector(new Rail(rail), position, availableSector));
             }
 
             foreach(Sector s in sectors)
             {
-                AddSector(s.GridLocation());
+                AddSector(s.GridLocation);
             }
+        }
+
+        public void GetAllTrams()
+        {
+
         }
     }
 }
