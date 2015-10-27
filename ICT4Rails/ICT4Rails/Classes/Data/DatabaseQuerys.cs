@@ -17,7 +17,7 @@ namespace ICT4Rails
             query["GetClean"] = "SELECT m.DateAdded, m.DateFinished, m.FinishedBy, e.Name, m.Opmerking, nt.RailID, nt.Name, nt.SectorID, nt.Position, nt.TramID FROM MAINTENANCE m, newTrams nt, EMPLOYEE e WHERE m.Type = 0 AND nt.TramID = m.TramID AND e.USERID = m.FinishedBy";
 			query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
             query["GetAllSectors"] = "SELECT * FROM SECTOR";
-            query["GetReservedSector"] = "SELECT SectorID FROM SECTOR WHERE TRAMID = :tramid AND ISRESERVED = 1";
+            query["GetReservedSector"] = "SELECT RAILID, SECTORID FROM SECTOR WHERE TRAMID = :tramid AND ISRESERVED = 1";
         }
     }
 }

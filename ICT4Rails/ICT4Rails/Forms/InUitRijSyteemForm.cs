@@ -66,15 +66,16 @@ namespace ICT4Rails
             if (txtTramNumber.Text.Count() > 0)
             {
                 DisableButtons();
-                int desiredsector = trammanager.GetReservedSector(Convert.ToInt32(txtTramNumber.Text));
-                if(desiredsector == 0)
+                int[] info = trammanager.GetReservedSector(Convert.ToInt32(txtTramNumber.Text));
+                if(info[0] == 0 || info[1] == 0)
                 {
                     MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
                     EnableButtons();
                 }
                 else
                 {
-                    txtDesiredRail.Text = desiredsector.ToString();
+                    txtDesiredRail.Text = info[0].ToString();
+                    txtDesiredSector.Text = info[1].ToString();
                 }
             }
             else
@@ -129,6 +130,7 @@ namespace ICT4Rails
             }
             txtTramNumber.Text = "";
             txtDesiredRail.Text = "";
+            txtDesiredSector.Text = "";
             btnRecover.Enabled = false;
             checkRepair.Enabled = true;
             checkCleaning.Enabled = true;
