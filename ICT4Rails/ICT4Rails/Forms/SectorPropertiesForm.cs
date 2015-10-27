@@ -27,6 +27,8 @@ namespace ICT4Rails
             RailID = railID;
             TramID = tramID;
 
+            this.Text = SectorText;
+
             UpdateGui();
         }
 

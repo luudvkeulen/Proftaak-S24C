@@ -71,6 +71,7 @@ namespace ICT4Rails
         /// </summary>
         private void UpdateGrid()
         {
+            tlpGrid.Visible = false;
             tlpGrid.Controls.Clear();
 
             foreach (Label l in railsLabel)
@@ -104,6 +105,7 @@ namespace ICT4Rails
 
                 tlpGrid.Controls.Add(l, column, row);
             }
+            tlpGrid.Visible = true;
         }
 
         /// <summary>
@@ -230,6 +232,10 @@ namespace ICT4Rails
             }
         }
 
+        /// <summary>
+        /// Get all the sectors from the database and place them in a list of sectors
+        /// Then get all the sectors and place them in a label list
+        /// </summary>
         public void GetAllSectors()
         {
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllSectors"], null);
