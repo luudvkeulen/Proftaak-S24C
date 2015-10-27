@@ -109,7 +109,7 @@ namespace ICT4Rails
         {
             OracleParameter[] OP = new OracleParameter[]
             {
-                new OracleParameter("tramnumber", tramnumber)
+                new OracleParameter("tramid", tramnumber)
             };
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetReservedSector"], OP);
             int sector = 0;
