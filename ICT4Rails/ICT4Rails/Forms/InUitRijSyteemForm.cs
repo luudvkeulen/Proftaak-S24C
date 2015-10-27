@@ -54,9 +54,10 @@ namespace ICT4Rails
 
         private void TouchPad_Click(object sender, EventArgs e)
         {
-            if(txtTramNumber.Text.Count() > 0)
+            Button btn = (Button)sender;
+            if (txtTramNumber.Text.Count() < txtTramNumber.MaxLength)
             {
-                txtTramNumber.Text = txtTramNumber.Text.Remove(txtTramNumber.TextLength - 1, 1);
+                txtTramNumber.Text = txtTramNumber.Text + btn.Text;
             }
         }
 
@@ -69,6 +70,7 @@ namespace ICT4Rails
                 if(desiredsector == 0)
                 {
                     MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
+                    EnableButtons();
                 }
                 else
                 {
@@ -83,24 +85,15 @@ namespace ICT4Rails
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            if (txtTramNumber.Text.Count() < txtTramNumber.MaxLength)
+            if (txtTramNumber.Text.Count() > 0)
             {
-                txtTramNumber.Text = txtTramNumber.Text + btn.Text;
+                txtTramNumber.Text = txtTramNumber.Text.Remove(txtTramNumber.TextLength - 1, 1);
             }
         }
 
         private void btnRecover_Click(object sender, EventArgs e)
         {
-            foreach(Button button in buttons)
-            {
-                button.Enabled = true;
-            }
-            txtTramNumber.Text = "";
-            txtDesiredRail.Text = "";
-            btnRecover.Enabled = false;
-            checkRepair.Enabled = true;
-            checkCleaning.Enabled = true;
+            EnableButtons();
         }
 
         private void InUitRijSyteemForm_Shown(object sender, EventArgs e)
@@ -126,6 +119,19 @@ namespace ICT4Rails
             btnRecover.Enabled = true;
             checkCleaning.Enabled = false;
             checkRepair.Enabled = false;
+        }
+
+        private void EnableButtons()
+        {
+            foreach (Button button in buttons)
+            {
+                button.Enabled = true;
+            }
+            txtTramNumber.Text = "";
+            txtDesiredRail.Text = "";
+            btnRecover.Enabled = false;
+            checkRepair.Enabled = true;
+            checkCleaning.Enabled = true;
         }
     }
 }
