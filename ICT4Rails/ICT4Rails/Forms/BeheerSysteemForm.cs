@@ -244,6 +244,8 @@ namespace ICT4Rails
             int position;
             string available;
             bool availableSector;
+            string reserved;
+            bool reservedSector;
             string tramID;
 
             foreach (DataRow DR in DT.Rows)
@@ -258,7 +260,12 @@ namespace ICT4Rails
                 if(DR["TRAMID"].ToString() == "") { tramID = ""; }
                 else { tramID = DR["TRAMID"].ToString(); }
 
-                sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID));
+                reserved = DR["ISRESERVED"].ToString();
+
+                if(reserved == "1") { reservedSector = true; }
+                else { reservedSector = false; }
+
+                sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID, reservedSector));
             }
 
             foreach(Sector s in sectors)

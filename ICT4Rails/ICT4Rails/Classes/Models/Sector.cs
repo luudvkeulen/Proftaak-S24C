@@ -15,12 +15,15 @@ namespace ICT4Rails
         public string TramID { get; set; }
         public bool Available { get; set; }
 
-        public Sector(Rail rail, int position, bool available, string tramID)
+        public bool Reserved { get; set; }
+
+        public Sector(Rail rail, int position, bool available, string tramID, bool reserved)
 		{
 			Rail = rail;
 			Position = position;
 			Available = available;
             TramID = tramID;
+            Reserved = reserved;
 
             if(!Available)
             {
