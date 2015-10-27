@@ -86,16 +86,26 @@ namespace ICT4Rails
 			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetClean"], null);
 			foreach (DataRow row in DT.Rows)
 			{
-				ListViewItem item = new ListViewItem(row[9].ToString());
-				item.SubItems.Add(row[0].ToString());
+				ListViewItem item = new ListViewItem(row[0].ToString());
 				item.SubItems.Add(row[1].ToString());
-				item.SubItems.Add(row[3].ToString());
-				if (row[2].ToString() == "0")
+				item.SubItems.Add(row[2].ToString());
+
+				if (row[3] == DBNull.Value)
 				{
+					item.SubItems.Add(row[3].ToString());
 					item.SubItems.Add("Nee");
 				}
 				else
 				{
+					OracleParameter[] parameter = new OracleParameter[]
+					{
+						new OracleParameter("USERID", Convert.ToInt32(row[3]))
+					};
+					DataTable DT2 = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetCleanUser"], parameter);
+					foreach (DataRow row2 in DT2.Rows)
+					{
+						item.SubItems.Add(row[0].ToString());
+					}
 					item.SubItems.Add("Ja");
 				}
 				item.SubItems.Add(row[4].ToString());

@@ -15,7 +15,8 @@ namespace ICT4Rails
             query["CreateLogin"] = "INSERT INTO LOGIN(USERNAME, PASSWORD, GUID, USERTYPE, USERID) values (:username, :password, :guid, :usertype, (SELECT MAX(USERID) FROM EMPLOYEE))";
 			query["GetTech"] = "SELECT m.TRAMID,m.DATEADDED,m.DATEFINISHED,m.FINISHEDBY, m.OPMERKING FROM MAINTENANCE m WHERE m.TYPE = 1";
 			query["GetClean"] = "SELECT m.TRAMID,m.DATEADDED,m.DATEFINISHED,m.FINISHEDBY, m.OPMERKING FROM MAINTENANCE m WHERE m.TYPE = 0";
-            query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
+			query["GetCleanUser"] = "SELECT e.NAME FROM EMPLOYEE e WHERE e.USERID =:USERID";
+			query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
             query["GetAllSectors"] = "SELECT * FROM SECTOR";
             query["GetReservedSector"] = "SELECT SectorID FROM SECTOR WHERE TRAMID = :tramid AND ISRESERVED = 1";
         }
