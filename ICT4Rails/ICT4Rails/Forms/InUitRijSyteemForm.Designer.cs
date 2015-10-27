@@ -219,7 +219,7 @@
             this.btnBackspace.TabIndex = 23;
             this.btnBackspace.Text = "«";
             this.btnBackspace.UseVisualStyleBackColor = true;
-            this.btnBackspace.Click += new System.EventHandler(this.TouchPad_Click);
+            this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
             // 
             // btnConfirm
             // 
@@ -232,7 +232,7 @@
             this.btnConfirm.TabIndex = 24;
             this.btnConfirm.Text = "Enter";
             this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.TouchPad_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnRecover
             // 
