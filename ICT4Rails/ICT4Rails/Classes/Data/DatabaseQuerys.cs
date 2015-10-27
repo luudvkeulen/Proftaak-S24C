@@ -18,6 +18,7 @@ namespace ICT4Rails
 			query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
             query["GetAllSectors"] = "SELECT * FROM SECTOR";
             query["UpdateAvailability"] = "";
+            query["GetReservedSector"] = "";
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ICT4Rails
     public partial class InUitRijSyteemForm : Form
     {
         private RFID rfid;
+        private TramManager trammanager = new TramManager();
 
         private Button[] buttons;
         public InUitRijSyteemForm()
@@ -53,24 +54,39 @@ namespace ICT4Rails
 
         private void TouchPad_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            if (btn == btnBackspace)
+            if(txtTramNumber.Text.Count() > 0)
             {
-                if(txtTramNumber.Text.Count() > 0)
-                {
-                    txtTramNumber.Text = txtTramNumber.Text.Remove(txtTramNumber.TextLength - 1, 1);
-                }
+                txtTramNumber.Text = txtTramNumber.Text.Remove(txtTramNumber.TextLength - 1, 1);
             }
-            else if(btn == btnConfirm)
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (txtTramNumber.Text.Count() > 0)
             {
                 DisableButtons();
+                int desiredsector = trammanager.GetReservedSector(Convert.ToInt32(txtTramNumber.Text));
+                if(desiredsector == 0)
+                {
+                    MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
+                }
+                else
+                {
+                    txtDesiredRail.Text = desiredsector.ToString();
+                }
             }
             else
             {
-                if (txtTramNumber.Text.Count() < txtTramNumber.MaxLength)
-                {
-                    txtTramNumber.Text = txtTramNumber.Text + btn.Text;
-                }
+                MessageBox.Show("Voer eerst een tramnummer in");
+            }
+        }
+
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (txtTramNumber.Text.Count() < txtTramNumber.MaxLength)
+            {
+                txtTramNumber.Text = txtTramNumber.Text + btn.Text;
             }
         }
 
