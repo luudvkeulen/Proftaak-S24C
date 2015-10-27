@@ -115,20 +115,21 @@ namespace ICT4Rails
 			return mList;
 		}
 
-        public int GetReservedSector(int tramnumber)
+        public int[] GetReservedSector(int tramnumber)
         {
             OracleParameter[] OP = new OracleParameter[]
             {
                 new OracleParameter("tramid", tramnumber)
             };
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetReservedSector"], OP);
-            int sector = 0;
+            int[] info = new int[2];
             foreach(DataRow DR in DT.Rows)
             {
-                sector = Convert.ToInt32(DR);
+                info[0] = Convert.ToInt32(DR[0]);
+                info[1] = Convert.ToInt32(DR[1]);
             }
 
-            return sector;
+            return info;
         }
 	}
 }
