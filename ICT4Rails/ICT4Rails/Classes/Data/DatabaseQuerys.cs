@@ -19,7 +19,7 @@ namespace ICT4Rails
 			query["RemoveUser"] = "DELETE FROM LOGIN WHERE USERNAME=:username";
             query["GetAllSectors"] = "SELECT * FROM SECTOR";
             query["GetReservedSector"] = "SELECT RAILID, SECTORID FROM SECTOR WHERE TRAMID = :tramid AND ISRESERVED = 1";
-			query["UpdateEndDate"] = "UPDATE MAINTENANCE SET DATEFINISHED = :datefinished WHERE TRAMID = :tramid";
+			query["UpdateEndDate"] = "UPDATE MAINTENANCE SET DATEFINISHED = TO_DATE(:datefinished,'dd/mm/yyyy hh24:mi:ss') WHERE TRAMID = :tramid";
 		}
     }
 }

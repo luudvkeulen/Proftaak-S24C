@@ -33,10 +33,6 @@ namespace ICT4Rails
 		}
 
 		//technieksysteem
-		public void ChangeTramMaintenensDate(Tram tram, DateTime date)
-		{
-
-		}
 
 		public void SetTramMaintenensFinished(Tram tram, DateTime startDate, DateTime endDate)
 		{
@@ -77,14 +73,15 @@ namespace ICT4Rails
 			return mList;
 		}
 		//Schoonmaaksysteem
-		public void ChangeTramCleaningDate(string tramID, DateTime date)
+		public void ChangeTramDate(string tramID, DateTime date)
 		{
+			MessageBox.Show(date.ToString());
 			OracleParameter[] parameters = new OracleParameter[]
 			{
-				new OracleParameter("datefinished", date.ToString("MM/dd/yyyy hh:mm:ss tt")),
+				new OracleParameter("datefinished", date.ToString()),
                 new OracleParameter("tramid", tramID)
 			};
-			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["UpdateEndDateClean"], parameters);
+			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["UpdateEndDate"], parameters);
 		}
 		public void SetTramCleaningFinished(Tram tram, DateTime startDate, DateTime endDate)
 		{
