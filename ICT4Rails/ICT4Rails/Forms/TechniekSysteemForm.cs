@@ -40,9 +40,9 @@ namespace ICT4Rails
 
 		private void btChangeDate_Click(object sender, EventArgs e)
 		{
-			//ChangeTramMaintenensDate();
+			tm.ChangeTramDate(lvTrams.SelectedItems[0].Text, dtpEndDate.Value);
 			RefreshListview();
-        }
+		}
 
 		private void TechniekSysteemForm_Shown(object sender, EventArgs e)
 		{
