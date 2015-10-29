@@ -180,7 +180,14 @@ namespace ICT4Rails
 
             l.BackColor = Color.LightGray;
 
+            l.Click += new EventHandler(Rail_Click);
+
             railsLabel.Add(l);
+        }
+
+        private void Rail_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -193,7 +200,8 @@ namespace ICT4Rails
             Label l = AddLabel(location, tramID);
 
             l.BackColor = Color.Red;
-            l.Click += new EventHandler(Label_Click);
+
+            l.Click += new EventHandler(Sector_Click);
 
             sectorsLabel.Add(l);
         }
@@ -203,7 +211,7 @@ namespace ICT4Rails
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Label_Click(object sender, EventArgs e)
+        private void Sector_Click(object sender, EventArgs e)
         {
             Label selectedLabel = (Label)sender;
             
