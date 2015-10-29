@@ -82,10 +82,82 @@ namespace ICT4Rails
                     GridLocation = string.Format("16 {0}", (Position + 1).ToString());
                     break;
                 case 58:
-                    GridLocation = string.Format("19 {0}", (Position + 1).ToString());
+                    GridLocation = string.Format("18 {0}", (Position + 1).ToString());
                     break;
                 case 57:
-                    GridLocation = string.Format("10 {0}", (Position + 1).ToString());
+                    GridLocation = string.Format("0 {0}", (Position + 14).ToString());
+                    break;
+                case 56:
+                    GridLocation = string.Format("1 {0}", (Position + 14).ToString());
+                    break;
+                case 55:
+                    GridLocation = string.Format("2 {0}", (Position + 14).ToString());
+                    break;
+                case 54:
+                    GridLocation = string.Format("3 {0}", (Position + 14).ToString());
+                    break;
+                case 53:
+                    GridLocation = string.Format("4 {0}", (Position + 14).ToString());
+                    break;
+                case 52:
+                    GridLocation = string.Format("5 {0}", (Position + 14).ToString());
+                    break;
+                case 51:
+                    GridLocation = string.Format("6 {0}", (Position + 14).ToString());
+                    break;
+                case 64:
+                    GridLocation = string.Format("7 {0}", (Position + 14).ToString());
+                    break;
+                case 63:
+                    GridLocation = string.Format("8 {0}", (Position + 14).ToString());
+                    break;
+                case 62:
+                    GridLocation = string.Format("9 {0}", (Position + 14).ToString());
+                    break;
+                case 61:
+                    GridLocation = string.Format("10 {0}", (Position + 14).ToString());
+                    break;
+                case 74:
+                    GridLocation = string.Format("12 {0}", (Position + 13).ToString());
+                    break;
+                case 75:
+                    GridLocation = string.Format("13 {0}", (Position + 13).ToString());
+                    break;
+                case 76:
+                    GridLocation = string.Format("14 {0}", (Position + 13).ToString());
+                    break;
+                case 77:
+                    GridLocation = string.Format("15 {0}", (Position + 13).ToString());
+                    break;
+                case 12:
+                    GridLocation = string.Format("18 {0}", (Position + 12).ToString());
+                    break;
+                case 13:
+                    GridLocation = string.Format("18 {0}", (Position + 13).ToString());
+                    break;
+                case 14:
+                    GridLocation = string.Format("18 {0}", (Position + 14).ToString());
+                    break;
+                case 15:
+                    GridLocation = string.Format("18 {0}", (Position + 15).ToString());
+                    break;
+                case 16:
+                    GridLocation = string.Format("18 {0}", (Position + 16).ToString());
+                    break;
+                case 17:
+                    GridLocation = string.Format("18 {0}", (Position + 17).ToString());
+                    break;
+                case 18:
+                    GridLocation = string.Format("18 {0}", (Position + 18).ToString());
+                    break;
+                case 19:
+                    GridLocation = string.Format("18 {0}", (Position + 19).ToString());
+                    break;
+                case 20:
+                    GridLocation = string.Format("18 {0}", (Position + 20).ToString());
+                    break;
+                case 21:
+                    GridLocation = string.Format("18 {0}", (Position + 21).ToString());
                     break;
             }
         }
