@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ICT4Rails
 {
-	public class Sector
+	public class Sector : IComparable<Sector>
 	{
 		public Rail Rail { get; private set; }
 		public int Position { get; private set; }
@@ -160,6 +160,20 @@ namespace ICT4Rails
                     GridLocation = string.Format("18 {0}", (Position + 21).ToString());
                     break;
             }
+        }
+
+        public int CompareTo(Sector s)
+        {
+            if(Position < s.Position)
+            {
+                return -1;
+            }
+            if(Position == s.Position)
+            {
+                return 0;
+            }
+
+            return 1;
         }
 	}
 }

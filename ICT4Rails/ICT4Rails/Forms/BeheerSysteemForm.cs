@@ -116,7 +116,7 @@ namespace ICT4Rails
             int column = 0;
             int row = 0;
 
-            for(int i = 38; i >= 30; i--)
+            for (int i = 38; i >= 30; i--)
             {
                 AddRail(column + " " + row, i.ToString());
                 column++;
@@ -124,7 +124,7 @@ namespace ICT4Rails
 
             column++;
 
-            for(int i = 40; i <= 44; i++)
+            for (int i = 40; i <= 44; i++)
             {
                 AddRail(column + " " + row, i.ToString());
                 column++;
@@ -139,22 +139,14 @@ namespace ICT4Rails
 
             column = 0;
             row = 13;
-            
-            for(int i = 57; i >= 51; i--)
+
+            for (int i = 57; i >= 51; i--)
             {
                 AddRail(column + " " + row, i.ToString());
                 column++;
             }
 
-            for(int i = 64; i >= 61; i--)
-            {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            column++;
-
-            for(int i = 74; i <= 77; i++)
+            for (int i = 64; i >= 61; i--)
             {
                 AddRail(column + " " + row, i.ToString());
                 column++;
@@ -162,7 +154,15 @@ namespace ICT4Rails
 
             column++;
 
-            for(int i = 12; i <= 21; i++)
+            for (int i = 74; i <= 77; i++)
+            {
+                AddRail(column + " " + row, i.ToString());
+                column++;
+            }
+
+            column++;
+
+            for (int i = 12; i <= 21; i++)
             {
                 AddRail(column + " " + row, i.ToString());
                 row++;
@@ -186,6 +186,46 @@ namespace ICT4Rails
         }
 
         private void Rail_Click(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            List<Sector> tempSectors = new List<Sector>();
+
+            foreach (Sector s in sectors)
+            {
+                if (s.Rail.Id.ToString() == l.Text)
+                {
+                    tempSectors.Add(s);
+                }
+            }
+
+            tempSectors.Sort();
+            Sector tempSector = tempSectors[tempSectors.Count - 1];
+            int totalPostitions = tempSector.Position;
+
+            for (int i = 0; i < totalPostitions; i++)
+            {
+                tempSector = tempSectors[i];
+                //de eerste tram weghalen
+                if (tempSector.Position == 1)
+                {
+                    tempSector.TramID = null;
+                    getLabel(tempSector);
+                    //database update --> eerste sector weghalen
+                }
+
+                if ((totalPostitions + 1) == totalPostitions)
+                {
+                    Sector nextSector = tempSectors[i + 1];
+                    tempSector.TramID = nextSector.TramID;
+
+                    //database update
+                }
+            }
+
+            UpdateGrid();
+        }
+
+        private void getLabel(Sector s)
         {
 
         }
@@ -214,26 +254,26 @@ namespace ICT4Rails
         private void Sector_Click(object sender, EventArgs e)
         {
             Label selectedLabel = (Label)sender;
-            
-            foreach(Sector s in sectors)
+
+            foreach (Sector s in sectors)
             {
-                if(s.GridLocation == selectedLabel.Tag.ToString())
+                if (s.GridLocation == selectedLabel.Tag.ToString())
                 {
                     SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramID);
                     spf.ShowDialog();
 
                     s.Available = spf.Available;
                     s.TramID = spf.TramID;
-                    
+
                     selectedLabel.Text = spf.SectorText;
 
                     spf.Close();
                 }
             }
 
-            foreach(Label l in sectorsLabel)
+            foreach (Label l in sectorsLabel)
             {
-                if(selectedLabel == l)
+                if (selectedLabel == l)
                 {
                     l.Text = selectedLabel.Text;
                 }
@@ -262,21 +302,21 @@ namespace ICT4Rails
                 position = Convert.ToInt32(DR["POSITION"]);
                 available = DR["AVAILABLE"].ToString();
 
-                if(available == "1") { availableSector = true; }
+                if (available == "1") { availableSector = true; }
                 else { availableSector = false; }
 
-                if(DR["TRAMID"].ToString() == "") { tramID = ""; }
+                if (DR["TRAMID"].ToString() == "") { tramID = ""; }
                 else { tramID = DR["TRAMID"].ToString(); }
 
                 reserved = DR["ISRESERVED"].ToString();
 
-                if(reserved == "1") { reservedSector = true; }
+                if (reserved == "1") { reservedSector = true; }
                 else { reservedSector = false; }
 
                 sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID, reservedSector));
             }
 
-            foreach(Sector s in sectors)
+            foreach (Sector s in sectors)
             {
                 AddSector(s.GridLocation, s.TramID);
             }
