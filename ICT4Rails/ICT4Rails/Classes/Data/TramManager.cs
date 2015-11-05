@@ -182,5 +182,14 @@ namespace ICT4Rails
 
             return cleaners;
         }
+
+        public void AddIncoming(string tramid)
+        {
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("tramid", tramid)
+            };
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["addtramtoincoming"], parameters);
+        }
     }
 }
