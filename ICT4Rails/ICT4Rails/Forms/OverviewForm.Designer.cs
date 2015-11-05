@@ -34,6 +34,7 @@
             this.btninuitrijsysteem = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnAdminPanel = new System.Windows.Forms.Button();
+            this.btnAankomendeTrams = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBeheerSysteem
@@ -125,6 +126,16 @@
             this.btnAdminPanel.UseVisualStyleBackColor = false;
             this.btnAdminPanel.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
+            // btnAankomendeTrams
+            // 
+            this.btnAankomendeTrams.Location = new System.Drawing.Point(763, 277);
+            this.btnAankomendeTrams.Name = "btnAankomendeTrams";
+            this.btnAankomendeTrams.Size = new System.Drawing.Size(97, 38);
+            this.btnAankomendeTrams.TabIndex = 6;
+            this.btnAankomendeTrams.Text = "tramsincoming";
+            this.btnAankomendeTrams.UseVisualStyleBackColor = true;
+            this.btnAankomendeTrams.Click += new System.EventHandler(this.btnAankomendeTrams_Click);
+            // 
             // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +143,7 @@
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(872, 579);
+            this.Controls.Add(this.btnAankomendeTrams);
             this.Controls.Add(this.btnAdminPanel);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btninuitrijsysteem);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Button btninuitrijsysteem;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnAdminPanel;
+        private System.Windows.Forms.Button btnAankomendeTrams;
     }
 }

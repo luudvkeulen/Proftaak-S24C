@@ -65,5 +65,10 @@ namespace ICT4Rails
 			RefreshListview();
             PopulateEmployees();
 		}
+
+        private void lvTrams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 	}
 }

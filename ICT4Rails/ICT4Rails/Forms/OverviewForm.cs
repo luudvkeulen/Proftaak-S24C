@@ -95,6 +95,13 @@ namespace ICT4Rails
             NewForm(form);
         }
 
+        private void btnAankomendeTrams_Click(object sender, EventArgs e)
+        {
+            AankomendeTreinen form = new AankomendeTreinen();
+            NewForm(form);
+        }
+
+
         void NewForm(Form form)
         {
             form.FormClosing += new FormClosingEventHandler(form_Closed);
@@ -107,5 +114,7 @@ namespace ICT4Rails
             Show();
             Update();
         }
+
+       
     }
 }

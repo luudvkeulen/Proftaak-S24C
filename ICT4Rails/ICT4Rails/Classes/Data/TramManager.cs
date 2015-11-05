@@ -182,5 +182,21 @@ namespace ICT4Rails
 
             return cleaners;
         }
+
+
+        public List<string> GetIncomingTrams()
+        {
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["IncomingTrams"], null);
+            List<string> incomingTrams = new List<string>();
+            foreach (DataRow DR in DT.Rows)
+            {
+                incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString());
+            }
+           
+
+            return incomingTrams;
+
+
+        }
     }
 }
