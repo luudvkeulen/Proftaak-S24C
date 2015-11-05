@@ -36,6 +36,7 @@ namespace ICT4Rails
         {
             UpdateGui();
             UpdateDataBase();
+
             this.Hide();
         }
 

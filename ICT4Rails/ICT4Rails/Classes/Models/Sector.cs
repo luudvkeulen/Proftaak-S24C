@@ -10,12 +10,12 @@ namespace ICT4Rails
 {
     public class Sector : IComparable<Sector>
     {
-        Label SectorLabel = new Label();
+        Label SectorLabel;
 
         public Rail Rail { get; private set; }
         public int Position { get; private set; }
         public string GridLocation { get; private set; }
-        public string SectorInformation { get; set; }
+        public string SectorInformation { get; private set; }
         public bool Available { get; set; }
         public bool Reserved { get; set; }
 
@@ -24,20 +24,16 @@ namespace ICT4Rails
             Rail = rail;
             Position = position;
             Available = available;
-            SectorInformation = tramID;
             Reserved = reserved;
 
-            if (!Available)
-            {
-                SectorInformation = "X";
-            }
+            CheckSectorInformation(tramID);
 
             GridLocationMethod();
         }
 
         private void GridLocationMethod()
         {
-            switch (Rail.Id)
+            switch (Rail.ID)
             {
                 case 38:
                     GridLocation = string.Format("0 {0}", (Position + 1).ToString());
@@ -179,8 +175,9 @@ namespace ICT4Rails
             return 1;
         }
 
-        public Label AddSectorLabel()
+        public Label AddSectorLabel(Form beheerform)
         {
+            SectorLabel = new Label();
             SectorLabel.Dock = DockStyle.Fill;
             SectorLabel.Margin = new Padding(1);
 
@@ -198,13 +195,35 @@ namespace ICT4Rails
 
         private void Sector_Click(object sender, EventArgs e)
         {
-            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.Id, SectorInformation);
+            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.ID, SectorInformation);
             spf.ShowDialog();
 
             Available = spf.Available;
-            SectorInformation = spf.TramID;
 
+            CheckSectorInformation(spf.TramID);
+
+            if (sender is Label)
+            {
+                Label label = (Label)sender;
+                if(label.Parent.Parent is BeheerSysteemForm)
+                {
+                    BeheerSysteemForm form = (BeheerSysteemForm)label.Parent.Parent;
+                    form.UpdateGrid();
+                }
+            }
             spf.Close();
+        }
+
+        private void CheckSectorInformation(string tramID)
+        {
+            if (!Available)
+            {
+                SectorInformation = "X";
+            }
+            else
+            {
+                SectorInformation = tramID;
+            }
         }
     }
 }
