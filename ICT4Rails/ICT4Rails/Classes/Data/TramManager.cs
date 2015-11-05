@@ -75,17 +75,37 @@ namespace ICT4Rails
 		//Schoonmaaksysteem
 		public void ChangeTramDate(string tramID, DateTime date)
 		{
-			MessageBox.Show(date.ToString());
 			OracleParameter[] parameters = new OracleParameter[]
 			{
 				new OracleParameter("datefinished", date.ToString()),
                 new OracleParameter("tramid", tramID)
 			};
-			DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["UpdateEndDate"], parameters);
+			DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateEndDate"], parameters);
 		}
-		public void SetTramCleaningFinished(Tram tram, DateTime startDate, DateTime endDate)
+		public void SetTramFinished(string tramid, DateTime endDate, string employee, int type)
 		{
+            OracleParameter[] parameters2 = new OracleParameter[]
+            {
+                new OracleParameter("employee", employee)
+            };
 
+            int employeeid = 0;
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetEmployee"], parameters2);
+            foreach(DataRow DR in DT.Rows)
+            {
+                employeeid = Convert.ToInt32(DR[0]);
+                break;
+            }
+
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("datefinished", endDate.ToString()),
+                new OracleParameter("employeeid", employeeid),
+                new OracleParameter("tramid", tramid),
+                new OracleParameter("type", type)
+            };
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["maintenancefinished"], parameters);
 		}
 		public List<ListViewItem> GetTramCleanListView()
 		{
@@ -138,5 +158,29 @@ namespace ICT4Rails
 
             return info;
         }
-	}
+
+        public List<string> GetAllCleaners()
+        {
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllCleaners"], null);
+            List<string> cleaners = new List<string>();
+            foreach(DataRow DR in DT.Rows)
+            {
+                cleaners.Add(DR[0].ToString());
+            }
+
+            return cleaners;
+        }
+
+        public List<string> GetAllEngineers()
+        {
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllEngineers"], null);
+            List<string> cleaners = new List<string>();
+            foreach (DataRow DR in DT.Rows)
+            {
+                cleaners.Add(DR[0].ToString());
+            }
+
+            return cleaners;
+        }
+    }
 }

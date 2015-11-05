@@ -27,26 +27,43 @@ namespace ICT4Rails
             }
         }
 
+        private void PopulateEmployees()
+        {
+            string[] employees = tm.GetAllCleaners().ToArray();
+            cbUsers.Items.AddRange(employees);
+            if(cbUsers.Items.Count > 0)
+            {
+                cbUsers.SelectedIndex = 0;
+            }
+        }
+
 		private void btnBack_Click(object sender, EventArgs e)
         {
             Close();
         }
 
 		private void btFinished_Click(object sender, EventArgs e)
-		{
-			//SetTramCleaningFinished();
-			RefreshListview();
+        {
+            if(cbUsers.SelectedItem.ToString() != "" && lvTrams.SelectedItems[0] != null)
+            {
+                tm.SetTramFinished(lvTrams.SelectedItems[0].Text, DateTime.Now, cbUsers.SelectedItem.ToString(), 0);
+                RefreshListview();
+            }
         }
 
 		private void btChangeDate_Click(object sender, EventArgs e)
 		{
-			tm.ChangeTramDate(lvTrams.SelectedItems[0].Text, dtpEndDate.Value);
-			RefreshListview();
+            if (lvTrams.SelectedItems[0] != null)
+            {
+                tm.ChangeTramDate(lvTrams.SelectedItems[0].Text, dtpEndDate.Value);
+                RefreshListview();
+            }
         }
 
 		private void SchoonmaakSysteemForm_Shown(object sender, EventArgs e)
 		{
 			RefreshListview();
+            PopulateEmployees();
 		}
 	}
 }

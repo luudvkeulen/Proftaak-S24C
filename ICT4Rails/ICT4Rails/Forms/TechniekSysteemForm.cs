@@ -34,8 +34,11 @@ namespace ICT4Rails
 
 		private void btFinished_Click(object sender, EventArgs e)
 		{
-			//SetTramMaintenensFinished();
-			RefreshListview();
+            if (lvTrams.SelectedItems[0] != null)
+            {
+                tm.SetTramFinished(lvTrams.SelectedItems[0].Text, DateTime.Now, cbUsers.SelectedItem.ToString(), 1);
+                RefreshListview();
+            }
 		}
 
 		private void btChangeDate_Click(object sender, EventArgs e)
@@ -47,6 +50,17 @@ namespace ICT4Rails
 		private void TechniekSysteemForm_Shown(object sender, EventArgs e)
 		{
 			RefreshListview();
+            PopulateEmployees();
 		}
-	}
+
+        private void PopulateEmployees()
+        {
+            string[] employees = tm.GetAllEngineers().ToArray();
+            cbUsers.Items.AddRange(employees);
+            if (cbUsers.Items.Count > 0)
+            {
+                cbUsers.SelectedIndex = 0;
+            }
+        }
+    }
 }

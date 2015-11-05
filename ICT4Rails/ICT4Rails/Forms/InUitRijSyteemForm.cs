@@ -27,18 +27,18 @@ namespace ICT4Rails
 
         void rfid_Tag(object sender, TagEventArgs e)
         {
-            if (e.Tag == "2800a7bcc2")
+            if (e.Tag == "1a008cceb6")
             {
-                txtTramNumber.Text = "1";
+                txtTramNumber.Text = "2203";
             }
-            else if (e.Tag == "28002b4194")
+            else if (e.Tag == "1c00fcb1eb")
             {
-                txtTramNumber.Text = "2";
+                txtTramNumber.Text = "818";
             }
 
-            else if (e.Tag == "1100ad7362")
+            else if (e.Tag == "160052adc4")
             {
-                txtTramNumber.Text = "3";
+                txtTramNumber.Text = "809";
             }
 
             DisableButtons();
@@ -104,6 +104,8 @@ namespace ICT4Rails
             {
                 rfid.open();
                 rfid.Tag += new TagEventHandler(rfid_Tag);
+                rfid.Antenna = true;
+                rfid.LED = true;
             }
             catch
             {
