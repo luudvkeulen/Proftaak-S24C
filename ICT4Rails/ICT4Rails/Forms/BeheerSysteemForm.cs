@@ -12,8 +12,8 @@ namespace ICT4Rails
 {
     public partial class BeheerSysteemForm : Form
     {
-        List<Rail> rails = new List<Rail>();
-        List<Sector> sectors = new List<Sector>();
+        public List<Rail> Rails { get; private set; }
+        public List<Sector> Sectors { get; private set; }
 
         /// <summary>
         /// Constructor
@@ -22,11 +22,12 @@ namespace ICT4Rails
         {
             InitializeComponent();
 
+            Rails = new List<Rail>();
+            Sectors = new List<Sector>();
+
             GetAllRails();
 
             GetAllSectors();
-
-            UpdateGrid();
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace ICT4Rails
             tlpGrid.Visible = false;
             tlpGrid.Controls.Clear();
 
-            foreach (Sector s in sectors)
+            foreach (Sector s in Sectors)
             {
                 Label l = s.AddSectorLabel(this);
 
@@ -65,7 +66,7 @@ namespace ICT4Rails
                 tlpGrid.Controls.Add(l, column, row);
             }
 
-            foreach (Rail r in rails)
+            foreach (Rail r in Rails)
             {
                 Label l = r.AddRailLabel();
 
@@ -98,14 +99,14 @@ namespace ICT4Rails
             foreach (DataRow DR in DT.Rows)
             {
                 railID = Convert.ToInt32(DR["RAILID"]);
-                rails.Add(new Rail(railID));
+                Rails.Add(new Rail(railID));
             }
         }
 
         /// <summary>
         /// Get all the sectors from the database and place them in a list of sectors
         /// </summary>
-        private void GetAllSectors()
+        public void GetAllSectors()
         {
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllSectors"], null);
 
@@ -116,6 +117,8 @@ namespace ICT4Rails
             string reserved;
             bool reservedSector;
             string tramID;
+
+            Sectors.Clear();
 
             foreach (DataRow DR in DT.Rows)
             {
@@ -134,8 +137,10 @@ namespace ICT4Rails
                 if (reserved == "1") { reservedSector = true; }
                 else { reservedSector = false; }
 
-                sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID, reservedSector));
+                Sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID, reservedSector));
             }
+
+            UpdateGrid();
         }
     }
 }

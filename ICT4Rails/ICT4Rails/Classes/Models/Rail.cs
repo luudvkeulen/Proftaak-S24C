@@ -8,18 +8,18 @@ using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-	public class Rail
-	{
+    public class Rail
+    {
         Label RailLabel = new Label();
 
-		public int ID { get; private set; }
+        public int ID { get; private set; }
         public string GridLocation { get; private set; }
 
-		public Rail(int id)
-		{
-			ID = id;
+        public Rail(int id)
+        {
+            ID = id;
             GridLocationMethod();
-            
+
         }
 
         private void GridLocationMethod()
@@ -164,50 +164,69 @@ namespace ICT4Rails
             RailLabel.Tag = GridLocation;
             RailLabel.BackColor = Color.Gray;
 
-            //RailLabel.Click += new EventHandler(Sector_Click);
+            RailLabel.Click += new EventHandler(Rail_Click);
 
             return RailLabel;
         }
 
-        /*
+
         private void Rail_Click(object sender, EventArgs e)
         {
-            Label l = (Label)sender;
-            List<Sector> tempSectors = new List<Sector>();
+            List<Sector> allSectors = new List<Sector>();
+            List<Sector> sectorsFromRail = new List<Sector>();
+            BeheerSysteemForm form;
 
-            foreach (Sector s in sectors)
+            //list van alle sectoren
+            if (sender is Label)
             {
-                if (s.Rail.Id.ToString() == l.Text)
+                Label label = (Label)sender;
+                if (label.Parent.Parent is BeheerSysteemForm)
                 {
-                    tempSectors.Add(s);
+                    form = (BeheerSysteemForm)label.Parent.Parent;
+                    allSectors = form.Sectors;
                 }
             }
 
-            tempSectors.Sort();
-            Sector tempSector = tempSectors[tempSectors.Count - 1];
-            int totalPostitions = tempSector.Position;
+            //list van alle sectoren van huidige rail
+            foreach (Sector s in allSectors)
+            {
+                if (s.Rail.ID.ToString() == ID.ToString())
+                {
+                    sectorsFromRail.Add(s);
+                }
+            }
+
+            sectorsFromRail.Sort();
+
+            //tellen hoeveel sectoren er zijn
+            int totalPostitions = sectorsFromRail.Count;
 
             for (int i = 0; i < totalPostitions; i++)
             {
-                tempSector = tempSectors[i];
-                //de eerste tram weghalen
-                if (tempSector.Position == 1)
+                if(sectorsFromRail[i].SectorInformation == "X")
                 {
-                    tempSector.TramID = null;
-                    getLabel(tempSector);
-                    //database update --> eerste sector weghalen
+                    break;
                 }
 
-                if ((totalPostitions + 1) == totalPostitions)
+                if (sectorsFromRail[i].Position < totalPostitions)
                 {
-                    Sector nextSector = tempSectors[i + 1];
-                    tempSector.TramID = nextSector.TramID;
-
+                    sectorsFromRail[i].SectorInformation = sectorsFromRail[i + 1].SectorInformation;
                     //database update
+                }
+
+                if(sectorsFromRail[i].Position == totalPostitions)
+                {
+                    sectorsFromRail[i].SectorInformation = "";
                 }
             }
 
-            UpdateGrid();
-        }*/
+            //form.getallsectors
+
+            //messagebox for sectorfromrail
+            foreach (Sector s in sectorsFromRail)
+            {
+                MessageBox.Show(s.Rail.ID.ToString() + " - " + s.Position.ToString() + " - " + s.SectorInformation);
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace ICT4Rails
         public Rail Rail { get; private set; }
         public int Position { get; private set; }
         public string GridLocation { get; private set; }
-        public string SectorInformation { get; private set; }
+        public string SectorInformation { get; set; }
         public bool Available { get; set; }
         public bool Reserved { get; set; }
 
@@ -198,20 +198,15 @@ namespace ICT4Rails
             SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.ID, SectorInformation);
             spf.ShowDialog();
 
-            Available = spf.Available;
-
-            CheckSectorInformation(spf.TramID);
-
             if (sender is Label)
             {
                 Label label = (Label)sender;
                 if(label.Parent.Parent is BeheerSysteemForm)
                 {
                     BeheerSysteemForm form = (BeheerSysteemForm)label.Parent.Parent;
-                    form.UpdateGrid();
+                    form.GetAllSectors();
                 }
             }
-            spf.Close();
         }
 
         private void CheckSectorInformation(string tramID)
