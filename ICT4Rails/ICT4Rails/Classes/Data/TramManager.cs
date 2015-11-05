@@ -191,5 +191,14 @@ namespace ICT4Rails
             };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["addtramtoincoming"], parameters);
         }
+
+        public void CheckInTrain(string tramid)
+        {
+            OracleParameter[] parameters = new OracleParameter[]
+            {
+                new OracleParameter("tramid", tramid)
+            };
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["traincheckin"], parameters);
+        }
     }
 }

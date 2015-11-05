@@ -89,6 +89,7 @@ namespace ICT4Rails
             {
                 txtDesiredRail.Text = info[0].ToString();
                 txtDesiredSector.Text = info[1].ToString();
+                trammanager.CheckInTrain(txtTramNumber.Text);
             }
         }
 
