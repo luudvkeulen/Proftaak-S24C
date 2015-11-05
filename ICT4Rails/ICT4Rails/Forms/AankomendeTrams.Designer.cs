@@ -1,6 +1,6 @@
 ﻿namespace ICT4Rails
 {
-    partial class AankomendeTreinen
+    partial class AankomendeTrams
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.lbAankomendeTrams.Size = new System.Drawing.Size(513, 303);
             this.lbAankomendeTrams.TabIndex = 0;
             // 
-            // AankomendeTreinen
+            // AankomendeTrams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(539, 329);
             this.Controls.Add(this.lbAankomendeTrams);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "AankomendeTreinen";
+            this.Name = "AankomendeTrams";
             this.ShowIcon = false;
             this.Text = "AankomendeTreinen";
             this.Shown += new System.EventHandler(this.AankomendeTreinen_Shown);

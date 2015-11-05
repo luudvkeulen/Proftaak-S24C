@@ -113,11 +113,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AankomendeTreinen.cs">
+    <Compile Include="Forms\AankomendeTrams.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AankomendeTreinen.Designer.cs">
-      <DependentUpon>AankomendeTreinen.cs</DependentUpon>
+    <Compile Include="Forms\AankomendeTrams.Designer.cs">
+      <DependentUpon>AankomendeTrams.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Data\DatabaseQuerys.cs" />
     <Compile Include="Classes\Models\Login.cs" />
@@ -186,8 +186,8 @@
     <Compile Include="Forms\SectorPropertiesForm.Designer.cs">
       <DependentUpon>SectorPropertiesForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\AankomendeTreinen.resx">
-      <DependentUpon>AankomendeTreinen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AankomendeTrams.resx">
+      <DependentUpon>AankomendeTrams.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
