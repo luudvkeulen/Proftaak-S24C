@@ -1,41 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-	public class Sector : IComparable<Sector>
-	{
-		public Rail Rail { get; private set; }
-		public int Position { get; private set; }
+    public class Sector : IComparable<Sector>
+    {
+        Label SectorLabel;
+
+        public Rail Rail { get; private set; }
+        public int Position { get; private set; }
         public string GridLocation { get; private set; }
-
-        public string TramID { get; set; }
+        public string SectorInformation { get; private set; }
         public bool Available { get; set; }
-
         public bool Reserved { get; set; }
 
         public Sector(Rail rail, int position, bool available, string tramID, bool reserved)
-		{
-			Rail = rail;
-			Position = position;
-			Available = available;
-            TramID = tramID;
+        {
+            Rail = rail;
+            Position = position;
+            Available = available;
             Reserved = reserved;
 
-            if(!Available)
-            {
-                TramID = "X";
-            }
+            CheckSectorInformation(tramID);
 
             GridLocationMethod();
-		}
+        }
 
         private void GridLocationMethod()
         {
-            switch (Rail.Id) {
+            switch (Rail.ID)
+            {
                 case 38:
                     GridLocation = string.Format("0 {0}", (Position + 1).ToString());
                     break;
@@ -164,16 +163,67 @@ namespace ICT4Rails
 
         public int CompareTo(Sector s)
         {
-            if(Position < s.Position)
+            if (Position < s.Position)
             {
                 return -1;
             }
-            if(Position == s.Position)
+            if (Position == s.Position)
             {
                 return 0;
             }
 
             return 1;
         }
-	}
+
+        public Label AddSectorLabel(Form beheerform)
+        {
+            SectorLabel = new Label();
+            SectorLabel.Dock = DockStyle.Fill;
+            SectorLabel.Margin = new Padding(1);
+
+            SectorLabel.Text = SectorInformation;
+
+            SectorLabel.ForeColor = Color.Black;
+            SectorLabel.TextAlign = ContentAlignment.MiddleCenter;
+            SectorLabel.Tag = GridLocation;
+            SectorLabel.BackColor = Color.LightGray;
+
+            SectorLabel.Click += new EventHandler(Sector_Click);
+
+            return SectorLabel;
+        }
+
+        private void Sector_Click(object sender, EventArgs e)
+        {
+            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.ID, SectorInformation);
+            spf.ShowDialog();
+
+            Available = spf.Available;
+
+            CheckSectorInformation(spf.TramID);
+
+            if (sender is Label)
+            {
+                Label label = (Label)sender;
+                if(label.Parent.Parent is BeheerSysteemForm)
+                {
+                    BeheerSysteemForm form = (BeheerSysteemForm)label.Parent.Parent;
+                    form.UpdateGrid();
+                }
+            }
+            spf.Close();
+        }
+
+        private void CheckSectorInformation(string tramID)
+        {
+            if (!Available)
+            {
+                SectorInformation = "X";
+            }
+            else
+            {
+                SectorInformation = tramID;
+            }
+        }
+    }
 }

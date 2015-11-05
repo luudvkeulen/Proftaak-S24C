@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phidgets;
 using Phidgets.Events;
+using System.Threading;
 
 namespace ICT4Rails
 {
@@ -27,21 +27,22 @@ namespace ICT4Rails
 
         void rfid_Tag(object sender, TagEventArgs e)
         {
-            if (e.Tag == "2800a7bcc2")
+            if (e.Tag == "1a008cceb6")
             {
-                txtTramNumber.Text = "1";
+                txtTramNumber.Text = "2203";
             }
-            else if (e.Tag == "28002b4194")
+            else if (e.Tag == "1c00fcb1eb")
             {
-                txtTramNumber.Text = "2";
+                txtTramNumber.Text = "818";
             }
 
-            else if (e.Tag == "1100ad7362")
+            else if (e.Tag == "160052adc4")
             {
-                txtTramNumber.Text = "3";
+                txtTramNumber.Text = "809";
             }
 
             DisableButtons();
+            TrainScanned(txtTramNumber.Text);
         }
 
 
@@ -66,21 +67,29 @@ namespace ICT4Rails
             if (txtTramNumber.Text.Count() > 0)
             {
                 DisableButtons();
-                int[] info = trammanager.GetReservedSector(Convert.ToInt32(txtTramNumber.Text));
-                if(info[0] == 0 || info[1] == 0)
-                {
-                    MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
-                    EnableButtons();
-                }
-                else
-                {
-                    txtDesiredRail.Text = info[0].ToString();
-                    txtDesiredSector.Text = info[1].ToString();
-                }
+                TrainScanned(txtTramNumber.Text);
             }
             else
             {
                 MessageBox.Show("Voer eerst een tramnummer in");
+            }
+        }
+
+        private void TrainScanned(string tram)
+        {
+            int tramid = Convert.ToInt32(tram);
+            int[] info = trammanager.GetReservedSector(tramid);
+            if (info[0] == 0 || info[1] == 0)
+            {
+                trammanager.AddIncoming(txtTramNumber.Text);
+                MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
+                EnableButtons();
+            }
+            else
+            {
+                txtDesiredRail.Text = info[0].ToString();
+                txtDesiredSector.Text = info[1].ToString();
+                trammanager.CheckInTrain(txtTramNumber.Text);
             }
         }
 
@@ -103,7 +112,10 @@ namespace ICT4Rails
             try
             {
                 rfid.open();
+                Thread.Sleep(500);
                 rfid.Tag += new TagEventHandler(rfid_Tag);
+                rfid.Antenna = true;
+                rfid.LED = true;
             }
             catch
             {

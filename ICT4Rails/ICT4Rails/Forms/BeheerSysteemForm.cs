@@ -12,70 +12,45 @@ namespace ICT4Rails
 {
     public partial class BeheerSysteemForm : Form
     {
-        List<Label> railsLabel = new List<Label>();
-        List<Label> sectorsLabel = new List<Label>();
+        List<Rail> rails = new List<Rail>();
         List<Sector> sectors = new List<Sector>();
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public BeheerSysteemForm()
         {
             InitializeComponent();
 
-            StandardRailLocation();
+            GetAllRails();
 
             GetAllSectors();
-
-            /*
-            for (int row = 0; row < tlpGrid.RowCount; row++)
-            {
-                for (int column = 0; column < tlpGrid.ColumnCount; column++)
-                {
-                    if (column == 0 && row == 2)
-                    {
-                        AddSector("0 1", "12");
-                    }
-                }
-            }
-            */
 
             UpdateGrid();
         }
 
+        /// <summary>
+        /// Back button to previous form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         /// <summary>
-        /// Add a new label
-        /// </summary>
-        /// <param name="ColumnRow"></param>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        private Label AddLabel(string ColumnRow, string text)
-        {
-            Label l = new Label();
-
-            l.Dock = DockStyle.Fill;
-            l.Margin = new Padding(1);
-            l.Text = text;
-            l.ForeColor = Color.Black;
-            l.TextAlign = ContentAlignment.MiddleCenter;
-
-            l.Tag = ColumnRow;
-
-            return l;
-        }
-
-        /// <summary>
         /// Update the Grid 
         /// </summary>
-        private void UpdateGrid()
+        public void UpdateGrid()
         {
             tlpGrid.Visible = false;
             tlpGrid.Controls.Clear();
 
-            foreach (Label l in railsLabel)
+            foreach (Sector s in sectors)
             {
+                Label l = s.AddSectorLabel(this);
+
                 string columnString = l.Tag.ToString();
                 string rowString = l.Tag.ToString();
 
@@ -90,8 +65,10 @@ namespace ICT4Rails
                 tlpGrid.Controls.Add(l, column, row);
             }
 
-            foreach (Label l in sectorsLabel)
+            foreach (Rail r in rails)
             {
+                Label l = r.AddRailLabel();
+
                 string columnString = l.Tag.ToString();
                 string rowString = l.Tag.ToString();
 
@@ -104,187 +81,31 @@ namespace ICT4Rails
                 int row = Convert.ToInt32(rowString);
 
                 tlpGrid.Controls.Add(l, column, row);
+
             }
             tlpGrid.Visible = true;
         }
 
         /// <summary>
-        /// Standard Rails for the grid
+        /// Get all the Rails from the database and place them in a list of Rails
         /// </summary>
-        private void StandardRailLocation()
+        private void GetAllRails()
         {
-            int column = 0;
-            int row = 0;
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllRails"], null);
 
-            for (int i = 38; i >= 30; i--)
+            int railID;
+
+            foreach (DataRow DR in DT.Rows)
             {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            column++;
-
-            for (int i = 40; i <= 44; i++)
-            {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            column++;
-
-            AddRail(column + " " + row, "45");
-            column += 2;
-
-            AddRail(column + " " + row, "58");
-
-            column = 0;
-            row = 13;
-
-            for (int i = 57; i >= 51; i--)
-            {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            for (int i = 64; i >= 61; i--)
-            {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            column++;
-
-            for (int i = 74; i <= 77; i++)
-            {
-                AddRail(column + " " + row, i.ToString());
-                column++;
-            }
-
-            column++;
-
-            for (int i = 12; i <= 21; i++)
-            {
-                AddRail(column + " " + row, i.ToString());
-                row++;
-            }
-        }
-
-        /// <summary>
-        /// Add a Rail to the grid
-        /// </summary>
-        /// <param name="location"></param>
-        /// <param name="text"></param>
-        private void AddRail(string location, string text)
-        {
-            Label l = AddLabel(location, text);
-
-            l.BackColor = Color.LightGray;
-
-            l.Click += new EventHandler(Rail_Click);
-
-            railsLabel.Add(l);
-        }
-
-        private void Rail_Click(object sender, EventArgs e)
-        {
-            Label l = (Label)sender;
-            List<Sector> tempSectors = new List<Sector>();
-
-            foreach (Sector s in sectors)
-            {
-                if (s.Rail.Id.ToString() == l.Text)
-                {
-                    tempSectors.Add(s);
-                }
-            }
-
-            tempSectors.Sort();
-            Sector tempSector = tempSectors[tempSectors.Count - 1];
-            int totalPostitions = tempSector.Position;
-
-            for (int i = 0; i < totalPostitions; i++)
-            {
-                tempSector = tempSectors[i];
-                //de eerste tram weghalen
-                if (tempSector.Position == 1)
-                {
-                    tempSector.TramID = null;
-                    getLabel(tempSector);
-                    //database update --> eerste sector weghalen
-                }
-
-                if ((totalPostitions + 1) == totalPostitions)
-                {
-                    Sector nextSector = tempSectors[i + 1];
-                    tempSector.TramID = nextSector.TramID;
-
-                    //database update
-                }
-            }
-
-            UpdateGrid();
-        }
-
-        private void getLabel(Sector s)
-        {
-
-        }
-
-        /// <summary>
-        /// Add a Sector to the grid
-        /// </summary>
-        /// <param name="location"></param>
-        /// <param name="text"></param>
-        private void AddSector(string location, string tramID)
-        {
-            Label l = AddLabel(location, tramID);
-
-            l.BackColor = Color.Red;
-
-            l.Click += new EventHandler(Sector_Click);
-
-            sectorsLabel.Add(l);
-        }
-
-        /// <summary>
-        /// EventHandler for click on label
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Sector_Click(object sender, EventArgs e)
-        {
-            Label selectedLabel = (Label)sender;
-
-            foreach (Sector s in sectors)
-            {
-                if (s.GridLocation == selectedLabel.Tag.ToString())
-                {
-                    SectorPropertiesForm spf = new SectorPropertiesForm(s.Available, s.Position, s.Rail.Id, s.TramID);
-                    spf.ShowDialog();
-
-                    s.Available = spf.Available;
-                    s.TramID = spf.TramID;
-
-                    selectedLabel.Text = spf.SectorText;
-
-                    spf.Close();
-                }
-            }
-
-            foreach (Label l in sectorsLabel)
-            {
-                if (selectedLabel == l)
-                {
-                    l.Text = selectedLabel.Text;
-                }
+                railID = Convert.ToInt32(DR["RAILID"]);
+                rails.Add(new Rail(railID));
             }
         }
 
         /// <summary>
         /// Get all the sectors from the database and place them in a list of sectors
-        /// Then get all the sectors and place them in a label list
         /// </summary>
-        public void GetAllSectors()
+        private void GetAllSectors()
         {
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetAllSectors"], null);
 
@@ -314,11 +135,6 @@ namespace ICT4Rails
                 else { reservedSector = false; }
 
                 sectors.Add(new Sector(new Rail(rail), position, availableSector, tramID, reservedSector));
-            }
-
-            foreach (Sector s in sectors)
-            {
-                AddSector(s.GridLocation, s.TramID);
             }
         }
     }

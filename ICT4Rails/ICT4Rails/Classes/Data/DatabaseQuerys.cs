@@ -24,6 +24,9 @@ namespace ICT4Rails
             query["GetAllCleaners"] = "SELECT NAME FROM EMPLOYEE WHERE EMPLOYEETYPE = 'schoonmaker'";
             query["GetAllEngineers"] = "SELECT NAME FROM EMPLOYEE WHERE EMPLOYEETYPE = 'technicus'";
             query["maintenancefinished"] = "UPDATE MAINTENANCE SET DATEFINISHED = TO_DATE(:datefinished,'dd/mm/yyyy hh24:mi:ss'), FINISHEDBY = :employeeid WHERE TRAMID = :tramid AND TYPE = :type";
+            query["GetAllRails"] = "SELECT * FROM RAIL";
+            query["addtramtoincoming"] = "INSERT INTO INCOMING (TRAMID, MOMENT) VALUES (:tramid, sysdate)";
+            query["traincheckin"] = "UPDATE SECTOR SET ISRESERVED = 0 WHERE TRAMID = :tramid";
             query["IncomingTrams"] = "SELECT TRAMID, MOMENT FROM INCOMING ORDER BY MOMENT DESC";
         }
     }
