@@ -1,41 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-	public class Sector : IComparable<Sector>
-	{
-		public Rail Rail { get; private set; }
-		public int Position { get; private set; }
+    public class Sector : IComparable<Sector>
+    {
+        Label SectorLabel = new Label();
+
+        public Rail Rail { get; private set; }
+        public int Position { get; private set; }
         public string GridLocation { get; private set; }
-
-        public string TramID { get; set; }
+        public string SectorInformation { get; set; }
         public bool Available { get; set; }
-
         public bool Reserved { get; set; }
 
         public Sector(Rail rail, int position, bool available, string tramID, bool reserved)
-		{
-			Rail = rail;
-			Position = position;
-			Available = available;
-            TramID = tramID;
+        {
+            Rail = rail;
+            Position = position;
+            Available = available;
+            SectorInformation = tramID;
             Reserved = reserved;
 
-            if(!Available)
+            if (!Available)
             {
-                TramID = "X";
+                SectorInformation = "X";
             }
 
             GridLocationMethod();
-		}
+        }
 
         private void GridLocationMethod()
         {
-            switch (Rail.Id) {
+            switch (Rail.Id)
+            {
                 case 38:
                     GridLocation = string.Format("0 {0}", (Position + 1).ToString());
                     break;
@@ -164,16 +167,44 @@ namespace ICT4Rails
 
         public int CompareTo(Sector s)
         {
-            if(Position < s.Position)
+            if (Position < s.Position)
             {
                 return -1;
             }
-            if(Position == s.Position)
+            if (Position == s.Position)
             {
                 return 0;
             }
 
             return 1;
         }
-	}
+
+        public Label AddSectorLabel()
+        {
+            SectorLabel.Dock = DockStyle.Fill;
+            SectorLabel.Margin = new Padding(1);
+
+            SectorLabel.Text = SectorInformation;
+
+            SectorLabel.ForeColor = Color.Black;
+            SectorLabel.TextAlign = ContentAlignment.MiddleCenter;
+            SectorLabel.Tag = GridLocation;
+            SectorLabel.BackColor = Color.LightGray;
+
+            SectorLabel.Click += new EventHandler(Sector_Click);
+
+            return SectorLabel;
+        }
+
+        private void Sector_Click(object sender, EventArgs e)
+        {
+            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.Id, SectorInformation);
+            spf.ShowDialog();
+
+            Available = spf.Available;
+            SectorInformation = spf.TramID;
+
+            spf.Close();
+        }
+    }
 }
