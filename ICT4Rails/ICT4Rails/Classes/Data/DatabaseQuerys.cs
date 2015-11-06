@@ -28,6 +28,11 @@ namespace ICT4Rails
             query["addtramtoincoming"] = "INSERT INTO INCOMING (TRAMID, MOMENT) VALUES (:tramid, sysdate)";
             query["traincheckin"] = "UPDATE SECTOR SET ISRESERVED = 0 WHERE TRAMID = :tramid";
             query["IncomingTrams"] = "SELECT TRAMID, MOMENT FROM INCOMING ORDER BY MOMENT DESC";
+            query["GetAllTramsNotOnSectors"] = "SELECT  tt.NAME, tt.SPECIFICATIONS, t.STATUS,t.TRAMID FROM TRAMTYPE tt LEFT JOIN TRAM t ON t.TRAMTYPEID = tt.TRAMTYPESID"
+                + " WHERE t.TRAMID NOT IN(SELECT TRAMID FROM SECTOR WHERE TRAMID IS NOT NULL)";
+            query["UpdateTramSector"] = "UPDATE SECTOR SET TRAMID :=tramid WHERE RAILID :=railid AND POSITION :=position";
+            query["UpdateReservedTramSector"] = "UPDATE SECTOR SET TRAMID :=tramid,ISRESERVED = 1 WHERE RAILID := railid AND POSITION := position";
+            query["UpdateBlocked"] = "UPDATE SECTOR SET AVAILABLE = 0 WHERE RAILDID :=railid AND POSITION :=position";
         }
     }
 }

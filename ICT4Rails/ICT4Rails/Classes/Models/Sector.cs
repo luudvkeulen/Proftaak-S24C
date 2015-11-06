@@ -195,7 +195,7 @@ namespace ICT4Rails
 
         private void Sector_Click(object sender, EventArgs e)
         {
-            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.ID, SectorInformation);
+            SectorPropertiesForm spf = new SectorPropertiesForm(Available, Position, Rail.ID, SectorInformation,Reserved);
             spf.ShowDialog();
 
             if (sender is Label)
