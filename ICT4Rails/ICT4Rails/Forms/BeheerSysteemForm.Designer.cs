@@ -31,9 +31,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.tlpGrid = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.blokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.railBlokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -120,27 +117,11 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.blokkerenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1117, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // blokkerenToolStripMenuItem
-            // 
-            this.blokkerenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.railBlokkerenToolStripMenuItem});
-            this.blokkerenToolStripMenuItem.Name = "blokkerenToolStripMenuItem";
-            this.blokkerenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.blokkerenToolStripMenuItem.Text = "Blokkeren";
-            // 
-            // railBlokkerenToolStripMenuItem
-            // 
-            this.railBlokkerenToolStripMenuItem.Name = "railBlokkerenToolStripMenuItem";
-            this.railBlokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.railBlokkerenToolStripMenuItem.Text = "Rail blokkeren";
             // 
             // BeheerSysteemForm
             // 
@@ -160,8 +141,6 @@
             this.ShowIcon = false;
             this.Text = "OverviewForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,7 +150,5 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TableLayoutPanel tlpGrid;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem blokkerenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem railBlokkerenToolStripMenuItem;
     }
 }

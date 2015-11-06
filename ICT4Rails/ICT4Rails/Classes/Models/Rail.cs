@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace ICT4Rails
         {
             ID = id;
             GridLocationMethod();
+            RailLabel.Click += new EventHandler(Rail_Click);
 
         }
 
@@ -162,9 +164,7 @@ namespace ICT4Rails
             RailLabel.ForeColor = Color.Black;
             RailLabel.TextAlign = ContentAlignment.MiddleCenter;
             RailLabel.Tag = GridLocation;
-            RailLabel.BackColor = Color.Gray;
-
-            RailLabel.Click += new EventHandler(Rail_Click);
+            RailLabel.BackColor = Color.Gray;      
 
             return RailLabel;
         }
@@ -174,7 +174,7 @@ namespace ICT4Rails
         {
             List<Sector> allSectors = new List<Sector>();
             List<Sector> sectorsFromRail = new List<Sector>();
-            BeheerSysteemForm form;
+            BeheerSysteemForm form = new BeheerSysteemForm();
 
             //list van alle sectoren
             if (sender is Label)
@@ -190,7 +190,7 @@ namespace ICT4Rails
             //list van alle sectoren van huidige rail
             foreach (Sector s in allSectors)
             {
-                if (s.Rail.ID.ToString() == ID.ToString())
+                if (s.Rail.ID.ToString() == ID.ToString() && !string.IsNullOrEmpty( s.SectorInformation))
                 {
                     sectorsFromRail.Add(s);
                 }
@@ -203,7 +203,7 @@ namespace ICT4Rails
 
             for (int i = 0; i < totalPostitions; i++)
             {
-                if(sectorsFromRail[i].SectorInformation == "X")
+                if (!sectorsFromRail[i].Available)
                 {
                     break;
                 }
@@ -211,22 +211,36 @@ namespace ICT4Rails
                 if (sectorsFromRail[i].Position < totalPostitions)
                 {
                     sectorsFromRail[i].SectorInformation = sectorsFromRail[i + 1].SectorInformation;
-                    //database update
+                    
+                    OracleParameter[] parameters1 = new OracleParameter[]
+                    {
+                        new OracleParameter("sectorinformation", sectorsFromRail[i + 1].SectorInformation),
+                        new OracleParameter("railid", ID),
+                        new OracleParameter("position", sectorsFromRail[i].Position)
+                    };
+                    DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateSectorInformation"], parameters1);
                 }
 
-                if(sectorsFromRail[i].Position == totalPostitions)
+                if (sectorsFromRail[i].Position == totalPostitions)
                 {
                     sectorsFromRail[i].SectorInformation = "";
+                    
+                    OracleParameter[] parameters1 = new OracleParameter[]
+                    {
+                        new OracleParameter("railid", ID),
+                        new OracleParameter("position", sectorsFromRail[i].Position)
+                    };
+                    DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateLastSectorInformation"], parameters1);
                 }
             }
 
-            //form.getallsectors
-
+            form.GetAllSectors();
+            /*
             //messagebox for sectorfromrail
             foreach (Sector s in sectorsFromRail)
             {
                 MessageBox.Show(s.Rail.ID.ToString() + " - " + s.Position.ToString() + " - " + s.SectorInformation);
-            }
+            }*/
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ICT4Rails
             {
                 new OracleParameter("name", name),
                 new OracleParameter("surname", surname),
-                new OracleParameter("employeetype", employeetype),
+                new OracleParameter("employeetype", employeetype)
             };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["CreateEmployee"], parameters1);
 

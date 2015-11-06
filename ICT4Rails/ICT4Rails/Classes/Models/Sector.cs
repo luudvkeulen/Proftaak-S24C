@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -189,6 +191,48 @@ namespace ICT4Rails
             SectorLabel.BackColor = Color.LightGray;
 
             SectorLabel.Click += new EventHandler(Sector_Click);
+            /*
+            OracleParameter[] parameters1 = new OracleParameter[]
+            {
+                new OracleParameter("tramid", SectorInformation)
+            };
+            
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetTramStatus"], parameters1);
+            
+            string tramID = "";
+            int type = 0;
+
+            foreach (DataRow DR in DT.Rows)
+            {
+                tramID = DR["TRAMID"].ToString();
+                type = Convert.ToInt32((DR["TYPE"]));
+
+                if(DT.Rows.Count > 1)
+                {
+                    SectorLabel.BackColor = Color.Red;
+                }
+            }
+            
+            if(type == 0)
+            {
+                SectorLabel.BackColor = Color.Yellow;
+            }
+
+            if(type == 1)
+            {
+                SectorLabel.BackColor = Color.Orange;
+            }
+            */
+            if (Reserved)
+            {
+                SectorLabel.ForeColor = Color.Green;
+            }
+
+            if (!Available)
+            {
+                SectorLabel.ForeColor = Color.White;
+                SectorLabel.BackColor = Color.Black;
+            }
 
             return SectorLabel;
         }
@@ -201,7 +245,7 @@ namespace ICT4Rails
             if (sender is Label)
             {
                 Label label = (Label)sender;
-                if(label.Parent.Parent is BeheerSysteemForm)
+                if (label.Parent.Parent is BeheerSysteemForm)
                 {
                     BeheerSysteemForm form = (BeheerSysteemForm)label.Parent.Parent;
                     form.GetAllSectors();
