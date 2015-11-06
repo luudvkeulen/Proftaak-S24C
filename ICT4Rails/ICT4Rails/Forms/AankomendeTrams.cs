@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace ICT4Rails
 {
-    public partial class AankomendeTreinen : Form
+    public partial class AankomendeTrams : Form
     {
         TramManager tm = new TramManager();
 
          
 
-        public AankomendeTreinen()
+        public AankomendeTrams()
         {
             InitializeComponent();
         }

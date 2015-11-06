@@ -97,7 +97,7 @@ namespace ICT4Rails
 
         private void btnAankomendeTrams_Click(object sender, EventArgs e)
         {
-            AankomendeTreinen form = new AankomendeTreinen();
+            AankomendeTrams form = new AankomendeTrams();
             NewForm(form);
         }
 
