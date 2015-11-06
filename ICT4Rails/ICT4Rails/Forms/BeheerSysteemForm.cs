@@ -82,8 +82,8 @@ namespace ICT4Rails
                 int row = Convert.ToInt32(rowString);
 
                 tlpGrid.Controls.Add(l, column, row);
-
             }
+
             tlpGrid.Visible = true;
         }
 
