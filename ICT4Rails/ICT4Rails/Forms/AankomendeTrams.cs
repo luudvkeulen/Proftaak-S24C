@@ -14,28 +14,18 @@ namespace ICT4Rails
     {
         TramManager tm = new TramManager();
 
-         
-
         public AankomendeTrams()
         {
             InitializeComponent();
+            lbAankomendeTrams.ForeColor = Color.Black;
         }
-
-       
-      
 
         private void AankomendeTreinen_Shown(object sender, EventArgs e)
         {
+            List<string> incomingTrams = tm.GetIncomingTrams();           
 
-           List<string> incomingTrams = tm.GetIncomingTrams();           
-
-           lbAankomendeTrams.DataSource = incomingTrams;
-           lbAankomendeTrams.Refresh();
-        }
-
-        private void lbAankomendeTreinen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            lbAankomendeTrams.DataSource = incomingTrams;
+            lbAankomendeTrams.Refresh();
         }
     }
 }

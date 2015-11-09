@@ -190,20 +190,36 @@ namespace ICT4Rails
             List<string> incomingTrams = new List<string>();
             foreach (DataRow DR in DT.Rows)
             {
-                incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString());
+                int maintenance = Convert.ToInt32(DR["MAINTENANCE"]);
+                switch (maintenance)
+                {
+                    case 0:
+                        incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString());
+                        break;
+                    case 1:
+                        incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString() + " - REPARATIE NODIG");
+                        break;
+                    case 2:
+                        incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString() + " - SCHOONMAAK NODIG");
+                        break;
+                    case 3:
+                        incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString() + " - SCHOONMAAK/REPARATIE NODIG");
+                        break;
+                    default:
+                        incomingTrams.Add(DR[0].ToString() + " - " + DR[1].ToString());
+                        break;
+                } 
             }
-           
 
             return incomingTrams;
-
-
         }
 
-        public void AddIncoming(string tramid)
+        public void AddIncoming(string tramid, int maintenance)
         {
             OracleParameter[] parameters = new OracleParameter[]
             {
-                new OracleParameter("tramid", tramid)
+                new OracleParameter("tramid", tramid),
+                new OracleParameter("maintenance", maintenance)
             };
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["addtramtoincoming"], parameters);
         }

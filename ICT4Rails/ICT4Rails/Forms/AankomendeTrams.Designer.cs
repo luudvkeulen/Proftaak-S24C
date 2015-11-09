@@ -33,23 +33,33 @@
             // 
             // lbAankomendeTrams
             // 
+            this.lbAankomendeTrams.BackColor = System.Drawing.SystemColors.Control;
+            this.lbAankomendeTrams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbAankomendeTrams.ForeColor = System.Drawing.Color.Black;
             this.lbAankomendeTrams.FormattingEnabled = true;
-            this.lbAankomendeTrams.Location = new System.Drawing.Point(12, 12);
+            this.lbAankomendeTrams.ItemHeight = 16;
+            this.lbAankomendeTrams.Location = new System.Drawing.Point(13, 13);
+            this.lbAankomendeTrams.Margin = new System.Windows.Forms.Padding(4);
             this.lbAankomendeTrams.Name = "lbAankomendeTrams";
-            this.lbAankomendeTrams.Size = new System.Drawing.Size(513, 303);
+            this.lbAankomendeTrams.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lbAankomendeTrams.Size = new System.Drawing.Size(693, 368);
             this.lbAankomendeTrams.TabIndex = 0;
+            this.lbAankomendeTrams.TabStop = false;
+            this.lbAankomendeTrams.UseTabStops = false;
             // 
             // AankomendeTrams
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(539, 329);
+            this.ClientSize = new System.Drawing.Size(719, 405);
             this.Controls.Add(this.lbAankomendeTrams);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AankomendeTrams";
             this.ShowIcon = false;
-            this.Text = "AankomendeTreinen";
+            this.Text = "Aankomende treinen";
+            this.TopMost = true;
             this.Shown += new System.EventHandler(this.AankomendeTreinen_Shown);
             this.ResumeLayout(false);
 

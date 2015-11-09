@@ -142,5 +142,11 @@ namespace ICT4Rails
 
             UpdateGrid();
         }
+
+        private void btnShowIncoming_Click(object sender, EventArgs e)
+        {
+            AankomendeTrams form = new AankomendeTrams();
+            form.Show();
+        }
     }
 }
