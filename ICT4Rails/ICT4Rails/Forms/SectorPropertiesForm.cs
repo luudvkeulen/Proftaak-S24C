@@ -95,25 +95,26 @@ namespace ICT4Rails
             if (Available)
             {
                 OracleParameter[] parameters1 = new OracleParameter[]
-    {
-                new OracleParameter("tramid", TramID),
-                new OracleParameter("railid", RailID),
-                new OracleParameter("position", Position),
-    };
+                {
+                    new OracleParameter("tramid", TramID),
+                    new OracleParameter("railid", RailID),
+                    new OracleParameter("position", Position)
+                };
+
                 if (IsReserved)
                 {
+                    OracleParameter[] parameters2 = new OracleParameter[]
+                    {
+                        new OracleParameter("tramid", TramID)
+                    };
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateReservedTramSector"], parameters1);
+                    DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["DeleteIncoming"], parameters2);
                 }
                 else
                 {
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateTramSector"], parameters1);
                 }
             }
-            else
-            {
-
-            }
-
         }
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
