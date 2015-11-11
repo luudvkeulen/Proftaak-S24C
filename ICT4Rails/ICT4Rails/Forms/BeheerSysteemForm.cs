@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ICT4Rails.Classes.Models;
 
 namespace ICT4Rails
 {
@@ -147,6 +148,13 @@ namespace ICT4Rails
         {
             AankomendeTrams form = new AankomendeTrams();
             form.Show();
+        }
+
+        private void railBlokkerenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RailPropertiesForm rpf = new RailPropertiesForm(Rails);
+            rpf.ShowDialog();
+
         }
     }
 }
