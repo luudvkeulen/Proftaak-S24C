@@ -155,6 +155,7 @@ namespace ICT4Rails
             RailPropertiesForm rpf = new RailPropertiesForm(Rails);
             rpf.ShowDialog();
 
+            UpdateGrid();
         }
     }
 }
