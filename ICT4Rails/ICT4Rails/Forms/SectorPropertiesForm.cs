@@ -90,6 +90,7 @@ namespace ICT4Rails
                 cbBlocked.Checked = false;
             }
         }
+
         private void UpdateDataBase()
         {
             int i = 0;
@@ -136,7 +137,7 @@ namespace ICT4Rails
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
         {
-            if (TramID == "")
+            if (SectorText == "" || SectorText == "X")
             {
                 Available = !cbBlocked.Checked;
             }
