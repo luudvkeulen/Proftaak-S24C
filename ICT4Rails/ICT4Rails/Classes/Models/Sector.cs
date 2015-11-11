@@ -191,17 +191,29 @@ namespace ICT4Rails
             SectorLabel.BackColor = Color.LightGray;
 
             SectorLabel.Click += new EventHandler(Sector_Click);
-            /*
+
+            int parameterint = 3;
+
+            if(SectorInformation == "" || SectorInformation == "X")
+            {
+                parameterint = 3;
+            }
+            else
+            {
+                parameterint = Convert.ToInt32(SectorInformation);
+            }
+
             OracleParameter[] parameters1 = new OracleParameter[]
             {
-                new OracleParameter("tramid", SectorInformation)
+                
+                new OracleParameter("tramid", parameterint)
             };
             
             DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetTramStatus"], parameters1);
             
             string tramID = "";
-            int type = 0;
-
+            int type = 3;
+            //verandering
             foreach (DataRow DR in DT.Rows)
             {
                 tramID = DR["TRAMID"].ToString();
@@ -210,6 +222,7 @@ namespace ICT4Rails
                 if(DT.Rows.Count > 1)
                 {
                     SectorLabel.BackColor = Color.Red;
+                    type = 3;
                 }
             }
             
@@ -222,7 +235,7 @@ namespace ICT4Rails
             {
                 SectorLabel.BackColor = Color.Orange;
             }
-            */
+            
             if (Reserved)
             {
                 SectorLabel.ForeColor = Color.Green;

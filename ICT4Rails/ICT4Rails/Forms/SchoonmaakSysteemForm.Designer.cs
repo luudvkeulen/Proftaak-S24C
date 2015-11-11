@@ -48,9 +48,10 @@
             this.btnBack.BackColor = System.Drawing.Color.Silver;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnBack.Location = new System.Drawing.Point(891, 657);
+            this.btnBack.Location = new System.Drawing.Point(1140, 922);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(214, 39);
+            this.btnBack.Size = new System.Drawing.Size(285, 48);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -61,17 +62,19 @@
             this.cbUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsers.FormattingEnabled = true;
-            this.cbUsers.Location = new System.Drawing.Point(195, 506);
+            this.cbUsers.Location = new System.Drawing.Point(290, 724);
+            this.cbUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(356, 21);
+            this.cbUsers.Size = new System.Drawing.Size(473, 24);
             this.cbUsers.TabIndex = 19;
             // 
             // dtpEndDate
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpEndDate.Location = new System.Drawing.Point(565, 506);
+            this.dtpEndDate.Location = new System.Drawing.Point(783, 724);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(356, 20);
+            this.dtpEndDate.Size = new System.Drawing.Size(473, 22);
             this.dtpEndDate.TabIndex = 18;
             // 
             // lvTrams
@@ -86,9 +89,10 @@
             this.FINISHED,
             this.OPMERKING});
             this.lvTrams.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvTrams.Location = new System.Drawing.Point(195, 95);
+            this.lvTrams.Location = new System.Drawing.Point(290, 218);
+            this.lvTrams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvTrams.Name = "lvTrams";
-            this.lvTrams.Size = new System.Drawing.Size(726, 395);
+            this.lvTrams.Size = new System.Drawing.Size(967, 485);
             this.lvTrams.TabIndex = 17;
             this.lvTrams.UseCompatibleStateImageBehavior = false;
             this.lvTrams.View = System.Windows.Forms.View.Details;
@@ -129,9 +133,10 @@
             this.btChangeDate.BackColor = System.Drawing.Color.Silver;
             this.btChangeDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btChangeDate.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btChangeDate.Location = new System.Drawing.Point(565, 532);
+            this.btChangeDate.Location = new System.Drawing.Point(783, 756);
+            this.btChangeDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btChangeDate.Name = "btChangeDate";
-            this.btChangeDate.Size = new System.Drawing.Size(356, 82);
+            this.btChangeDate.Size = new System.Drawing.Size(475, 101);
             this.btChangeDate.TabIndex = 16;
             this.btChangeDate.Text = "Einddatum opslaan";
             this.btChangeDate.UseVisualStyleBackColor = false;
@@ -143,9 +148,10 @@
             this.btFinished.BackColor = System.Drawing.Color.Silver;
             this.btFinished.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btFinished.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btFinished.Location = new System.Drawing.Point(195, 532);
+            this.btFinished.Location = new System.Drawing.Point(290, 756);
+            this.btFinished.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btFinished.Name = "btFinished";
-            this.btFinished.Size = new System.Drawing.Size(356, 82);
+            this.btFinished.Size = new System.Drawing.Size(475, 101);
             this.btFinished.TabIndex = 15;
             this.btFinished.Text = "Schoongemaakt";
             this.btFinished.UseVisualStyleBackColor = false;
@@ -153,11 +159,11 @@
             // 
             // SchoonmaakSysteemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1034, 634);
+            this.ClientSize = new System.Drawing.Size(1438, 983);
             this.Controls.Add(this.cbUsers);
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.lvTrams);
@@ -166,6 +172,7 @@
             this.Controls.Add(this.btnBack);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "SchoonmaakSysteemForm";
             this.ShowIcon = false;

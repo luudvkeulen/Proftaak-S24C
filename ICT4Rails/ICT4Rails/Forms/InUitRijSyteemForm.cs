@@ -81,7 +81,21 @@ namespace ICT4Rails
             int[] info = trammanager.GetReservedSector(tramid);
             if (info[0] == 0 || info[1] == 0)
             {
-                trammanager.AddIncoming(txtTramNumber.Text);
+                int maintenance = 0;
+                if(checkRepair.Checked && checkCleaning.Checked)
+                {
+                    maintenance = 3;
+                }
+                else if (checkCleaning.Checked)
+                {
+                    maintenance = 2;
+                }
+                else if (checkRepair.Checked)
+                {
+                    maintenance = 1;
+                }
+                
+                trammanager.AddIncoming(txtTramNumber.Text, maintenance);
                 MessageBox.Show("Er is nog geen reservering voor uw tram. Er is een bericht naar de trambeheerder gestuurd.");
                 EnableButtons();
             }

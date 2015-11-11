@@ -92,17 +92,36 @@ namespace ICT4Rails
         }
         private void UpdateDataBase()
         {
+            int i = 0;
+            if(Available)
+            {
+                i = 1;
+            }
+
+            OracleParameter[] available = new OracleParameter[]
+            {
+                    new OracleParameter("available", i),
+                    new OracleParameter("railid", RailID),
+                    new OracleParameter("position", Position)
+            };
+
             if (Available)
             {
                 OracleParameter[] parameters1 = new OracleParameter[]
                 {
                     new OracleParameter("tramid", TramID),
                     new OracleParameter("railid", RailID),
-                new OracleParameter("position", Position),
+                    new OracleParameter("position", Position)
                 };
+
                 if (IsReserved)
                 {
+                    OracleParameter[] parameters2 = new OracleParameter[]
+                    {
+                        new OracleParameter("tramid", TramID)
+                    };
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateReservedTramSector"], parameters1);
+                    DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["DeleteIncoming"], parameters2);
                 }
                 else
                 {
@@ -116,13 +135,20 @@ namespace ICT4Rails
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
         {
-            Available = !cbBlocked.Checked;
+            if (TramID == "")
+            {
+                Available = !cbBlocked.Checked;
+            }
+            else
+            {
+                cbBlocked.Checked = false;
+                MessageBox.Show("Er staat nog een tram op deze sector");
+            }
         }
 
         private void btn_place_Click(object sender, EventArgs e)
         {
             bool correct = false;
-
             if (Available)
             {
 

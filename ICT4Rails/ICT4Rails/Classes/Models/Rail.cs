@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using ICT4Rails.Classes.Models;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,7 +22,6 @@ namespace ICT4Rails
             ID = id;
             GridLocationMethod();
             RailLabel.Click += new EventHandler(Rail_Click);
-
         }
 
         private void GridLocationMethod()
@@ -176,6 +176,9 @@ namespace ICT4Rails
             List<Sector> sectorsFromRail = new List<Sector>();
             BeheerSysteemForm form = new BeheerSysteemForm();
 
+            RailPropertiesForm Rform = new RailPropertiesForm(ID);
+            Rform.ShowDialog();
+            
             //list van alle sectoren
             if (sender is Label)
             {

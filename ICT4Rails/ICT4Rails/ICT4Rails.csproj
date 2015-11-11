@@ -113,6 +113,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\RailPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RailPropertiesForm.Designer.cs">
+      <DependentUpon>RailPropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AankomendeTrams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     <Compile Include="Forms\SectorPropertiesForm.Designer.cs">
       <DependentUpon>SectorPropertiesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\RailPropertiesForm.resx">
+      <DependentUpon>RailPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AankomendeTrams.resx">
       <DependentUpon>AankomendeTrams.cs</DependentUpon>
     </EmbeddedResource>
