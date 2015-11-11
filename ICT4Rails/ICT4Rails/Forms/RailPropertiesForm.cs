@@ -115,9 +115,9 @@ namespace ICT4Rails.Classes.Models
 
         private void cbox_tramid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RailID = (int)cbox_tramid.SelectedItem;
-            UpdateInterface();
+            RailID = (int)cbox_tramid.SelectedItem;          
             CheckBlocked();
+            UpdateInterface();
         }
     }
 }
