@@ -42,9 +42,6 @@ namespace ICT4Rails
             query["CheckRailBlocked"] = "SELECT s.RAILID FROM SECTOR s WHERE s.RAILID =:RAILID GROUP BY s.RAILID HAVING COUNT(s.SECTORID) = (SELECT COUNT(ss.SECTORID) FROM SECTOR ss WHERE ss.RAILID = s.RAILID AND ss.AVAILABLE = 0 GROUP BY ss.RAILID)";
             query["TrackStatusChange"] = "UPDATE SECTOR SET AVAILABLE =:available WHERE RAILID =:railid";
             query["CheckRailSectorBlocked"] = "SELECT SECTORID FROM SECTOR WHERE RAILID =:RailID AND TRAMID IS NOT NULL";
-
-           
-
         }
     }
 }
