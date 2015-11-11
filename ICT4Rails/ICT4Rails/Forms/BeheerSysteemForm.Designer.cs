@@ -34,6 +34,7 @@
             this.btnShowIncoming = new System.Windows.Forms.Button();
             this.blokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.railBlokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deblokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,7 +148,8 @@
             // blokkerenToolStripMenuItem
             // 
             this.blokkerenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.railBlokkerenToolStripMenuItem});
+            this.railBlokkerenToolStripMenuItem,
+            this.deblokkerenToolStripMenuItem});
             this.blokkerenToolStripMenuItem.Name = "blokkerenToolStripMenuItem";
             this.blokkerenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.blokkerenToolStripMenuItem.Text = "Blokkeren";
@@ -158,6 +160,13 @@
             this.railBlokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.railBlokkerenToolStripMenuItem.Text = "Rail blokkeren";
             this.railBlokkerenToolStripMenuItem.Click += new System.EventHandler(this.railBlokkerenToolStripMenuItem_Click);
+            // 
+            // deblokkerenToolStripMenuItem
+            // 
+            this.deblokkerenToolStripMenuItem.Name = "deblokkerenToolStripMenuItem";
+            this.deblokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deblokkerenToolStripMenuItem.Text = "Deblokkeren";
+            this.deblokkerenToolStripMenuItem.Click += new System.EventHandler(this.deblokkerenToolStripMenuItem_Click);
             // 
             // BeheerSysteemForm
             // 
@@ -192,5 +201,6 @@
         private System.Windows.Forms.Button btnShowIncoming;
         private System.Windows.Forms.ToolStripMenuItem blokkerenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem railBlokkerenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deblokkerenToolStripMenuItem;
     }
 }

@@ -155,7 +155,14 @@ namespace ICT4Rails
             RailPropertiesForm rpf = new RailPropertiesForm(Rails);
             rpf.ShowDialog();
 
-            UpdateGrid();
+            GetAllSectors();
+        }
+
+        private void deblokkerenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["DeblokkeerAll"], null);
+
+            GetAllSectors();
         }
     }
 }
