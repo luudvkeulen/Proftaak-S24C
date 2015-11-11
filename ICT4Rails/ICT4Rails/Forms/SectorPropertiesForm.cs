@@ -124,9 +124,6 @@ namespace ICT4Rails
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateTramSector"], parameters1);
                 }
             }
-
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateBlocked"], available);
-
         }
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
