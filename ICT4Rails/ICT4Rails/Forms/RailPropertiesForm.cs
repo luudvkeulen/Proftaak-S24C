@@ -23,7 +23,7 @@ namespace ICT4Rails.Classes.Models
             UpdateInterface();
             foreach(Rail r in rails)
             {
-                cbox_tramid.Items.Add(r);
+                cbox_tramid.Items.Add(r.ID);
             }
             cbox_tramid.SelectedIndex = 0;
         }
