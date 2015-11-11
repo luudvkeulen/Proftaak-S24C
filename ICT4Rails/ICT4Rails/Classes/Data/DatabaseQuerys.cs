@@ -43,11 +43,7 @@ namespace ICT4Rails
             query["TrackStatusChange"] = "UPDATE SECTOR SET AVAILABLE =:available WHERE RAILID =:railid";
             query["CheckRailSectorBlocked"] = "SELECT SECTORID FROM SECTOR WHERE RAILID =:RailID AND TRAMID IS NOT NULL";
 
-            
-            query["UpdateTramSector"] = "UPDATE SECTOR SET TRAMID =: tramid WHERE RAILID =: railid AND POSITION =: position";
-            query["UpdateReservedTramSector"] = "UPDATE SECTOR SET TRAMID =: tramid, ISRESERVED = 1 WHERE RAILID =: railid AND POSITION =: position";
-            query["UpdateBlocked"] = "UPDATE SECTOR SET AVAILABLE =: available WHERE RAILDID =: railid AND POSITION =: position";
-            query["DeleteIncoming"] = "DELETE FROM INCOMING WHERE TRAMID =: tramid";
+           
 
         }
     }

@@ -25,8 +25,8 @@ namespace ICT4Rails
         public SectorPropertiesForm(bool available, int position, int railID, string tramID, bool isReserved)
         {
             InitializeComponent();
+
             Available = available;
-            cbBlocked.Checked = available;
             Position = position;
             RailID = railID;
             TramID = tramID;
@@ -90,6 +90,7 @@ namespace ICT4Rails
                 cbBlocked.Checked = false;
             }
         }
+
         private void UpdateDataBase()
         {
             int i = 0;
@@ -130,11 +131,13 @@ namespace ICT4Rails
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateTramSector"], parameters1);
                 }
             }
+
+            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateBlocked"], available);
         }
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
         {
-            if (SectorText == "" ||SectorText=="X")
+            if (SectorText == "" || SectorText == "X")
             {
                 Available = !cbBlocked.Checked;
             }
