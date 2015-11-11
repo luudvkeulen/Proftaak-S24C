@@ -93,6 +93,7 @@ namespace ICT4Rails
         private void UpdateDataBase()
         {
             int i = 0;
+
             if(Available)
             {
                 i = 1;
@@ -100,9 +101,9 @@ namespace ICT4Rails
 
             OracleParameter[] available = new OracleParameter[]
             {
-                    new OracleParameter("available", i),
-                    new OracleParameter("railid", RailID),
-                    new OracleParameter("position", Position)
+                new OracleParameter("available", i),
+                new OracleParameter("railid", RailID),
+                new OracleParameter("position", Position)
             };
 
             if (Available)
@@ -112,6 +113,7 @@ namespace ICT4Rails
                     new OracleParameter("tramid", TramID),
                     new OracleParameter("railid", RailID),
                     new OracleParameter("position", Position)
+
                 };
 
                 if (IsReserved)
@@ -128,9 +130,6 @@ namespace ICT4Rails
                     DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateTramSector"], parameters1);
                 }
             }
-
-            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateBlocked"], available);
-
         }
 
         private void cbBlocked_CheckedChanged(object sender, EventArgs e)
