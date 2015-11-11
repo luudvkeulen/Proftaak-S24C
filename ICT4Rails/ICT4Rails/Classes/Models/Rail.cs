@@ -175,9 +175,6 @@ namespace ICT4Rails
             List<Sector> allSectors = new List<Sector>();
             List<Sector> sectorsFromRail = new List<Sector>();
             BeheerSysteemForm form = new BeheerSysteemForm();
-
-            RailPropertiesForm Rform = new RailPropertiesForm(ID);
-            Rform.ShowDialog();
             
             //list van alle sectoren
             if (sender is Label)

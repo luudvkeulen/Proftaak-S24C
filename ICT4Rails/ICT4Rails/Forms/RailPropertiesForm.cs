@@ -23,9 +23,9 @@ namespace ICT4Rails.Classes.Models
             UpdateInterface();
             foreach(Rail r in rails)
             {
-                cbox_tramid.Items.Add(r);
+                cbox_tramid.Items.Add(r.ID);
             }
-            cbox_tramid.SelectedIndex = 0;
+            cbox_tramid.SelectedIndex = 1;
         }
 
 
@@ -76,7 +76,6 @@ namespace ICT4Rails.Classes.Models
           {
                 new OracleParameter("RAILID", RailID)
           };
-
                 DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["CheckRailSectorBlocked"], parameter);
 
                 foreach (DataRow DR in DT.Rows)
@@ -116,8 +115,9 @@ namespace ICT4Rails.Classes.Models
 
         private void cbox_tramid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Rail rail = cbox_tramid.SelectedItem as Rail;
-            RailID = rail.ID;
+            RailID = (int)cbox_tramid.SelectedItem;
+            UpdateInterface();
+            CheckBlocked();
         }
     }
 }
