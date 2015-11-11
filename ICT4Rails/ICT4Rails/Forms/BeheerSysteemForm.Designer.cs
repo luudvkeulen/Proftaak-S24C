@@ -157,6 +157,7 @@
             this.railBlokkerenToolStripMenuItem.Name = "railBlokkerenToolStripMenuItem";
             this.railBlokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.railBlokkerenToolStripMenuItem.Text = "Rail blokkeren";
+            this.railBlokkerenToolStripMenuItem.Click += new System.EventHandler(this.railBlokkerenToolStripMenuItem_Click);
             // 
             // BeheerSysteemForm
             // 
