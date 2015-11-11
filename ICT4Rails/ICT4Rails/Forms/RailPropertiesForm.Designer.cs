@@ -31,16 +31,18 @@
             this.lbl_rail = new System.Windows.Forms.Label();
             this.btn_block = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbox_tramid = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbl_rail
             // 
             this.lbl_rail.AutoSize = true;
-            this.lbl_rail.Location = new System.Drawing.Point(13, 13);
+            this.lbl_rail.Location = new System.Drawing.Point(13, 80);
             this.lbl_rail.Name = "lbl_rail";
-            this.lbl_rail.Size = new System.Drawing.Size(100, 17);
+            this.lbl_rail.Size = new System.Drawing.Size(146, 17);
             this.lbl_rail.TabIndex = 0;
-            this.lbl_rail.Text = "Huidig spoort: ";
+            this.lbl_rail.Text = "Huidige spoor status: ";
             // 
             // btn_block
             // 
@@ -62,11 +64,31 @@
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Tramnummer:";
+            // 
+            // cbox_tramid
+            // 
+            this.cbox_tramid.FormattingEnabled = true;
+            this.cbox_tramid.Location = new System.Drawing.Point(104, 15);
+            this.cbox_tramid.Name = "cbox_tramid";
+            this.cbox_tramid.Size = new System.Drawing.Size(241, 24);
+            this.cbox_tramid.TabIndex = 6;
+            this.cbox_tramid.SelectedIndexChanged += new System.EventHandler(this.cbox_tramid_SelectedIndexChanged);
+            // 
             // RailPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 227);
+            this.Controls.Add(this.cbox_tramid);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_block);
             this.Controls.Add(this.lbl_rail);
@@ -82,5 +104,7 @@
         private System.Windows.Forms.Label lbl_rail;
         private System.Windows.Forms.Button btn_block;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbox_tramid;
     }
 }

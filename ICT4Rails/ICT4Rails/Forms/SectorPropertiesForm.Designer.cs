@@ -97,20 +97,20 @@
             // 
             // btn_filthy
             // 
-            this.btn_filthy.Location = new System.Drawing.Point(405, 371);
+            this.btn_filthy.Location = new System.Drawing.Point(511, 371);
             this.btn_filthy.Name = "btn_filthy";
             this.btn_filthy.Size = new System.Drawing.Size(109, 50);
             this.btn_filthy.TabIndex = 8;
-            this.btn_filthy.Text = "Tram is smerig";
+            this.btn_filthy.Text = "TRAM IS STINKY";
             this.btn_filthy.UseVisualStyleBackColor = true;
             // 
             // btn_repair
             // 
-            this.btn_repair.Location = new System.Drawing.Point(531, 371);
+            this.btn_repair.Location = new System.Drawing.Point(637, 371);
             this.btn_repair.Name = "btn_repair";
             this.btn_repair.Size = new System.Drawing.Size(109, 50);
             this.btn_repair.TabIndex = 9;
-            this.btn_repair.Text = "button2";
+            this.btn_repair.Text = "KAPUT";
             this.btn_repair.UseVisualStyleBackColor = true;
             // 
             // cbBlocked

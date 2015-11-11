@@ -16,13 +16,19 @@ namespace ICT4Rails.Classes.Models
         public int RailID { get; set; }
         public int Blocked { get; set; }
 
-        public RailPropertiesForm(int railID)
-        {
-            RailID = railID;
+        public RailPropertiesForm(List<Rail> rails)
+        {         
             CheckBlocked();            
             InitializeComponent();
             UpdateInterface();
+            foreach(Rail r in rails)
+            {
+                cbox_tramid.Items.Add(r);
+            }
+            cbox_tramid.SelectedIndex = 0;
         }
+
+
 
         public void CheckBlocked()
         {
@@ -106,6 +112,12 @@ namespace ICT4Rails.Classes.Models
             UpdateInterface();
             UpdateDataBase();
             this.Close();
+        }
+
+        private void cbox_tramid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Rail rail = cbox_tramid.SelectedItem as Rail;
+            RailID = rail.ID;
         }
     }
 }
