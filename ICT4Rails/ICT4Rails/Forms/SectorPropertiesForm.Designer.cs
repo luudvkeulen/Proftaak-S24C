@@ -34,6 +34,8 @@
             this.btn_place = new System.Windows.Forms.Button();
             this.lbl_curr_train = new System.Windows.Forms.Label();
             this.txtbox_tram = new System.Windows.Forms.TextBox();
+            this.btn_filthy = new System.Windows.Forms.Button();
+            this.btn_repair = new System.Windows.Forms.Button();
             this.cbBlocked = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -93,6 +95,24 @@
             this.txtbox_tram.Size = new System.Drawing.Size(195, 22);
             this.txtbox_tram.TabIndex = 7;
             // 
+            // btn_filthy
+            // 
+            this.btn_filthy.Location = new System.Drawing.Point(405, 371);
+            this.btn_filthy.Name = "btn_filthy";
+            this.btn_filthy.Size = new System.Drawing.Size(109, 50);
+            this.btn_filthy.TabIndex = 8;
+            this.btn_filthy.Text = "Tram is smerig";
+            this.btn_filthy.UseVisualStyleBackColor = true;
+            // 
+            // btn_repair
+            // 
+            this.btn_repair.Location = new System.Drawing.Point(531, 371);
+            this.btn_repair.Name = "btn_repair";
+            this.btn_repair.Size = new System.Drawing.Size(109, 50);
+            this.btn_repair.TabIndex = 9;
+            this.btn_repair.Text = "button2";
+            this.btn_repair.UseVisualStyleBackColor = true;
+            // 
             // cbBlocked
             // 
             this.cbBlocked.AutoSize = true;
@@ -110,6 +130,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 486);
+            this.Controls.Add(this.btn_repair);
+            this.Controls.Add(this.btn_filthy);
             this.Controls.Add(this.txtbox_tram);
             this.Controls.Add(this.lbl_curr_train);
             this.Controls.Add(this.btn_place);
@@ -133,6 +155,8 @@
         private System.Windows.Forms.Button btn_place;
         private System.Windows.Forms.Label lbl_curr_train;
         private System.Windows.Forms.TextBox txtbox_tram;
+        private System.Windows.Forms.Button btn_filthy;
+        private System.Windows.Forms.Button btn_repair;
         private System.Windows.Forms.CheckBox cbBlocked;
     }
 }
