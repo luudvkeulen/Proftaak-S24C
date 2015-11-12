@@ -29,7 +29,7 @@ namespace ICT4Rails
         {
             if (e.Tag == "1a008cceb6")
             {
-                txtTramNumber.Text = "2203";
+                txtTramNumber.Text = "817";
             }
             else if (e.Tag == "1c00fcb1eb")
             {
