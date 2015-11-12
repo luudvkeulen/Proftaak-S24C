@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace ICT4Rails
 {
@@ -16,9 +17,18 @@ namespace ICT4Rails
         {
             get
             {
-                connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
-                connection.Open();
-                return connection;
+                try
+                { 
+                    connection = new OracleConnection(ConfigurationManager.ConnectionStrings["DBC"].ConnectionString);
+                    connection.Open();
+                    return connection;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("De applicatie kan geen verbinding maken met de database.Neem contact op met een systeembeheerder." + Environment.NewLine + Environment.NewLine + ex.Message);
+                    Environment.Exit(0);
+                }
+                return null;
             }
         }
 
