@@ -31,10 +31,10 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.tlpGrid = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnShowIncoming = new System.Windows.Forms.Button();
             this.blokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.railBlokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deblokkerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnShowIncoming = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +44,10 @@
             this.btnBack.BackColor = System.Drawing.Color.Silver;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnBack.Location = new System.Drawing.Point(891, 657);
+            this.btnBack.Location = new System.Drawing.Point(1188, 809);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(214, 39);
+            this.btnBack.Size = new System.Drawing.Size(285, 48);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -79,11 +80,12 @@
             this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
             this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
             this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tlpGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpGrid.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tlpGrid.Location = new System.Drawing.Point(12, 27);
+            this.tlpGrid.Location = new System.Drawing.Point(16, 33);
+            this.tlpGrid.Margin = new System.Windows.Forms.Padding(4);
             this.tlpGrid.Name = "tlpGrid";
             this.tlpGrid.RowCount = 29;
             this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.448276F));
@@ -115,9 +117,9 @@
             this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.448276F));
             this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.448276F));
             this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.448276F));
-            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpGrid.Size = new System.Drawing.Size(1093, 624);
+            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpGrid.Size = new System.Drawing.Size(1457, 768);
             this.tlpGrid.TabIndex = 12;
             // 
             // menuStrip1
@@ -127,23 +129,10 @@
             this.blokkerenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1489, 28);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // btnShowIncoming
-            // 
-            this.btnShowIncoming.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnShowIncoming.BackColor = System.Drawing.Color.Silver;
-            this.btnShowIncoming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowIncoming.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnShowIncoming.Location = new System.Drawing.Point(12, 657);
-            this.btnShowIncoming.Name = "btnShowIncoming";
-            this.btnShowIncoming.Size = new System.Drawing.Size(147, 39);
-            this.btnShowIncoming.TabIndex = 14;
-            this.btnShowIncoming.Text = "Inkomend";
-            this.btnShowIncoming.UseVisualStyleBackColor = false;
-            this.btnShowIncoming.Click += new System.EventHandler(this.btnShowIncoming_Click);
             // 
             // blokkerenToolStripMenuItem
             // 
@@ -151,30 +140,45 @@
             this.railBlokkerenToolStripMenuItem,
             this.deblokkerenToolStripMenuItem});
             this.blokkerenToolStripMenuItem.Name = "blokkerenToolStripMenuItem";
-            this.blokkerenToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.blokkerenToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
             this.blokkerenToolStripMenuItem.Text = "Blokkeren";
             // 
             // railBlokkerenToolStripMenuItem
             // 
             this.railBlokkerenToolStripMenuItem.Name = "railBlokkerenToolStripMenuItem";
-            this.railBlokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.railBlokkerenToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.railBlokkerenToolStripMenuItem.Text = "Rail blokkeren";
             this.railBlokkerenToolStripMenuItem.Click += new System.EventHandler(this.railBlokkerenToolStripMenuItem_Click);
             // 
             // deblokkerenToolStripMenuItem
             // 
             this.deblokkerenToolStripMenuItem.Name = "deblokkerenToolStripMenuItem";
-            this.deblokkerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deblokkerenToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.deblokkerenToolStripMenuItem.Text = "Deblokkeren";
             this.deblokkerenToolStripMenuItem.Click += new System.EventHandler(this.deblokkerenToolStripMenuItem_Click);
             // 
+            // btnShowIncoming
+            // 
+            this.btnShowIncoming.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnShowIncoming.BackColor = System.Drawing.Color.Silver;
+            this.btnShowIncoming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowIncoming.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnShowIncoming.Location = new System.Drawing.Point(16, 809);
+            this.btnShowIncoming.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowIncoming.Name = "btnShowIncoming";
+            this.btnShowIncoming.Size = new System.Drawing.Size(196, 48);
+            this.btnShowIncoming.TabIndex = 14;
+            this.btnShowIncoming.Text = "Inkomend";
+            this.btnShowIncoming.UseVisualStyleBackColor = false;
+            this.btnShowIncoming.Click += new System.EventHandler(this.btnShowIncoming_Click);
+            // 
             // BeheerSysteemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ICT4Rails.Properties.Resources.darkrailbackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1117, 708);
+            this.ClientSize = new System.Drawing.Size(1489, 871);
             this.Controls.Add(this.btnShowIncoming);
             this.Controls.Add(this.tlpGrid);
             this.Controls.Add(this.btnBack);
@@ -182,6 +186,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "BeheerSysteemForm";
             this.ShowIcon = false;

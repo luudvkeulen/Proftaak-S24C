@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICT4Rails.Classes.Models;
+using Oracle.ManagedDataAccess.Client;
+using ICT4Rails.Forms;
 
 namespace ICT4Rails
 {
@@ -163,6 +165,76 @@ namespace ICT4Rails
             DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["DeblokkeerAll"], null);
 
             GetAllSectors();
+        }
+
+        private void voegTreinToeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aanGekozenRailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aanWillekeurigeRailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pickRandomRail();
+        }
+
+        public void pickRandomRail()
+        {
+            Sector decidedSector = null;
+            List<Sector> possibleSectors = new List<Sector>();
+            List<Sector> validSectors = new List<Sector>();
+            Random random = new Random();
+
+            DataTable DT = DatabaseManager.ExecuteReadQuery(DatabaseQuerys.query["GetImpossibleSectors"], null);
+            foreach (DataRow DR in DT.Rows)
+            {
+              possibleSectors.Add(new Sector(new Rail(Convert.ToInt32(DR["RAILID"])), Convert.ToInt32(DR["POSITION"])+1, true, null, false));
+            }
+
+            if(possibleSectors.Count!=0)
+            {
+                foreach(Sector s in possibleSectors)
+                {
+                    foreach(Sector ss in Sectors)
+                    {
+                        if(s.Position==ss.Position&&s.Rail==ss.Rail&&!ss.Reserved&&ss.Available&&ss.SectorInformation=="")
+                        {
+                            possibleSectors.Add(ss);
+                        }
+                    }
+                }
+                if(possibleSectors.Count!=0)
+                {
+                    Sector place = possibleSectors[random.Next(possibleSectors.Count)];
+                    TramIDInputForm form = new TramIDInputForm();
+
+                    form.ShowDialog();
+                    if (form.TramID != null)
+                    {
+                        string val = form.TramID;
+                        foreach (Sector sss in Sectors)
+                        {
+                            if (place.Position == sss.Position && place.Rail.ID == sss.Rail.ID)
+                            {
+
+                                OracleParameter[] parameter = new OracleParameter[]
+           {
+                new OracleParameter("sectorinformation", val),
+                new OracleParameter("railid", sss.Rail.ID),
+                new OracleParameter("position", sss.Position)
+           };
+                                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateSectorInformation"], parameter);
+                                GetAllSectors();
+                            }
+                        }
+                    }
+                }             
+            }
+
         }
     }
 }

@@ -172,6 +172,18 @@
       <DependentUpon>InUitRijSyteemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="Forms\TramIDInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TramIDInputForm.Designer.cs">
+      <DependentUpon>TramIDInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TramRailIDInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TramRailIDInputForm.Designer.cs">
+      <DependentUpon>TramRailIDInputForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\SchoonmaakSysteemForm.cs">
       <SubType>Form</SubType>
@@ -221,6 +233,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TechniekSysteemForm.resx">
       <DependentUpon>TechniekSysteemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TramIDInputForm.resx">
+      <DependentUpon>TramIDInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TramRailIDInputForm.resx">
+      <DependentUpon>TramRailIDInputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
