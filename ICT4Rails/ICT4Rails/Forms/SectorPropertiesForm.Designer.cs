@@ -37,6 +37,8 @@
             this.btn_filthy = new System.Windows.Forms.Button();
             this.btn_repair = new System.Windows.Forms.Button();
             this.cbBlocked = new System.Windows.Forms.CheckBox();
+            this.txtb_opmerking = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -101,8 +103,9 @@
             this.btn_filthy.Name = "btn_filthy";
             this.btn_filthy.Size = new System.Drawing.Size(109, 50);
             this.btn_filthy.TabIndex = 8;
-            this.btn_filthy.Text = "TRAM IS STINKY";
+            this.btn_filthy.Text = "Tram is vies";
             this.btn_filthy.UseVisualStyleBackColor = true;
+            this.btn_filthy.Click += new System.EventHandler(this.btn_filthy_Click);
             // 
             // btn_repair
             // 
@@ -110,8 +113,9 @@
             this.btn_repair.Name = "btn_repair";
             this.btn_repair.Size = new System.Drawing.Size(109, 50);
             this.btn_repair.TabIndex = 9;
-            this.btn_repair.Text = "KAPUT";
+            this.btn_repair.Text = "Tram is kapot";
             this.btn_repair.UseVisualStyleBackColor = true;
+            this.btn_repair.Click += new System.EventHandler(this.btn_repair_Click);
             // 
             // cbBlocked
             // 
@@ -125,11 +129,29 @@
             this.cbBlocked.UseVisualStyleBackColor = true;
             this.cbBlocked.CheckedChanged += new System.EventHandler(this.cbBlocked_CheckedChanged);
             // 
+            // txtb_opmerking
+            // 
+            this.txtb_opmerking.Location = new System.Drawing.Point(531, 162);
+            this.txtb_opmerking.Name = "txtb_opmerking";
+            this.txtb_opmerking.Size = new System.Drawing.Size(313, 22);
+            this.txtb_opmerking.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(426, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Opmerking";
+            // 
             // SectorPropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 486);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtb_opmerking);
             this.Controls.Add(this.btn_repair);
             this.Controls.Add(this.btn_filthy);
             this.Controls.Add(this.txtbox_tram);
@@ -158,5 +180,7 @@
         private System.Windows.Forms.Button btn_filthy;
         private System.Windows.Forms.Button btn_repair;
         private System.Windows.Forms.CheckBox cbBlocked;
+        private System.Windows.Forms.TextBox txtb_opmerking;
+        private System.Windows.Forms.Label label2;
     }
 }

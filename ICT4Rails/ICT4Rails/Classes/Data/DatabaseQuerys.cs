@@ -30,7 +30,7 @@ namespace ICT4Rails
             query["IncomingTrams"] = "SELECT TRAMID, MOMENT, MAINTENANCE FROM INCOMING ORDER BY MOMENT DESC";
             query["UpdateSectorInformation"] = "UPDATE SECTOR SET TRAMID =: sectorinformation WHERE RAILID =: railid AND POSITION =: position";
             query["UpdateLastSectorInformation"] = "UPDATE SECTOR SET TRAMID = NULL WHERE RAILID =: railid AND POSITION =: position";
-            query["GetTramStatus"] = "SELECT TRAMID, TYPE FROM MAINTENANCE WHERE TRAMID =: tramid";
+            query["GetTramStatus"] = "SELECT TRAMID, TYPE FROM MAINTENANCE WHERE TRAMID =: tramid AND DATEFINISHED IS NULL";
             query["GetAllTramsNotOnSectors"] = "SELECT  tt.NAME, tt.SPECIFICATIONS, t.STATUS,t.TRAMID FROM TRAMTYPE tt LEFT JOIN TRAM t ON t.TRAMTYPEID = tt.TRAMTYPESID"
                 + " WHERE t.TRAMID NOT IN(SELECT TRAMID FROM SECTOR WHERE TRAMID IS NOT NULL)";
 
@@ -44,6 +44,9 @@ namespace ICT4Rails
             query["CheckRailSectorBlocked"] = "SELECT SECTORID FROM SECTOR WHERE RAILID =:RailID AND TRAMID IS NOT NULL";
 
             query["DeblokkeerAll"] = "UPDATE SECTOR SET AVAILABLE = 1";
+
+            query["GetImpossibleSectors"] = "SELECT s.RAILID, MAX(s.POSITION) as POSITION FROM SECTOR s WHERE s.AVAILABLE = 0 OR s.TRAMID IS NOT NULL GROUP BY s.RAILID";
+            query["UpdateMaintenances"] = "INSERT INTO MAINTENANCE(dateadded , datefinished , finishedby , maintenanceid , opmerking , tramid , type) VALUES(sysdate, null, null, MAINTENANCE_SEQ.nextval,:opmerking,:tramid,:type)";
         }
     }
 }

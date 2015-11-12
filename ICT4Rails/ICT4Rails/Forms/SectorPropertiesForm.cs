@@ -214,5 +214,36 @@ namespace ICT4Rails
                 MessageBox.Show("Incorrect TramID");
             }
         }
+
+        private void btn_filthy_Click(object sender, EventArgs e)
+        {
+            if (TramID != null)
+            {
+                int i = 0;
+                OracleParameter[] parameters2 = new OracleParameter[]
+                {
+                        new OracleParameter("opmerking", txtb_opmerking.Text),
+                        new OracleParameter("tramid", TramID),
+                        new OracleParameter("type", i)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateMaintenances"], parameters2);
+            }
+        }
+
+        private void btn_repair_Click(object sender, EventArgs e)
+        {
+            if (TramID != null)
+            {
+                int i = 1;
+                OracleParameter[] parameters2 = new OracleParameter[]
+                {
+                        new OracleParameter("opmerking", txtb_opmerking.Text),
+                        new OracleParameter("tramid", TramID),
+                        new OracleParameter("type", i)
+                };
+                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateMaintenances"], parameters2);
+            }
+        }
     }
-}
+    }
+
