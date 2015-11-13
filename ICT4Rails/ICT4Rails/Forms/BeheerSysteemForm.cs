@@ -220,16 +220,19 @@ namespace ICT4Rails
                         {
                             if (place.Position == sss.Position && place.Rail.ID == sss.Rail.ID)
                             {
-
-                                OracleParameter[] parameter = new OracleParameter[]
-           {
-                new OracleParameter("sectorinformation", val),
-                new OracleParameter("railid", sss.Rail.ID),
-                new OracleParameter("position", sss.Position)
-           };
-                                DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateSectorInformation"], parameter);
-                                GetAllSectors();
+                                decidedSector = sss;                              
                             }
+                        }
+                        if (decidedSector != null)
+                        {
+                            OracleParameter[] parameter = new OracleParameter[]
+              {
+                new OracleParameter("sectorinformation", val),
+                new OracleParameter("railid", decidedSector.Rail.ID),
+                new OracleParameter("position", decidedSector.Position)
+              };
+                            DatabaseManager.ExecuteInsertQuery(DatabaseQuerys.query["UpdateSectorInformation"], parameter);
+                            GetAllSectors();
                         }
                     }
                 }             
